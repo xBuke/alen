@@ -1,44 +1,59 @@
 import { officialImages } from "@/data/site";
 import type { GalleryCategory, GalleryItem } from "@/types";
 
-export const galleryCategories: { id: GalleryCategory; label: string }[] = [
-  { id: "orgulje", label: "Orgulje" },
-  { id: "radionica", label: "Radionica" },
-  { id: "mehanika", label: "Mehanika" },
-  { id: "cijevi", label: "Cijevi" },
-  { id: "sviraonik", label: "Sviraonik" },
-  { id: "prije-i-poslije", label: "Prije i poslije" },
-];
+export const galleryCategories: { id: GalleryCategory | "sve"; label: string }[] =
+  [
+    { id: "sve", label: "Sve" },
+    { id: "orgulje", label: "Orgulje" },
+    { id: "sviraonik", label: "Sviraonik" },
+    { id: "cijevi", label: "Cijevi" },
+    { id: "prostor", label: "Prostor" },
+  ];
 
 export const galleryItems: GalleryItem[] = [
   {
     id: "hero-organ",
     image: officialImages.hero,
     category: "orgulje",
-    caption: "Orgulje u sakralnom prostoru",
+    title: "Orgulje u sakralnom prostoru",
+    alt: "Orgulje u sakralnom prostoru",
+    caption: "Pogled na orgulje u crkvenom prostoru",
+    verifiedAsKvaternikProject: false,
   },
   {
     id: "construction-console",
     image: officialImages.construction,
     category: "sviraonik",
-    caption: "Drveni sviraonik s manualima i registrima",
+    title: "Drveni sviraonik",
+    alt: "Drveni sviraonik orgulja s više manuala i registrima",
+    caption: "Manuali i registri na drvenom sviraoniku",
+    verifiedAsKvaternikProject: false,
   },
   {
     id: "service-pipes",
     image: officialImages.service,
     category: "cijevi",
-    caption: "Detalj metalnih orguljskih cijevi",
+    title: "Detalj orguljskih cijevi",
+    alt: "Detalj metalnih orguljskih cijevi",
+    caption: "Metalne cijevi orguljskog instrumenta",
+    verifiedAsKvaternikProject: false,
   },
   {
     id: "restoration-keyboard",
     image: officialImages.restoration,
-    category: "mehanika",
-    caption: "Manuali drvenog orguljskog sviraonika",
+    category: "sviraonik",
+    title: "Manuali i registri",
+    alt: "Manuali drvenog orguljskog sviraonika",
+    caption: "Pogled na manualne tipke i registre",
+    verifiedAsKvaternikProject: false,
   },
   {
     id: "contact-sacral",
     image: officialImages.contactBackground,
-    category: "orgulje",
-    caption: "Unutrašnjost sakralnog prostora",
+    category: "prostor",
+    title: "Unutrašnjost sakralnog prostora",
+    alt: "Unutrašnjost sakralnog prostora",
+    caption: "Arhitektura i prostor sakralne građevine",
+    verifiedAsKvaternikProject: false,
   },
 ];

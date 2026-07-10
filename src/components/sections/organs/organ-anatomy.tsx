@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useId, useState, type KeyboardEvent } from "react";
+import {
+  useCallback,
+  useId,
+  useRef,
+  useState,
+  type KeyboardEvent,
+} from "react";
 
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
@@ -44,16 +50,6 @@ function OrganIllustration({
   onSelect: (id: string) => void;
   groupId: string;
 }) {
-  const handleKeyDown = (
-    event: KeyboardEvent<SVGGElement>,
-    id: string,
-  ) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      onSelect(id);
-    }
-  };
-
   return (
     <svg
       viewBox="0 0 400 360"
@@ -131,27 +127,19 @@ function OrganIllustration({
         const isActive = activeId === part.id;
 
         return (
-          <g
+          <circle
             key={part.id}
-            role="button"
-            tabIndex={0}
-            aria-pressed={isActive}
-            aria-label={`${part.label}: ${part.description}`}
+            cx={spot.cx}
+            cy={spot.cy}
+            r={spot.r}
+            fill={isActive ? "rgba(179,138,90,0.22)" : "rgba(255,255,255,0.02)"}
+            stroke={isActive ? "#b38a5a" : "rgba(179,138,90,0.2)"}
+            strokeWidth={isActive ? 2 : 1}
+            aria-hidden="true"
+            className="pointer-events-auto cursor-pointer"
             onClick={() => onSelect(part.id)}
-            onKeyDown={(event) => handleKeyDown(event, part.id)}
             onMouseEnter={() => onSelect(part.id)}
-            onFocus={() => onSelect(part.id)}
-            className="cursor-pointer outline-none"
-          >
-            <circle
-              cx={spot.cx}
-              cy={spot.cy}
-              r={spot.r}
-              fill={isActive ? "rgba(179,138,90,0.22)" : "rgba(255,255,255,0.02)"}
-              stroke={isActive ? "#b38a5a" : "rgba(179,138,90,0.2)"}
-              strokeWidth={isActive ? 2 : 1}
-            />
-          </g>
+          />
         );
       })}
     </svg>
@@ -160,17 +148,17 @@ function OrganIllustration({
 
 function MobileAccordion({
   parts,
-  activeId,
-  onSelect,
+  openId,
+  onToggle,
 }: {
   parts: readonly AnatomyPart[];
-  activeId: string;
-  onSelect: (id: string) => void;
+  openId: string | null;
+  onToggle: (id: string) => void;
 }) {
   return (
     <div className="space-y-0">
       {parts.map((part, index) => {
-        const isOpen = activeId === part.id;
+        const isOpen = openId === part.id;
         const panelId = `anatomy-panel-${part.id}`;
         const buttonId = `anatomy-button-${part.id}`;
 
@@ -184,7 +172,7 @@ function MobileAccordion({
               id={buttonId}
               aria-expanded={isOpen}
               aria-controls={panelId}
-              onClick={() => onSelect(isOpen ? parts[0].id : part.id)}
+              onClick={() => onToggle(part.id)}
               className="flex w-full items-start gap-4 py-5 text-left transition-colors hover:text-gold focus-visible:text-gold"
             >
               <span className="mt-0.5 font-body text-xs font-medium tracking-[0.2em] text-gold">
@@ -222,15 +210,75 @@ function MobileAccordion({
 }
 
 export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
-  const groupId = useId();
+  const baseId = useId();
+  const tabListRef = useRef<HTMLDivElement>(null);
   const [activeId, setActiveId] = useState(parts[0]?.id ?? "");
+  const [mobileOpenId, setMobileOpenId] = useState<string | null>(
+    parts[0]?.id ?? null,
+  );
 
   const handleSelect = useCallback((id: string) => {
     setActiveId(id);
   }, []);
 
+  const handleMobileToggle = useCallback((id: string) => {
+    setMobileOpenId((current) => (current === id ? null : id));
+  }, []);
+
   const activePart = parts.find((p) => p.id === activeId) ?? parts[0];
   const activeIndex = parts.findIndex((p) => p.id === activeId);
+
+  const focusTab = useCallback((index: number) => {
+    const tabList = tabListRef.current;
+    if (!tabList) return;
+
+    const tabs = tabList.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+    const tab = tabs[index];
+    if (tab) {
+      tab.focus();
+    }
+  }, []);
+
+  const handleTabKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+      let nextIndex: number | null = null;
+
+      switch (event.key) {
+        case "ArrowRight":
+          event.preventDefault();
+          nextIndex = (index + 1) % parts.length;
+          break;
+        case "ArrowLeft":
+          event.preventDefault();
+          nextIndex = (index - 1 + parts.length) % parts.length;
+          break;
+        case "Home":
+          event.preventDefault();
+          nextIndex = 0;
+          break;
+        case "End":
+          event.preventDefault();
+          nextIndex = parts.length - 1;
+          break;
+        case "Enter":
+        case " ":
+          event.preventDefault();
+          handleSelect(parts[index].id);
+          return;
+        default:
+          return;
+      }
+
+      if (nextIndex !== null) {
+        const nextPart = parts[nextIndex];
+        handleSelect(nextPart.id);
+        focusTab(nextIndex);
+      }
+    },
+    [parts, handleSelect, focusTab],
+  );
+
+  const tabPanelId = `${baseId}-tabpanel`;
 
   return (
     <section className="section-padding bg-surface">
@@ -247,7 +295,7 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
               parts={parts}
               activeId={activeId}
               onSelect={handleSelect}
-              groupId={groupId}
+              groupId={baseId}
             />
           </MotionReveal>
 
@@ -259,35 +307,52 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
                   {activeIndex + 1} / {parts.length}
                 </span>
               </div>
-              <h3 className="text-2xl md:text-3xl">{activePart.label}</h3>
-              <p className="mt-4 text-base md:text-lg">
-                {activePart.description}
-              </p>
 
               <div
-                className="mt-8 flex flex-wrap gap-2"
+                ref={tabListRef}
                 role="tablist"
                 aria-label="Dijelovi orgulja"
+                className="flex flex-wrap gap-2"
               >
-                {parts.map((part) => (
-                  <button
-                    key={part.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={activeId === part.id}
-                    onClick={() => handleSelect(part.id)}
-                    onMouseEnter={() => handleSelect(part.id)}
-                    onFocus={() => handleSelect(part.id)}
-                    className={cn(
-                      "rounded-sm border px-3 py-1.5 font-body text-xs transition-colors motion-reduce:transition-none",
-                      activeId === part.id
-                        ? "border-gold bg-gold/10 text-gold"
-                        : "border-border-dark text-text-muted hover:border-gold/50 hover:text-text-light",
-                    )}
-                  >
-                    {part.label}
-                  </button>
-                ))}
+                {parts.map((part, index) => {
+                  const isSelected = activeId === part.id;
+                  const tabId = `${baseId}-tab-${part.id}`;
+
+                  return (
+                    <button
+                      key={part.id}
+                      type="button"
+                      id={tabId}
+                      role="tab"
+                      aria-selected={isSelected}
+                      aria-controls={tabPanelId}
+                      tabIndex={isSelected ? 0 : -1}
+                      onClick={() => handleSelect(part.id)}
+                      onKeyDown={(event) => handleTabKeyDown(event, index)}
+                      className={cn(
+                        "rounded-sm border px-3 py-1.5 font-body text-xs transition-colors motion-reduce:transition-none",
+                        isSelected
+                          ? "border-gold bg-gold/10 text-gold"
+                          : "border-border-dark text-text-muted hover:border-gold/50 hover:text-text-light",
+                      )}
+                    >
+                      {part.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div
+                id={tabPanelId}
+                role="tabpanel"
+                aria-labelledby={`${baseId}-tab-${activePart.id}`}
+                tabIndex={0}
+                className="mt-8 outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              >
+                <h3 className="text-2xl md:text-3xl">{activePart.label}</h3>
+                <p className="mt-4 text-base md:text-lg">
+                  {activePart.description}
+                </p>
               </div>
             </div>
           </MotionReveal>
@@ -297,8 +362,8 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
           <MotionReveal>
             <MobileAccordion
               parts={parts}
-              activeId={activeId}
-              onSelect={handleSelect}
+              openId={mobileOpenId}
+              onToggle={handleMobileToggle}
             />
           </MotionReveal>
         </div>

@@ -16,6 +16,7 @@ type SiteImageProps = {
   sizes?: string;
   showTemporaryBadge?: boolean;
   fallbackClassName?: string;
+  onError?: () => void;
 };
 
 const isDevelopment = process.env.NODE_ENV === "development";
@@ -30,6 +31,7 @@ export function SiteImage({
   sizes = "(max-width: 768px) 100vw, 50vw",
   showTemporaryBadge,
   fallbackClassName,
+  onError,
 }: SiteImageProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -80,7 +82,10 @@ export function SiteImage({
         sizes={sizes}
         className={cn("object-cover", imageClassName)}
         style={objectPosition ? { objectPosition } : undefined}
-        onError={() => setHasError(true)}
+        onError={() => {
+          setHasError(true);
+          onError?.();
+        }}
       />
       {shouldShowBadge ? (
         <figcaption className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] rounded-sm bg-background/80 px-2 py-1 font-body text-[0.65rem] uppercase tracking-wider text-text-muted backdrop-blur-sm">

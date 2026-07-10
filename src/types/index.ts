@@ -61,15 +61,16 @@ export type MediaAppearance = {
 
 export type GalleryCategory =
   | "orgulje"
-  | "radionica"
-  | "mehanika"
-  | "cijevi"
   | "sviraonik"
-  | "prije-i-poslije";
+  | "cijevi"
+  | "prostor";
 
 export type GalleryItem = {
   id: string;
   image: ImageAsset;
   category: GalleryCategory;
+  title: string;
+  alt: string;
   caption?: string;
+  verifiedAsKvaternikProject: boolean;
 };
