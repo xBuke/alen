@@ -9,6 +9,9 @@ const staticRoutes = [
   "/usluge",
   "/projekti",
   "/galerija",
+  "/kontakt",
+  "/pravila-privatnosti",
+  "/impressum",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

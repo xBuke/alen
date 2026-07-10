@@ -8,7 +8,6 @@ import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
 import { PageContactCta } from "@/components/sections/page/page-contact-cta";
-import { Button } from "@/components/ui/button";
 import {
   getAdjacentPublishedProjects,
   getCategoryLabel,
@@ -221,26 +220,11 @@ export default async function ProjectDetailPage({
         </section>
       ) : null}
 
-      <section className="section-padding bg-surface">
-        <Container>
-          <MotionReveal>
-            <div className="max-w-2xl">
-              <h2 className="text-2xl md:text-3xl">
-                Zainteresirani ste za sličan zahvat?
-              </h2>
-              <p className="mt-4 text-base text-text-muted md:text-lg">
-                Pošaljite osnovne informacije o instrumentu i prostoru kako bismo
-                mogli započeti razgovor.
-              </p>
-              <Button asChild size="lg" className="mt-6 rounded-sm">
-                <Link href="/kontakt">Pošaljite upit</Link>
-              </Button>
-            </div>
-          </MotionReveal>
-        </Container>
-      </section>
-
-      <PageContactCta />
+      <PageContactCta
+        title="Zainteresirani ste za sličan zahvat?"
+        description="Pošaljite osnovne informacije o instrumentu i prostoru kako bismo mogli započeti razgovor."
+        cta={{ label: "Pošaljite upit", href: "/kontakt" }}
+      />
     </>
   );
 }
