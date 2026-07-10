@@ -166,7 +166,7 @@ export function ImageLightbox({
             type="button"
             onClick={onClose}
             className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-sm border border-border-dark text-text-light transition-colors hover:border-gold hover:text-gold",
+              "inline-flex h-11 w-11 items-center justify-center rounded-sm border border-border-dark text-text-light transition-colors hover:border-gold hover:text-gold",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             )}
             aria-label="Zatvori galeriju"
@@ -201,7 +201,7 @@ export function ImageLightbox({
             type="button"
             onClick={() => onNavigate(activeIndex - 1)}
             className={cn(
-              "absolute left-2 top-1/2 -translate-y-1/2 rounded-sm border border-border-dark bg-background/80 p-2 text-text-light backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:left-4 md:p-3",
+              "absolute left-2 top-1/2 flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-sm border border-border-dark bg-background/80 text-text-light backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:left-4",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             )}
             aria-label="Prethodna fotografija"
@@ -215,7 +215,7 @@ export function ImageLightbox({
             type="button"
             onClick={() => onNavigate(activeIndex + 1)}
             className={cn(
-              "absolute right-2 top-1/2 -translate-y-1/2 rounded-sm border border-border-dark bg-background/80 p-2 text-text-light backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:right-4 md:p-3",
+              "absolute right-2 top-1/2 flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-sm border border-border-dark bg-background/80 text-text-light backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:right-4",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             )}
             aria-label="Sljedeća fotografija"

@@ -8,6 +8,7 @@ import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
 import { PageContactCta } from "@/components/sections/page/page-contact-cta";
+import { siteConfig } from "@/data/site";
 import {
   getAdjacentPublishedProjects,
   getCategoryLabel,
@@ -15,6 +16,7 @@ import {
   getPublishedProjectSlugs,
   isDraftContentVisible,
 } from "@/lib/projects";
+import { getAbsoluteUrl } from "@/lib/site-url";
 import { cn } from "@/lib/utils";
 
 type ProjectDetailPageProps = {
@@ -42,6 +44,8 @@ export async function generateMetadata({
     titleParts.push(project.location);
   }
 
+  const isDraft = project.draft === true;
+
   return {
     title: titleParts.join(" — "),
     description: project.summary,
@@ -49,9 +53,19 @@ export async function generateMetadata({
       canonical: `/projekti/${project.slug}`,
     },
     openGraph: {
-      title: `${project.title} | Orguljarstvo Kvaternik`,
+      title: `${project.title} | ${siteConfig.name}`,
       description: project.summary,
+      url: getAbsoluteUrl(`/projekti/${project.slug}`),
+      type: "website",
     },
+    ...(isDraft && isDraftContentVisible()
+      ? {
+          robots: {
+            index: false,
+            follow: false,
+          },
+        }
+      : {}),
   };
 }
 
@@ -126,8 +140,7 @@ export default async function ProjectDetailPage({
               <SiteImage
                 image={project.coverImage}
                 fill
-                priority
-                sizes="100vw"
+                sizes="(max-width: 1024px) 100vw, 80vw"
                 className="absolute inset-0"
                 showTemporaryBadge={false}
               />

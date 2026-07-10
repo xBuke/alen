@@ -31,7 +31,7 @@ export function GalleryFilter({
             aria-pressed={isActive}
             onClick={() => onCategoryChange(category.id)}
             className={cn(
-              "relative pb-2 font-body text-xs uppercase tracking-[0.15em] transition-colors motion-reduce:transition-none",
+              "relative inline-flex min-h-11 items-center pb-2 font-body text-xs uppercase tracking-[0.15em] transition-colors motion-reduce:transition-none",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
               isActive
                 ? "text-gold after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-gold"

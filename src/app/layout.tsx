@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
 
+import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
+import { rootSiteMetadata } from "@/lib/page-metadata";
 import { fontVariables, montserrat } from "@/lib/fonts";
+import { getSiteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/data/site";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://orguljarstvo-kvaternik.hr",
-  ),
+  metadataBase: new URL(getSiteUrl()),
   title: {
-    default: `${siteConfig.name} | Izrada, obnova i održavanje orgulja`,
-    template: `%s | ${siteConfig.name}`,
+    default: rootSiteMetadata.defaultTitle,
+    template: rootSiteMetadata.template,
   },
-  description: siteConfig.description,
+  description: rootSiteMetadata.description,
   openGraph: {
     type: "website",
     locale: "hr_HR",
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | Izrada, obnova i održavanje orgulja`,
-    description: siteConfig.description,
+    title: rootSiteMetadata.defaultTitle,
+    description: rootSiteMetadata.description,
   },
   robots: {
     index: true,
@@ -35,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="hr" className={fontVariables}>
       <body className={`${montserrat.className} min-h-screen bg-background`}>
+        <OrganizationJsonLd />
         <a href="#main-content" className="skip-link">
           Preskoči na sadržaj
         </a>

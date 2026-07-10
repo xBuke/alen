@@ -1,24 +1,16 @@
-import type { Metadata } from "next";
-
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { GalleryGridSection } from "@/components/gallery/gallery-grid";
 import { PageContactCta } from "@/components/sections/page/page-contact-cta";
 import { PageHero } from "@/components/sections/page/page-hero";
 import { galleryItems } from "@/data/gallery";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Galerija",
   description:
     "Vizualni detalji orgulja, sviraonika, cijevi i sakralnih prostora korišteni kao privremeni materijal stranice.",
-  alternates: {
-    canonical: "/galerija",
-  },
-  openGraph: {
-    title: "Galerija | Orguljarstvo Kvaternik",
-    description:
-      "Vizualni detalji orgulja, sviraonika, cijevi i sakralnih prostora korišteni kao privremeni materijal stranice.",
-  },
-};
+  path: "/galerija",
+});
 
 export default function GalleryPage() {
   return (

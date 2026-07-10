@@ -38,3 +38,35 @@ export function sanitizeContactPayload<
     message: sanitizeMessageField(data.message),
   };
 }
+
+export function normalizeContactInput(body: unknown): {
+  companyWebsite: string;
+  normalized: ReturnType<typeof sanitizeContactPayload>;
+  inquiryType: string;
+  privacyAcknowledged: boolean;
+} | null {
+  if (!body || typeof body !== "object") {
+    return null;
+  }
+
+  const raw = body as Record<string, unknown>;
+
+  const companyWebsite =
+    typeof raw.companyWebsite === "string" ? raw.companyWebsite : "";
+
+  const normalized = sanitizeContactPayload({
+    fullName: typeof raw.fullName === "string" ? raw.fullName : "",
+    email: typeof raw.email === "string" ? raw.email : "",
+    phone: typeof raw.phone === "string" ? raw.phone : "",
+    instrumentLocation:
+      typeof raw.instrumentLocation === "string" ? raw.instrumentLocation : "",
+    message: typeof raw.message === "string" ? raw.message : "",
+  });
+
+  return {
+    companyWebsite,
+    normalized,
+    inquiryType: typeof raw.inquiryType === "string" ? raw.inquiryType : "",
+    privacyAcknowledged: raw.privacyAcknowledged === true,
+  };
+}

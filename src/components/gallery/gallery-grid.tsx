@@ -81,7 +81,6 @@ export function GalleryGrid({ items, className }: GalleryGridProps) {
               <GalleryItemCard
                 item={item}
                 onOpen={handleOpen}
-                priority={index < 2}
                 className="break-inside-avoid"
               />
             </MotionReveal>

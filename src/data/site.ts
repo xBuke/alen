@@ -7,7 +7,7 @@ export const siteConfig = {
   legalName: "ORGULJARSTVO KVATERNIK d.o.o.",
   tagline: "Orgulje koje stvaraju dušu prostora.",
   description:
-    "Izrada novih orgulja, servis, restauracija, digitalna elektromagnetska traktura i intonacija instrumenata.",
+    "Orguljarstvo Kvaternik — gradnja novih orgulja, servis, restauracija, digitalna elektromagnetska traktura i intonacija instrumenata.",
   website: officialSource,
   phoneDisplay: "098 777 988",
   phoneHref: "tel:+38598777988",

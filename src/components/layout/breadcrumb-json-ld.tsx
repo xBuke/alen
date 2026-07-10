@@ -1,12 +1,10 @@
-import { siteConfig } from "@/data/site";
+import { getAbsoluteUrl } from "@/lib/site-url";
 
 type BreadcrumbJsonLdProps = {
   items: { label: string; href: string }[];
 };
 
 export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
-  const baseUrl = siteConfig.website.replace(/\/$/, "");
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -14,7 +12,7 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      item: `${baseUrl}${item.href === "/" ? "" : item.href}`,
+      item: getAbsoluteUrl(item.href),
     })),
   };
 

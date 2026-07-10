@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHmac, randomBytes } from "node:crypto";
 
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
@@ -16,6 +16,8 @@ type RateLimiter = {
 
 const RATE_LIMIT_MAX = 3;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const MEMORY_CLEANUP_THRESHOLD = 100;
+const MEMORY_CLEANUP_INTERVAL = 50;
 
 type MemoryEntry = {
   count: number;
@@ -23,17 +25,69 @@ type MemoryEntry = {
 };
 
 const memoryStore = new Map<string, MemoryEntry>();
+
+let memoryOperationCount = 0;
 let warnedAboutFallback = false;
+let warnedAboutMissingSalt = false;
+let warnedAboutUpstashUnavailable = false;
+let ephemeralSalt: string | null = null;
+
+/**
+ * A persistent RATE_LIMIT_SALT is required for consistent rate limiting
+ * across multiple server instances. Without it, each instance uses its own
+ * ephemeral salt and limits are not shared between processes.
+ */
+function getRateLimitSalt(): string {
+  const envSalt = process.env.RATE_LIMIT_SALT;
+  if (envSalt) {
+    return envSalt;
+  }
+
+  if (process.env.NODE_ENV === "development") {
+    return "development-rate-limit-salt";
+  }
+
+  if (!ephemeralSalt) {
+    if (!warnedAboutMissingSalt) {
+      warnedAboutMissingSalt = true;
+      console.warn(
+        "RATE_LIMIT_SALT is missing; using an ephemeral process salt.",
+      );
+    }
+    ephemeralSalt = randomBytes(32).toString("hex");
+  }
+
+  return ephemeralSalt;
+}
 
 function hashIp(ip: string): string {
-  const salt = process.env.RATE_LIMIT_SALT ?? "development-rate-limit-salt";
-  return createHash("sha256").update(`${salt}:${ip}`).digest("hex");
+  const salt = getRateLimitSalt();
+  return createHmac("sha256", salt).update(ip).digest("hex");
+}
+
+function maybeCleanupMemoryStore(now: number): void {
+  memoryOperationCount += 1;
+
+  if (
+    memoryOperationCount % MEMORY_CLEANUP_INTERVAL !== 0 &&
+    memoryStore.size < MEMORY_CLEANUP_THRESHOLD
+  ) {
+    return;
+  }
+
+  for (const [key, entry] of memoryStore) {
+    if (now >= entry.resetAt) {
+      memoryStore.delete(key);
+    }
+  }
 }
 
 function createMemoryLimiter(): RateLimiter {
   return {
     async limit(identifier: string) {
       const now = Date.now();
+      maybeCleanupMemoryStore(now);
+
       const entry = memoryStore.get(identifier);
 
       if (!entry || now >= entry.resetAt) {
@@ -72,6 +126,8 @@ function createMemoryLimiter(): RateLimiter {
   };
 }
 
+const memoryLimiter = createMemoryLimiter();
+
 function createUpstashLimiter(): RateLimiter | null {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -101,17 +157,33 @@ function createUpstashLimiter(): RateLimiter | null {
   };
 }
 
-let cachedLimiter: RateLimiter | null = null;
+let cachedUpstashLimiter: RateLimiter | null | undefined;
 
-function getRateLimiter(): RateLimiter {
-  if (cachedLimiter) {
-    return cachedLimiter;
+function getUpstashLimiter(): RateLimiter | null {
+  if (cachedUpstashLimiter !== undefined) {
+    return cachedUpstashLimiter;
   }
 
-  const upstashLimiter = createUpstashLimiter();
+  cachedUpstashLimiter = createUpstashLimiter();
+  return cachedUpstashLimiter;
+}
+
+async function limitWithFallback(identifier: string): Promise<RateLimitResult> {
+  const upstashLimiter = getUpstashLimiter();
+
   if (upstashLimiter) {
-    cachedLimiter = upstashLimiter;
-    return cachedLimiter;
+    try {
+      return await upstashLimiter.limit(identifier);
+    } catch {
+      if (!warnedAboutUpstashUnavailable) {
+        warnedAboutUpstashUnavailable = true;
+        console.warn(
+          "Persistent rate limiter unavailable; using temporary fallback.",
+        );
+      }
+
+      return memoryLimiter.limit(identifier);
+    }
   }
 
   if (process.env.NODE_ENV === "production" && !warnedAboutFallback) {
@@ -121,8 +193,7 @@ function getRateLimiter(): RateLimiter {
     );
   }
 
-  cachedLimiter = createMemoryLimiter();
-  return cachedLimiter;
+  return memoryLimiter.limit(identifier);
 }
 
 export function getClientIp(request: Request): string {
@@ -147,6 +218,21 @@ export async function checkContactRateLimit(
 ): Promise<RateLimitResult> {
   const ip = getClientIp(request);
   const hashedIp = hashIp(ip);
-  const limiter = getRateLimiter();
-  return limiter.limit(hashedIp);
+  return limitWithFallback(hashedIp);
+}
+
+export function buildRateLimitHeaders(
+  result: RateLimitResult,
+): Record<string, string> {
+  const retryAfterSeconds = Math.max(
+    1,
+    Math.ceil((result.reset - Date.now()) / 1000),
+  );
+
+  return {
+    "Retry-After": String(retryAfterSeconds),
+    "RateLimit-Limit": String(result.limit),
+    "RateLimit-Remaining": String(result.remaining),
+    "RateLimit-Reset": String(Math.ceil(result.reset / 1000)),
+  };
 }

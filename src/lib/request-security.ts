@@ -1,27 +1,11 @@
+import { getSiteOrigin } from "@/lib/site-url";
+
 const LOCAL_DEV_ORIGIN = "http://localhost:3000";
 
 export const MAX_REQUEST_BODY_BYTES = 20 * 1024;
 
-export function getSiteOrigin(): string | null {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  if (!siteUrl) {
-    return null;
-  }
-
-  try {
-    return new URL(siteUrl).origin;
-  } catch {
-    return null;
-  }
-}
-
 export function getAllowedOrigins(): string[] {
-  const origins = new Set<string>();
-
-  const siteOrigin = getSiteOrigin();
-  if (siteOrigin) {
-    origins.add(siteOrigin);
-  }
+  const origins = new Set<string>([getSiteOrigin()]);
 
   if (process.env.NODE_ENV === "development") {
     origins.add(LOCAL_DEV_ORIGIN);
@@ -49,7 +33,7 @@ export function isJsonContentType(contentType: string | null): boolean {
 
 export function createNoStoreJsonResponse(
   body: unknown,
-  init?: ResponseInit,
+  init?: ResponseInit & { headers?: Record<string, string> },
 ): Response {
   const headers = new Headers(init?.headers);
   headers.set("Content-Type", "application/json");

@@ -33,7 +33,7 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
           variant="ghost"
           size="icon"
           className={cn(
-            "lg:hidden",
+            "min-h-11 min-w-11 lg:hidden",
             transparent
               ? "text-text-light hover:bg-white/10 hover:text-text-light"
               : "text-text-muted hover:text-text-light",

@@ -27,7 +27,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative flex min-h-[55svh] flex-col overflow-hidden",
+        "relative flex min-h-[45svh] flex-col overflow-hidden md:min-h-[55svh]",
         className,
       )}
     >

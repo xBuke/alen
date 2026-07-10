@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { Container } from "@/components/layout/container";
 import {
@@ -9,18 +7,13 @@ import {
 } from "@/components/legal/legal-page";
 import { PageHero } from "@/components/sections/page/page-hero";
 import { impressum } from "@/data/legal";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: impressum.metadata.title,
   description: impressum.metadata.description,
-  alternates: {
-    canonical: impressum.metadata.canonical,
-  },
-  openGraph: {
-    title: `${impressum.metadata.title} | Orguljarstvo Kvaternik`,
-    description: impressum.metadata.description,
-  },
-};
+  path: impressum.metadata.canonical,
+});
 
 export default function ImpressumPage() {
   return (

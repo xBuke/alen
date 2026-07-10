@@ -50,7 +50,7 @@ export function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/usluge#${service.slug}`}
-                    className="font-body text-sm text-text-muted transition-colors hover:text-gold focus-visible:text-gold"
+                    className="block text-balance font-body text-sm text-text-muted transition-colors hover:text-gold focus-visible:text-gold"
                   >
                     {service.title}
                   </Link>

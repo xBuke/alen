@@ -23,7 +23,7 @@ Stvarne vrijednosti postavite u `.env.local` ili u hosting secrets. Datoteka `.e
 | `CONTACT_FROM_EMAIL` | Pošiljatelj e-pošte s **verificirane Resend domene**, npr. `Orguljarstvo Kvaternik <web@orguljarstvo-kvaternik.hr>`. Bez verificirane domene slanje neće raditi u produkciji. |
 | `UPSTASH_REDIS_REST_URL` | REST URL Upstash Redis baze za perzistentni rate limit u produkciji. |
 | `UPSTASH_REDIS_REST_TOKEN` | REST token Upstash Redis baze. Koristi se isključivo na serveru. |
-| `RATE_LIMIT_SALT` | Duga nasumična tajna za hashiranje IP adresa pri rate limitu. Ne dijelite je javno. |
+| `RATE_LIMIT_SALT` | Duga nasumična tajna za HMAC hashiranje IP adresa pri rate limitu. **Potrebna je u produkciji** za konzistentan limit između više instanci. Bez nje svaka instanca koristi vlastiti procesni salt. Ne dijelite je javno. |
 
 Za lokalni razvoj dovoljno je `NEXT_PUBLIC_SITE_URL=http://localhost:3000` ako testirate Origin provjeru.
 
@@ -47,7 +47,13 @@ Serverless produkcija treba perzistentni rate limiter (Upstash ili ekvivalent). 
 3. Generirajte dugu nasumičnu vrijednost za `RATE_LIMIT_SALT`.
 4. Testirajte slanjem više od tri zahtjeva u 15 minuta s iste IP adrese.
 
-Pravilo: **3 zahtjeva po 15 minuta** po hashiranom IP-u.
+Pravilo: **3 zahtjeva po 15 minuta** po HMAC hashiranom identifikatoru (ne pohranjuje se puni IP).
+
+Ako su Upstash varijable postavljene, ali Redis privremeno ne odgovara, API koristi privremeni memory fallback za taj zahtjev i ponovno pokušava Upstash na sljedećem zahtjevu.
+
+## Preview okruženja
+
+Za preview deployment koji ne smije biti indeksiran, postavite `X-Robots-Tag: noindex, nofollow` na razini hostinga ili koristite zasebnu preview domenu. Ne postavljajte preview URL kao produkcijsku `NEXT_PUBLIC_SITE_URL` vrijednost. Detalji su u `PRODUCTION_CHECKLIST.md`.
 
 ## Testiranje bez Resenda
 

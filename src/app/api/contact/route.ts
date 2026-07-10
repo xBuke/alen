@@ -5,7 +5,10 @@ import {
   inquiryTypeLabels,
   type ContactFormValues,
 } from "@/lib/contact-schema";
-import { checkContactRateLimit } from "@/lib/rate-limit";
+import {
+  buildRateLimitHeaders,
+  checkContactRateLimit,
+} from "@/lib/rate-limit";
 import {
   getContactFromEmail,
   getContactToEmail,
@@ -14,12 +17,12 @@ import {
 } from "@/lib/resend";
 import {
   createNoStoreJsonResponse,
-  getSiteOrigin,
   isAllowedOrigin,
   isJsonContentType,
   MAX_REQUEST_BODY_BYTES,
 } from "@/lib/request-security";
-import { sanitizeContactPayload } from "@/lib/sanitize";
+import { getAbsoluteUrl } from "@/lib/site-url";
+import { normalizeContactInput } from "@/lib/sanitize";
 import {
   buildContactEmailText,
   ContactEmail,
@@ -28,11 +31,8 @@ import {
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const MIN_FORM_DURATION_MS = 2000;
-
-type ContactRequestBody = ContactFormValues & {
-  formStartedAt?: number;
-};
+const SERVICE_UNAVAILABLE_MESSAGE =
+  "Poruku trenutačno nije moguće poslati. Molimo pokušajte ponovno ili nam se javite izravno putem telefona ili e-pošte.";
 
 function formatSubmittedAt(date: Date): string {
   return new Intl.DateTimeFormat("hr-HR", {
@@ -76,15 +76,21 @@ function successResponse(message: string, status = 200) {
 function errorResponse(
   message: string,
   status: number,
-  fieldErrors?: Partial<Record<keyof ContactFormValues, string[]>>,
+  options?: {
+    fieldErrors?: Partial<Record<keyof ContactFormValues, string[]>>;
+    headers?: Record<string, string>;
+  },
 ) {
   return createNoStoreJsonResponse(
     {
       success: false,
       message,
-      ...(fieldErrors ? { fieldErrors } : {}),
+      ...(options?.fieldErrors ? { fieldErrors: options.fieldErrors } : {}),
     },
-    { status },
+    {
+      status,
+      headers: options?.headers,
+    },
   );
 }
 
@@ -122,11 +128,12 @@ export async function POST(request: Request) {
       return errorResponse(
         "Poslano je previše zahtjeva u kratkom razdoblju. Molimo pokušajte ponovno nešto kasnije.",
         429,
+        { headers: buildRateLimitHeaders(rateLimit) },
       );
     }
 
     const rawBody = await request.text();
-    if (rawBody.length > MAX_REQUEST_BODY_BYTES) {
+    if (Buffer.byteLength(rawBody, "utf8") > MAX_REQUEST_BODY_BYTES) {
       return errorResponse("Zahtjev je prevelik.", 413);
     }
 
@@ -137,35 +144,34 @@ export async function POST(request: Request) {
       return errorResponse("Neispravan JSON.", 400);
     }
 
-    const body = parsedBody as ContactRequestBody;
-    const formStartedAt =
-      typeof body.formStartedAt === "number" ? body.formStartedAt : null;
+    const extracted = normalizeContactInput(parsedBody);
+    if (!extracted) {
+      return errorResponse("Neispravan JSON.", 400);
+    }
 
-    const validation = contactFormSchema.safeParse(body);
+    if (extracted.companyWebsite.trim()) {
+      return successResponse(
+        "Hvala na upitu. Vaša poruka je uspješno poslana.",
+      );
+    }
+
+    const candidate = {
+      ...extracted.normalized,
+      inquiryType: extracted.inquiryType,
+      privacyAcknowledged: extracted.privacyAcknowledged,
+      companyWebsite: "",
+    };
+
+    const validation = contactFormSchema.safeParse(candidate);
     if (!validation.success) {
       return errorResponse(
         "Provjerite unesene podatke.",
         400,
-        mapFieldErrors(validation.error.issues),
+        { fieldErrors: mapFieldErrors(validation.error.issues) },
       );
     }
 
-    if (validation.data.companyWebsite?.trim()) {
-      return successResponse(
-        "Hvala na upitu. Vaša poruka je uspješno poslana.",
-      );
-    }
-
-    if (
-      formStartedAt &&
-      Date.now() - formStartedAt < MIN_FORM_DURATION_MS
-    ) {
-      return successResponse(
-        "Hvala na upitu. Vaša poruka je uspješno poslana.",
-      );
-    }
-
-    const sanitized = sanitizeContactPayload(validation.data);
+    const sanitized = validation.data;
     const inquiryLabel = inquiryTypeLabels[sanitized.inquiryType];
 
     if (!isResendConfigured()) {
@@ -175,10 +181,7 @@ export async function POST(request: Request) {
         );
       }
 
-      return errorResponse(
-        "Poruku trenutačno nije moguće poslati.",
-        503,
-      );
+      return errorResponse(SERVICE_UNAVAILABLE_MESSAGE, 503);
     }
 
     const resend = getResendClient();
@@ -186,14 +189,11 @@ export async function POST(request: Request) {
     const toEmail = getContactToEmail();
 
     if (!resend || !fromEmail) {
-      return errorResponse(
-        "Poruku trenutačno nije moguće poslati.",
-        503,
-      );
+      return errorResponse(SERVICE_UNAVAILABLE_MESSAGE, 503);
     }
 
     const submittedAt = new Date();
-    const pageUrl = `${getSiteOrigin() ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://orguljarstvo-kvaternik.hr"}/kontakt`;
+    const pageUrl = getAbsoluteUrl("/kontakt");
 
     const emailProps = {
       fullName: sanitized.fullName,
@@ -220,10 +220,7 @@ export async function POST(request: Request) {
       console.error(
         `[contact:${requestId}] Resend error code: ${sendResult.error.name}`,
       );
-      return errorResponse(
-        "Poruku trenutačno nije moguće poslati.",
-        503,
-      );
+      return errorResponse(SERVICE_UNAVAILABLE_MESSAGE, 503);
     }
 
     return successResponse(
@@ -231,9 +228,6 @@ export async function POST(request: Request) {
     );
   } catch {
     console.error(`[contact:${requestId}] Unexpected contact API error.`);
-    return errorResponse(
-      "Poruku trenutačno nije moguće poslati.",
-      500,
-    );
+    return errorResponse(SERVICE_UNAVAILABLE_MESSAGE, 500);
   }
 }

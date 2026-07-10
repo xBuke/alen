@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
@@ -14,20 +12,14 @@ import {
   hasPublishedProjects,
   isDraftContentVisible,
 } from "@/lib/projects";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Projekti",
   description:
     "Pregled projekata Orguljarstva Kvaternik bit će objavljen nakon potvrde podataka i fotografija izvedenih radova.",
-  alternates: {
-    canonical: "/projekti",
-  },
-  openGraph: {
-    title: "Projekti | Orguljarstvo Kvaternik",
-    description:
-      "Pregled projekata Orguljarstva Kvaternik bit će objavljen nakon potvrde podataka i fotografija izvedenih radova.",
-  },
-};
+  path: "/projekti",
+});
 
 export default function ProjectsPage() {
   const publishedProjects = getPublishedProjects();

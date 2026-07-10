@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
@@ -8,18 +6,13 @@ import { PageContactCta } from "@/components/sections/page/page-contact-cta";
 import { PageHero } from "@/components/sections/page/page-hero";
 import { SplitContent } from "@/components/sections/page/split-content";
 import { organsPage } from "@/data/organs";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: organsPage.metadata.title,
   description: organsPage.metadata.description,
-  alternates: {
-    canonical: "/orgulje",
-  },
-  openGraph: {
-    title: `${organsPage.metadata.title} | Orguljarstvo Kvaternik`,
-    description: organsPage.metadata.description,
-  },
-};
+  path: "/orgulje",
+});
 
 export default function OrgansPage() {
   const {

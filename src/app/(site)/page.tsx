@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { HomeAbout } from "@/components/sections/home/home-about";
 import { HomeContactCta } from "@/components/sections/home/home-contact-cta";
 import { HomeHero } from "@/components/sections/home/home-hero";
@@ -8,17 +6,9 @@ import { HomeProcess } from "@/components/sections/home/home-process";
 import { HomeQuote } from "@/components/sections/home/home-quote";
 import { HomeServices } from "@/components/sections/home/home-services";
 import { HomeWorkAreas } from "@/components/sections/home/home-work-areas";
+import { homePageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Orguljarstvo Kvaternik | Izrada, servis i restauracija orgulja",
-  description:
-    "Orguljarstvo Kvaternik — gradnja novih orgulja, servis, restauracija, digitalna elektromagnetska traktura i intonacija instrumenata.",
-  openGraph: {
-    title: "Orguljarstvo Kvaternik | Izrada, servis i restauracija orgulja",
-    description:
-      "Orguljarstvo Kvaternik — gradnja novih orgulja, servis, restauracija, digitalna elektromagnetska traktura i intonacija instrumenata.",
-  },
-};
+export const metadata = homePageMetadata;
 
 export default function HomePage() {
   return (

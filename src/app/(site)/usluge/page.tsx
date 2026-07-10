@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { MotionReveal } from "@/components/media/motion-reveal";
@@ -8,19 +7,14 @@ import { PageContactCta } from "@/components/sections/page/page-contact-cta";
 import { PageHero } from "@/components/sections/page/page-hero";
 import { Button } from "@/components/ui/button";
 import { services, servicesPage } from "@/data/services";
+import { createPageMetadata } from "@/lib/page-metadata";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: servicesPage.metadata.title,
   description: servicesPage.metadata.description,
-  alternates: {
-    canonical: "/usluge",
-  },
-  openGraph: {
-    title: `${servicesPage.metadata.title} | Orguljarstvo Kvaternik`,
-    description: servicesPage.metadata.description,
-  },
-};
+  path: "/usluge",
+});
 
 export default function ServicesPage() {
   const { hero } = servicesPage;
@@ -100,7 +94,7 @@ export default function ServicesPage() {
 
                     <h2
                       className={cn(
-                        "text-balance text-3xl md:text-4xl",
+                        "text-balance text-2xl sm:text-3xl md:text-4xl",
                         !isEven && "text-text-dark",
                       )}
                     >

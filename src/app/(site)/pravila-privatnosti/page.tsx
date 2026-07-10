@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { Container } from "@/components/layout/container";
 import {
@@ -10,18 +8,13 @@ import {
 import { PageHero } from "@/components/sections/page/page-hero";
 import { privacyPolicy } from "@/data/legal";
 import { siteConfig } from "@/data/site";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: privacyPolicy.metadata.title,
   description: privacyPolicy.metadata.description,
-  alternates: {
-    canonical: privacyPolicy.metadata.canonical,
-  },
-  openGraph: {
-    title: `${privacyPolicy.metadata.title} | Orguljarstvo Kvaternik`,
-    description: privacyPolicy.metadata.description,
-  },
-};
+  path: privacyPolicy.metadata.canonical,
+});
 
 export default function PrivacyPolicyPage() {
   return (

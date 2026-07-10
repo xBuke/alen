@@ -53,17 +53,15 @@ const RATE_LIMIT_MESSAGE =
 const fieldClassName =
   "rounded-sm border-border-dark bg-background focus-visible:border-gold/50 focus-visible:ring-gold/30";
 
+function buildDescribedBy(...ids: Array<string | false | undefined>): string | undefined {
+  const value = ids.filter(Boolean).join(" ");
+  return value || undefined;
+}
+
 export function ContactForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [statusMessage, setStatusMessage] = useState("");
   const successRef = useRef<HTMLDivElement>(null);
-  const formStartedAtRef = useRef(0);
-
-  const markFormStarted = () => {
-    if (formStartedAtRef.current === 0) {
-      formStartedAtRef.current = Date.now();
-    }
-  };
 
   const {
     register,
@@ -80,6 +78,7 @@ export function ContactForm() {
 
   const messageValue = useWatch({ control, name: "message" }) ?? "";
   const messageLength = messageValue.length;
+  const showMessageLengthWarning = messageLength > 3800;
 
   useEffect(() => {
     if (status === "success" && successRef.current) {
@@ -96,23 +95,35 @@ export function ContactForm() {
       setStatus("submitting");
       setStatusMessage("");
 
-      const startedAt = formStartedAtRef.current;
-
       try {
         const response = await fetch("/api/contact", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            ...values,
-            formStartedAt: startedAt,
-          }),
+          body: JSON.stringify(values),
         });
 
-        const data = (await response.json()) as
-          | ApiSuccessResponse
-          | ApiErrorResponse;
+        let data: ApiSuccessResponse | ApiErrorResponse;
+        try {
+          data = (await response.json()) as
+            | ApiSuccessResponse
+            | ApiErrorResponse;
+        } catch {
+          setStatus("error");
+          setStatusMessage(ERROR_MESSAGE);
+          return;
+        }
+
+        if (
+          typeof data !== "object" ||
+          data === null ||
+          typeof data.success !== "boolean"
+        ) {
+          setStatus("error");
+          setStatusMessage(ERROR_MESSAGE);
+          return;
+        }
 
         if (response.status === 429) {
           setStatus("rate-limited");
@@ -140,17 +151,22 @@ export function ContactForm() {
               const element = document.getElementById(firstInvalidField);
               element?.focus();
             }
+
+            setStatus("error");
+            setStatusMessage(
+              errorData.message || "Provjerite unesene podatke.",
+            );
+            return;
           }
 
           setStatus("error");
-          setStatusMessage(errorData.message || ERROR_MESSAGE);
+          setStatusMessage(ERROR_MESSAGE);
           return;
         }
 
         setStatus("success");
         setStatusMessage(SUCCESS_MESSAGE);
         reset(contactFormDefaultValues);
-        formStartedAtRef.current = 0;
       } catch {
         setStatus("error");
         setStatusMessage(ERROR_MESSAGE);
@@ -163,7 +179,6 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      onFocus={markFormStarted}
       noValidate
       className="space-y-6"
       aria-busy={isSubmitting}
@@ -191,9 +206,9 @@ export function ContactForm() {
           id="fullName"
           autoComplete="name"
           aria-invalid={Boolean(errors.fullName)}
-          aria-describedby={
-            errors.fullName ? "fullName-error" : undefined
-          }
+          aria-describedby={buildDescribedBy(
+            errors.fullName && "fullName-error",
+          )}
           className={cn(fieldClassName, "mt-2")}
           {...register("fullName")}
         />
@@ -210,7 +225,7 @@ export function ContactForm() {
           type="email"
           autoComplete="email"
           aria-invalid={Boolean(errors.email)}
-          aria-describedby={errors.email ? "email-error" : undefined}
+          aria-describedby={buildDescribedBy(errors.email && "email-error")}
           className={cn(fieldClassName, "mt-2")}
           {...register("email")}
         />
@@ -224,7 +239,7 @@ export function ContactForm() {
           type="tel"
           autoComplete="tel"
           aria-invalid={Boolean(errors.phone)}
-          aria-describedby={errors.phone ? "phone-error" : undefined}
+          aria-describedby={buildDescribedBy(errors.phone && "phone-error")}
           className={cn(fieldClassName, "mt-2")}
           {...register("phone")}
         />
@@ -241,9 +256,9 @@ export function ContactForm() {
               <SelectTrigger
                 id="inquiryType"
                 aria-invalid={Boolean(errors.inquiryType)}
-                aria-describedby={
-                  errors.inquiryType ? "inquiryType-error" : undefined
-                }
+                aria-describedby={buildDescribedBy(
+                  errors.inquiryType && "inquiryType-error",
+                )}
                 className={cn(fieldClassName, "mt-2")}
               >
                 <SelectValue placeholder="Odaberite vrstu upita" />
@@ -269,7 +284,10 @@ export function ContactForm() {
         <Input
           id="instrumentLocation"
           aria-invalid={Boolean(errors.instrumentLocation)}
-          aria-describedby="instrumentLocation-help instrumentLocation-error"
+          aria-describedby={buildDescribedBy(
+            "instrumentLocation-help",
+            errors.instrumentLocation && "instrumentLocation-error",
+          )}
           className={cn(fieldClassName, "mt-2")}
           {...register("instrumentLocation")}
         />
@@ -289,8 +307,8 @@ export function ContactForm() {
         <div className="flex items-baseline justify-between gap-4">
           <Label htmlFor="message">Poruka</Label>
           <span
+            id="message-count"
             className="font-body text-xs text-text-muted"
-            aria-live="polite"
           >
             {messageLength}/4000
           </span>
@@ -299,18 +317,31 @@ export function ContactForm() {
           id="message"
           rows={6}
           aria-invalid={Boolean(errors.message)}
-          aria-describedby="message-help message-error"
+          aria-describedby={buildDescribedBy(
+            "message-help",
+            "message-count",
+            showMessageLengthWarning && "message-length-warning",
+            errors.message && "message-error",
+          )}
           className={cn(fieldClassName, "mt-2 min-h-[160px]")}
           {...register("message")}
         />
         <p id="message-help" className="mt-2 font-body text-sm text-text-muted">
           Opišite instrument, trenutačno stanje i vrstu zahvata koja Vas zanima.
         </p>
+        {showMessageLengthWarning ? (
+          <p
+            id="message-length-warning"
+            className="mt-2 font-body text-xs text-gold/80"
+          >
+            Približavate se maksimalnoj duljini poruke.
+          </p>
+        ) : null}
         <FormFieldError id="message-error" message={errors.message?.message} />
       </div>
 
       <div className="space-y-3 border-t border-border-dark pt-6">
-        <div className="flex items-start gap-3">
+        <div className="flex min-h-11 items-start gap-3">
           <Controller
             name="privacyAcknowledged"
             control={control}
@@ -322,18 +353,16 @@ export function ContactForm() {
                   field.onChange(checked === true)
                 }
                 aria-invalid={Boolean(errors.privacyAcknowledged)}
-                aria-describedby={
-                  errors.privacyAcknowledged
-                    ? "privacyAcknowledged-error"
-                    : undefined
-                }
-                className="mt-1 h-5 w-5"
+                aria-describedby={buildDescribedBy(
+                  errors.privacyAcknowledged && "privacyAcknowledged-error",
+                )}
+                className="mt-1 h-5 w-5 shrink-0"
               />
             )}
           />
           <Label
             htmlFor="privacyAcknowledged"
-            className="cursor-pointer text-sm leading-relaxed text-text-muted"
+            className="cursor-pointer py-1 text-sm leading-relaxed text-text-muted"
           >
             Pročitao/la sam{" "}
             <Link
@@ -377,7 +406,7 @@ export function ContactForm() {
         type="submit"
         size="lg"
         disabled={isSubmitting}
-        className="w-full rounded-sm sm:w-auto"
+        className="min-h-11 w-full rounded-sm sm:w-auto"
         aria-disabled={isSubmitting}
       >
         {isSubmitting ? (

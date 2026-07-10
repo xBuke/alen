@@ -1,23 +1,16 @@
-import type { Metadata } from "next";
-
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { Container } from "@/components/layout/container";
 import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/sections/page/page-hero";
 import { contactPage } from "@/data/contact";
 import { siteConfig } from "@/data/site";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: contactPage.metadata.title,
   description: contactPage.metadata.description,
-  alternates: {
-    canonical: contactPage.metadata.canonical,
-  },
-  openGraph: {
-    title: `${contactPage.metadata.title} | Orguljarstvo Kvaternik`,
-    description: contactPage.metadata.description,
-  },
-};
+  path: contactPage.metadata.canonical,
+});
 
 export default function ContactPage() {
   const { hero, directContact } = contactPage;

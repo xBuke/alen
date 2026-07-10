@@ -1,6 +1,4 @@
 import Link from "next/link";
-import type { Metadata } from "next";
-
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { ContentSection } from "@/components/sections/page/content-section";
 import { EditorialIntro } from "@/components/sections/page/editorial-intro";
@@ -9,18 +7,13 @@ import { PageHero } from "@/components/sections/page/page-hero";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
 import { aboutPage } from "@/data/about";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: aboutPage.metadata.title,
   description: aboutPage.metadata.description,
-  alternates: {
-    canonical: "/o-nama",
-  },
-  openGraph: {
-    title: `${aboutPage.metadata.title} | Orguljarstvo Kvaternik`,
-    description: aboutPage.metadata.description,
-  },
-};
+  path: "/o-nama",
+});
 
 export default function AboutPage() {
   const { hero, workshop, workAreas, values, profile, process } = aboutPage;
