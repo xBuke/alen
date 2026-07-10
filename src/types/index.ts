@@ -43,6 +43,11 @@ export type Service = {
   verifiedFromOfficialSite: boolean;
   needsCopyConfirmation?: boolean;
   image: ImageAsset;
+  pageDetail?: {
+    additionalText?: string;
+    note?: string;
+    cta: { label: string; href: string };
+  };
 };
 
 export type MediaAppearance = {

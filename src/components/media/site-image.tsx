@@ -10,6 +10,7 @@ type SiteImageProps = {
   image: ImageAsset;
   className?: string;
   imageClassName?: string;
+  objectPosition?: string;
   fill?: boolean;
   priority?: boolean;
   sizes?: string;
@@ -23,6 +24,7 @@ export function SiteImage({
   image,
   className,
   imageClassName,
+  objectPosition,
   fill = false,
   priority = false,
   sizes = "(max-width: 768px) 100vw, 50vw",
@@ -77,6 +79,7 @@ export function SiteImage({
         priority={priority}
         sizes={sizes}
         className={cn("object-cover", imageClassName)}
+        style={objectPosition ? { objectPosition } : undefined}
         onError={() => setHasError(true)}
       />
       {shouldShowBadge ? (

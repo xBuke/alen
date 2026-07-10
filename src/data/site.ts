@@ -57,15 +57,15 @@ export const officialImages = {
     height: 768,
   },
   restoration: {
-    src: "https://orguljarstvo-kvaternik.hr/wp-content/uploads/2025/03/denny-muller-zBRE_VEnY_E-unsplash-300x200.jpg",
+    src: "https://orguljarstvo-kvaternik.hr/wp-content/uploads/2025/03/denny-muller-zBRE_VEnY_E-unsplash.jpg",
     alt: "Manuali drvenog orguljskog sviraonika",
     sourcePage: officialSource,
     status: "official-site-stock",
     usedOnCurrentOfficialSite: true,
     verifiedAsKvaternikProject: false,
     temporary: true,
-    width: 300,
-    height: 200,
+    width: 1368,
+    height: 912,
   },
   contactBackground: {
     src: "https://orguljarstvo-kvaternik.hr/wp-content/uploads/2025/03/josh-applegate-0FtwZMrMJAo-unsplash.jpg",

@@ -166,4 +166,8 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .scroll-mt-nav {
+    scroll-margin-top: 5.5rem;
+  }
 }
