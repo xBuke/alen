@@ -117,8 +117,9 @@ export const heroContent = {
 } as const;
 
 export const footerContent = {
+  statement: "Orgulje koje stvaraju dušu prostora.",
   description:
-    "Izrada, obnova, održavanje i stručno savjetovanje za orgulje i orguljske projekte.",
+    "Gradnja novih orgulja, servis i restauracija postojećih instrumenata, digitalna elektromagnetska traktura i intonacija prilagođena prostoru.",
   quickLinks: [
     { label: "O nama", href: "/o-nama" },
     { label: "Usluge", href: "/usluge" },

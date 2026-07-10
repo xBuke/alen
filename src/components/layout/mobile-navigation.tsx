@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
+import { useState } from "react";
 
 import { Logo } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -16,66 +18,96 @@ import {
 import { navigation, siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 
-export function MobileNavigation() {
+type MobileNavigationProps = {
+  transparent?: boolean;
+};
+
+export function MobileNavigation({ transparent = false }: MobileNavigationProps) {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           variant="ghost"
           size="icon"
-          className="lg:hidden"
+          className={cn(
+            "lg:hidden",
+            transparent
+              ? "text-text-light hover:bg-white/10 hover:text-text-light"
+              : "text-text-muted hover:text-text-light",
+          )}
           aria-label="Otvori izbornik"
+          aria-expanded={open}
         >
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="flex w-full flex-col sm:max-w-md">
-        <SheetHeader className="border-b border-border-dark pb-6 text-left">
+      <SheetContent
+        side="right"
+        className="flex h-full w-full flex-col border-border-dark bg-background p-0 sm:max-w-md"
+      >
+        <SheetHeader className="border-b border-border-dark px-6 py-6 text-left">
           <SheetTitle className="sr-only">Navigacija</SheetTitle>
-          <Logo />
+          <Logo showLocation={false} />
         </SheetHeader>
 
         <nav
-          className="flex flex-1 flex-col gap-1 py-8"
+          className="flex flex-1 flex-col px-6 py-8"
           aria-label="Mobilna navigacija"
         >
-          {navigation.main.map((item) => {
+          {navigation.main.map((item, index) => {
             const isActive =
               item.href === "/"
                 ? pathname === "/"
                 : pathname.startsWith(item.href);
+            const number = String(index + 1).padStart(2, "0");
 
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "rounded-md px-3 py-3 font-body text-lg font-medium transition-colors hover:bg-surface-elevated hover:text-gold",
-                  isActive ? "text-gold" : "text-text-light",
-                )}
-              >
-                {item.label}
-              </Link>
+              <SheetClose key={item.href} asChild>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "group flex items-baseline gap-4 border-b border-border-dark py-5 transition-colors",
+                    isActive ? "text-gold" : "text-text-light hover:text-gold",
+                  )}
+                >
+                  <span
+                    className="font-body text-xs font-medium tracking-[0.2em] text-gold/70"
+                    aria-hidden="true"
+                  >
+                    {number}
+                  </span>
+                  <span className="font-heading text-2xl font-medium tracking-tight">
+                    {item.label}
+                  </span>
+                </Link>
+              </SheetClose>
             );
           })}
         </nav>
 
-        <div className="mt-auto space-y-4 border-t border-border-dark pt-6">
-          <Button asChild className="w-full">
-            <Link href="/kontakt">Pošaljite upit</Link>
-          </Button>
-          <div className="space-y-1 font-body text-sm text-text-muted">
-            <a href={siteConfig.phoneHref} className="block hover:text-gold">
+        <div className="mt-auto space-y-6 border-t border-border-dark px-6 py-8">
+          <SheetClose asChild>
+            <Button asChild className="w-full rounded-sm">
+              <Link href="/kontakt">Pošaljite upit</Link>
+            </Button>
+          </SheetClose>
+          <div className="space-y-2 font-body text-sm text-text-muted">
+            <a
+              href={siteConfig.phoneHref}
+              className="block transition-colors hover:text-gold focus-visible:text-gold"
+            >
               {siteConfig.phoneDisplay}
             </a>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="block hover:text-gold"
+              className="block break-all transition-colors hover:text-gold focus-visible:text-gold"
             >
               {siteConfig.email}
             </a>
+            <p>{siteConfig.address}</p>
           </div>
         </div>
       </SheetContent>

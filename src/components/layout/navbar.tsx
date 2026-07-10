@@ -11,34 +11,46 @@ import { Button } from "@/components/ui/button";
 import { navigation } from "@/data/site";
 import { cn } from "@/lib/utils";
 
+const SCROLL_THRESHOLD = 32;
+
 export function Navbar() {
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const isHome = pathname === "/";
+  const [scrollY, setScrollY] = useState(0);
+
+  const showSolidNav = !isHome || scrollY > SCROLL_THRESHOLD;
 
   useEffect(() => {
+    if (!isHome) return;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 24);
+      setScrollY(window.scrollY);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        isScrolled
-          ? "border-b border-border-dark bg-background/90 backdrop-blur-md"
-          : "bg-transparent",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
+        showSolidNav
+          ? "border-b border-border-dark bg-background/90 shadow-subtle backdrop-blur-md"
+          : "border-b border-transparent bg-transparent",
       )}
     >
-      <Container className="flex h-20 items-center justify-between gap-6">
+      <Container
+        className={cn(
+          "flex items-center justify-between gap-6 transition-all duration-500",
+          showSolidNav ? "h-16" : "h-20",
+        )}
+      >
         <Logo />
 
         <nav
-          className="hidden items-center gap-8 lg:flex"
+          className="hidden items-center gap-7 lg:flex"
           aria-label="Glavna navigacija"
         >
           {navigation.main.map((item) => {
@@ -52,24 +64,36 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative font-body text-sm font-medium tracking-wide text-text-muted transition-colors hover:text-text-light",
+                  "relative py-1 font-body text-sm font-medium tracking-wide transition-colors hover:text-text-light",
+                  showSolidNav ? "text-text-muted" : "text-text-light/90",
                   isActive && "text-text-light",
                 )}
               >
                 {item.label}
-                {isActive ? (
-                  <span className="absolute -bottom-1 left-0 h-px w-full bg-gold" />
-                ) : null}
+                <span
+                  className={cn(
+                    "absolute -bottom-0.5 left-0 h-px bg-gold transition-all duration-300",
+                    isActive ? "w-full opacity-100" : "w-0 opacity-0",
+                  )}
+                  aria-hidden="true"
+                />
               </Link>
             );
           })}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <Button asChild className="hidden sm:inline-flex">
+        <div className="flex items-center gap-2">
+          <Button
+            asChild
+            className="hidden rounded-sm sm:inline-flex"
+            size="default"
+          >
             <Link href="/kontakt">Pošaljite upit</Link>
           </Button>
-          <MobileNavigation />
+          <MobileNavigation
+            key={pathname}
+            transparent={!showSolidNav}
+          />
         </div>
       </Container>
     </header>
