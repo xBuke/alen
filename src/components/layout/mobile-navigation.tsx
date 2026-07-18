@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { Logo } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
@@ -22,9 +22,51 @@ type MobileNavigationProps = {
   transparent?: boolean;
 };
 
+type MobileNavEntry =
+  | { kind: "link"; label: string; href: string; number: string }
+  | {
+      kind: "group";
+      label: string;
+      children: Array<{ label: string; href: string; number: string }>;
+    };
+
+function buildMobileEntries(): MobileNavEntry[] {
+  const entries: MobileNavEntry[] = [];
+  let index = 0;
+
+  for (const item of navigation.main) {
+    if ("children" in item && item.children) {
+      entries.push({
+        kind: "group",
+        label: item.label,
+        children: item.children.map((child) => {
+          index += 1;
+          return {
+            label: child.label,
+            href: child.href,
+            number: String(index).padStart(2, "0"),
+          };
+        }),
+      });
+      continue;
+    }
+
+    index += 1;
+    entries.push({
+      kind: "link",
+      label: item.label,
+      href: item.href,
+      number: String(index).padStart(2, "0"),
+    });
+  }
+
+  return entries;
+}
+
 export function MobileNavigation({ transparent = false }: MobileNavigationProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const entries = useMemo(() => buildMobileEntries(), []);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -54,20 +96,60 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
         </SheetHeader>
 
         <nav
-          className="flex flex-1 flex-col px-6 py-8"
+          className="flex flex-1 flex-col overflow-y-auto px-6 py-8"
           aria-label="Mobilna navigacija"
         >
-          {navigation.main.map((item, index) => {
+          {entries.map((entry) => {
+            if (entry.kind === "group") {
+              return (
+                <div
+                  key={entry.label}
+                  className="border-b border-border-dark py-5"
+                >
+                  <p className="mb-3 font-body text-xs font-medium uppercase tracking-[0.2em] text-gold/70">
+                    {entry.label}
+                  </p>
+                  <div className="space-y-3 pl-1">
+                    {entry.children.map((child) => {
+                      const isActive = pathname.startsWith(child.href);
+                      return (
+                        <SheetClose key={child.href} asChild>
+                          <Link
+                            href={child.href}
+                            className={cn(
+                              "flex items-baseline gap-4 transition-colors",
+                              isActive
+                                ? "text-gold"
+                                : "text-text-light hover:text-gold",
+                            )}
+                          >
+                            <span
+                              className="font-body text-xs font-medium tracking-[0.2em] text-gold/70"
+                              aria-hidden="true"
+                            >
+                              {child.number}
+                            </span>
+                            <span className="font-heading text-xl font-medium tracking-tight">
+                              {child.label}
+                            </span>
+                          </Link>
+                        </SheetClose>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            }
+
             const isActive =
-              item.href === "/"
+              entry.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(item.href);
-            const number = String(index + 1).padStart(2, "0");
+                : pathname.startsWith(entry.href);
 
             return (
-              <SheetClose key={item.href} asChild>
+              <SheetClose key={entry.href} asChild>
                 <Link
-                  href={item.href}
+                  href={entry.href}
                   className={cn(
                     "group flex items-baseline gap-4 border-b border-border-dark py-5 transition-colors",
                     isActive ? "text-gold" : "text-text-light hover:text-gold",
@@ -77,10 +159,10 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
                     className="font-body text-xs font-medium tracking-[0.2em] text-gold/70"
                     aria-hidden="true"
                   >
-                    {number}
+                    {entry.number}
                   </span>
                   <span className="font-heading text-2xl font-medium tracking-tight">
-                    {item.label}
+                    {entry.label}
                   </span>
                 </Link>
               </SheetClose>

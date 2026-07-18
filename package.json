@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "audit:orguljarstvo-images": "node scripts/audit-orguljarstvo-images.mjs",
+    "process:orguljarstvo-images": "node scripts/process-orguljarstvo-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
@@ -38,6 +40,7 @@
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.10",
     "postcss": "^8.5.16",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.3.2",
     "typescript": "^6.0.3"
   }

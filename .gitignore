@@ -30,3 +30,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Local source photo archive (never commit originals)
+/Orguljarstvo slike/
+**/Orguljarstvo slike/

@@ -21,7 +21,8 @@ export type ProjectCategory =
   | "izrada"
   | "servis"
   | "restauracija"
-  | "odrzavanje";
+  | "odrzavanje"
+  | "dokumentacija";
 
 export type Project = {
   slug: string;
@@ -73,4 +74,42 @@ export type GalleryItem = {
   alt: string;
   caption?: string;
   verifiedAsKvaternikProject: boolean;
+  albumSlug?: string;
+};
+
+export type GalleryAlbum = {
+  slug: string;
+  title: string;
+  location?: string;
+  description?: string;
+  coverImage: ImageAsset;
+  photoCount: number;
+  items: GalleryItem[];
+};
+
+export type UsedOrganStatus =
+  | "available"
+  | "reserved"
+  | "sold"
+  | "coming-soon";
+
+export type UsedOrgan = {
+  slug: string;
+  title: string;
+  manufacturer?: string;
+  model?: string;
+  year?: string;
+  location?: string;
+  manuals?: string;
+  registers?: string;
+  dimensions?: string;
+  condition?: string;
+  description?: string;
+  price?: string;
+  priceOnRequest?: boolean;
+  status: UsedOrganStatus;
+  coverImage: ImageAsset;
+  gallery: ImageAsset[];
+  published: boolean;
+  featured?: boolean;
 };

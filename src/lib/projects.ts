@@ -8,6 +8,7 @@ const categoryLabels: Record<ProjectCategory, string> = {
   servis: "Servis",
   restauracija: "Restauracija",
   odrzavanje: "Održavanje",
+  dokumentacija: "Dokumentacija",
 };
 
 export function getCategoryLabel(category: ProjectCategory): string {

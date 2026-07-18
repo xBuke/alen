@@ -94,7 +94,14 @@ export const navigation = {
   main: [
     { label: "Početna", href: "/" },
     { label: "O nama", href: "/o-nama" },
-    { label: "Orgulje", href: "/orgulje" },
+    {
+      label: "Orgulje",
+      href: "/orgulje",
+      children: [
+        { label: "O orguljama", href: "/orgulje" },
+        { label: "Polovne orgulje", href: "/polovne-orgulje" },
+      ],
+    },
     { label: "Usluge", href: "/usluge" },
     { label: "Projekti", href: "/projekti" },
     { label: "Galerija", href: "/galerija" },
@@ -125,6 +132,7 @@ export const footerContent = {
     { label: "Usluge", href: "/usluge" },
     { label: "Projekti", href: "/projekti" },
     { label: "Galerija", href: "/galerija" },
+    { label: "Polovne orgulje", href: "/polovne-orgulje" },
     { label: "Kontakt", href: "/kontakt" },
   ],
 } as const;

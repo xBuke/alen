@@ -1,15 +1,15 @@
 "use client";
 
-import type { GalleryCategory } from "@/types";
-import { galleryCategories } from "@/data/gallery";
+import { galleryAlbumFilters } from "@/data/gallery";
 import { cn } from "@/lib/utils";
 
 type GalleryFilterProps = {
-  activeCategory: GalleryCategory | "sve";
-  onCategoryChange: (category: GalleryCategory | "sve") => void;
+  activeCategory: string;
+  onCategoryChange: (category: string) => void;
   className?: string;
 };
 
+/** @deprecated Prefer GalleryAlbumFilter — kept for compatibility. */
 export function GalleryFilter({
   activeCategory,
   onCategoryChange,
@@ -18,10 +18,10 @@ export function GalleryFilter({
   return (
     <div
       role="group"
-      aria-label="Filtriraj galeriju po kategoriji"
+      aria-label="Filtriraj galeriju po albumu"
       className={cn("flex flex-wrap gap-x-6 gap-y-2", className)}
     >
-      {galleryCategories.map((category) => {
+      {galleryAlbumFilters.map((category) => {
         const isActive = activeCategory === category.id;
 
         return (

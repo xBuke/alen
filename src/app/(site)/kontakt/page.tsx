@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { Container } from "@/components/layout/container";
 import { ContactForm } from "@/components/forms/contact-form";
@@ -85,7 +87,15 @@ export default function ContactPage() {
                 započeti razgovor.
               </p>
               <div className="mt-8">
-                <ContactForm />
+                <Suspense
+                  fallback={
+                    <p className="text-sm text-text-muted">
+                      Učitavanje obrasca…
+                    </p>
+                  }
+                >
+                  <ContactForm />
+                </Suspense>
               </div>
             </div>
           </div>

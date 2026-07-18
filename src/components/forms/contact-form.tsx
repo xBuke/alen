@@ -2,8 +2,9 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Controller, useForm, useWatch } from "react-hook-form";
 
 import { FormFieldError } from "@/components/forms/form-field-error";
@@ -24,6 +25,7 @@ import {
   contactFormSchema,
   inquiryTypeLabels,
   inquiryTypeValues,
+  resolveInquiryTypeFromQuery,
   type ContactFormValues,
 } from "@/lib/contact-schema";
 import { cn } from "@/lib/utils";
@@ -59,9 +61,17 @@ function buildDescribedBy(...ids: Array<string | false | undefined>): string | u
 }
 
 export function ContactForm() {
+  const searchParams = useSearchParams();
   const [status, setStatus] = useState<FormStatus>("idle");
   const [statusMessage, setStatusMessage] = useState("");
   const successRef = useRef<HTMLDivElement>(null);
+
+  const initialInquiryType = useMemo(() => {
+    return (
+      resolveInquiryTypeFromQuery(searchParams.get("vrsta")) ??
+      contactFormDefaultValues.inquiryType
+    );
+  }, [searchParams]);
 
   const {
     register,
@@ -69,16 +79,27 @@ export function ContactForm() {
     handleSubmit,
     reset,
     setError,
+    setValue,
     formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: contactFormDefaultValues,
+    defaultValues: {
+      ...contactFormDefaultValues,
+      inquiryType: initialInquiryType,
+    },
     mode: "onBlur",
   });
 
   const messageValue = useWatch({ control, name: "message" }) ?? "";
   const messageLength = messageValue.length;
   const showMessageLengthWarning = messageLength > 3800;
+
+  useEffect(() => {
+    const fromQuery = resolveInquiryTypeFromQuery(searchParams.get("vrsta"));
+    if (fromQuery) {
+      setValue("inquiryType", fromQuery, { shouldValidate: true });
+    }
+  }, [searchParams, setValue]);
 
   useEffect(() => {
     if (status === "success" && successRef.current) {

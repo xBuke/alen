@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
+import { NavDropdown } from "@/components/layout/nav-dropdown";
 import { Button } from "@/components/ui/button";
 import { navigation } from "@/data/site";
 import { cn } from "@/lib/utils";
@@ -54,6 +55,17 @@ export function Navbar() {
           aria-label="Glavna navigacija"
         >
           {navigation.main.map((item) => {
+            if ("children" in item && item.children) {
+              return (
+                <NavDropdown
+                  key={item.label}
+                  label={item.label}
+                  items={[...item.children]}
+                  solid={showSolidNav}
+                />
+              );
+            }
+
             const isActive =
               item.href === "/"
                 ? pathname === "/"

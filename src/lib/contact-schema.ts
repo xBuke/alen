@@ -6,6 +6,7 @@ export const inquiryTypeValues = [
   "restauracija",
   "digitalna-elektromagnetska-traktura",
   "intonacija",
+  "polovne-orgulje",
   "drugo",
 ] as const;
 
@@ -17,8 +18,18 @@ export const inquiryTypeLabels: Record<InquiryType, string> = {
   restauracija: "Restauracija",
   "digitalna-elektromagnetska-traktura": "Digitalna elektromagnetska traktura",
   intonacija: "Intonacija",
+  "polovne-orgulje": "Polovne orgulje",
   drugo: "Drugo",
 };
+
+export function resolveInquiryTypeFromQuery(
+  value: string | null | undefined,
+): InquiryType | null {
+  if (!value) return null;
+  return (inquiryTypeValues as readonly string[]).includes(value)
+    ? (value as InquiryType)
+    : null;
+}
 
 const phonePattern = /^[\d\s+()-]*$/;
 

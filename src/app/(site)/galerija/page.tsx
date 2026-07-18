@@ -2,13 +2,13 @@ import { BreadcrumbJsonLd } from "@/components/layout/breadcrumb-json-ld";
 import { GalleryGridSection } from "@/components/gallery/gallery-grid";
 import { PageContactCta } from "@/components/sections/page/page-contact-cta";
 import { PageHero } from "@/components/sections/page/page-hero";
-import { galleryItems } from "@/data/gallery";
+import { galleryAlbums } from "@/data/gallery";
 import { createPageMetadata } from "@/lib/page-metadata";
 
 export const metadata = createPageMetadata({
   title: "Galerija",
   description:
-    "Vizualni detalji orgulja, sviraonika, cijevi i sakralnih prostora korišteni kao privremeni materijal stranice.",
+    "Fotografska dokumentacija orgulja i projekata Orguljarstva Kvaternik, organizirana u albume po lokacijama.",
   path: "/galerija",
 });
 
@@ -24,12 +24,12 @@ export default function GalleryPage() {
 
       <PageHero
         eyebrow="GALERIJA"
-        title="Detalji instrumenta i prostora."
-        description="Privremeni vizualni materijal prikazuje orgulje, sviraonike, cijevi i sakralne prostore. Fotografije izvedenih radova bit će dodane nakon njihove potvrde."
+        title="Instrumenti i prostori u fotografijama."
+        description="Odabrani albumi fotografske dokumentacije po lokacijama. Za detalje o pojedinim zahvatima stojimo na raspolaganju putem kontaktne forme."
         breadcrumbLabel="Galerija"
       />
 
-      <GalleryGridSection items={galleryItems} />
+      <GalleryGridSection albums={galleryAlbums} />
 
       <PageContactCta />
     </>

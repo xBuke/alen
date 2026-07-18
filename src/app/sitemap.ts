@@ -7,6 +7,7 @@ const staticRoutes = [
   "/",
   "/o-nama",
   "/orgulje",
+  "/polovne-orgulje",
   "/usluge",
   "/projekti",
   "/galerija",

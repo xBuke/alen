@@ -5,6 +5,7 @@ import { HomeIntro } from "@/components/sections/home/home-intro";
 import { HomeProcess } from "@/components/sections/home/home-process";
 import { HomeQuote } from "@/components/sections/home/home-quote";
 import { HomeServices } from "@/components/sections/home/home-services";
+import { HomeUsedOrgans } from "@/components/sections/home/home-used-organs";
 import { HomeWorkAreas } from "@/components/sections/home/home-work-areas";
 import { homePageMetadata } from "@/lib/page-metadata";
 
@@ -19,6 +20,7 @@ export default function HomePage() {
       <HomeAbout />
       <HomeWorkAreas />
       <HomeProcess />
+      <HomeUsedOrgans />
       <HomeQuote />
       <HomeContactCta />
     </>
