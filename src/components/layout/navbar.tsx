@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
-import { NavDropdown } from "@/components/layout/nav-dropdown";
 import { Button } from "@/components/ui/button";
-import { navigation } from "@/data/site";
+import { desktopNavigation } from "@/data/site";
+import { isNavHrefActive } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 const SCROLL_THRESHOLD = 32;
@@ -44,39 +44,25 @@ export function Navbar() {
     >
       <Container
         className={cn(
-          "flex items-center justify-between gap-6 transition-all duration-500",
+          "flex items-center justify-between gap-4 transition-all duration-500 lg:gap-6",
           showSolidNav ? "h-16" : "h-20",
         )}
       >
         <Logo />
 
         <nav
-          className="hidden items-center gap-7 lg:flex"
+          className="hidden items-center gap-4 lg:flex xl:gap-6 2xl:gap-7"
           aria-label="Glavna navigacija"
         >
-          {navigation.main.map((item) => {
-            if ("children" in item && item.children) {
-              return (
-                <NavDropdown
-                  key={item.label}
-                  label={item.label}
-                  items={[...item.children]}
-                  solid={showSolidNav}
-                />
-              );
-            }
-
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
+          {desktopNavigation.map((item) => {
+            const isActive = isNavHrefActive(pathname, item.href);
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative py-1 font-body text-sm font-medium tracking-wide transition-colors hover:text-text-light",
+                  "relative whitespace-nowrap py-1 font-body text-sm font-medium tracking-wide transition-colors hover:text-text-light",
                   showSolidNav ? "text-text-muted" : "text-text-light/90",
                   isActive && "text-text-light",
                 )}

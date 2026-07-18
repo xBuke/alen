@@ -29,7 +29,7 @@ Dokument za potvrdu sadržaja s Alenom. Fotografije su kurirani izbor iz lokalno
 | Orgulje Vinica | Vinica | 24 | Vinica | — | Galerija | published | Isto |
 | orgulje samobor | Samobor | 24 | Samobor | — | Galerija | published | Isto |
 
-**Što Alen treba potvrditi za albume:** točnost javnih naslova, željene lokacije/godine, eventualno uklanjanje ili zamjena cover fotografija, prioritet albuma.
+**Što Alen treba potvrditi za albume:** točni javni naslovi, godine (ako postoje) i izbor cover fotografija.
 
 ---
 
@@ -45,7 +45,9 @@ Dokument za potvrdu sadržaja s Alenom. Fotografije su kurirani izbor iz lokalno
 
 Opis (svi): *Fotografska dokumentacija projekta. Dodatne informacije o instrumentu i izvedenim radovima dostupne su na upit.*
 
-**Što Alen treba potvrditi za projekte:** stvarna godina, vrsta zahvata (izrada/servis/restauracija), točan naziv crkve/instrumenta, smije li se projekt javno pripisati Orguljarstvu Kvaternik, eventualni draft za pojedine stavke.
+**Što Alen treba potvrditi za projekte:** točni nazivi crkve/instrumenta, godine, vrsta zahvata (izrada/servis/restauracija) i izbor cover fotografija.
+
+Fotografije i projekti u ovoj objavi imaju dopuštenje za javnu upotrebu (`verifiedAsKvaternikProject: true`, `draft: false`).
 
 ---
 

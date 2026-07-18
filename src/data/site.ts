@@ -94,14 +94,8 @@ export const navigation = {
   main: [
     { label: "Početna", href: "/" },
     { label: "O nama", href: "/o-nama" },
-    {
-      label: "Orgulje",
-      href: "/orgulje",
-      children: [
-        { label: "O orguljama", href: "/orgulje" },
-        { label: "Polovne orgulje", href: "/polovne-orgulje" },
-      ],
-    },
+    { label: "Orgulje", href: "/orgulje" },
+    { label: "Polovne orgulje", href: "/polovne-orgulje" },
     { label: "Usluge", href: "/usluge" },
     { label: "Projekti", href: "/projekti" },
     { label: "Galerija", href: "/galerija" },
@@ -112,6 +106,11 @@ export const navigation = {
     { label: "Impressum", href: "/impressum" },
   ],
 } as const;
+
+/** Desktop nav omits Početna — logo already links home. */
+export const desktopNavigation = navigation.main.filter(
+  (item) => item.href !== "/",
+);
 
 export const heroContent = {
   eyebrow: "ORGULJE PO MJERI",
