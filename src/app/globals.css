@@ -211,8 +211,7 @@
 
   /* ---------- Naslovnica: prospekt od svirala ---------- */
   .prospect {
-    --g: clamp(4px, 0.9cqw, 12px);
-    container-type: size;
+    --g: clamp(4px, 0.7vw, 12px);
     display: grid;
     grid-template-columns: repeat(var(--n), minmax(0, 1fr));
     gap: var(--g);
@@ -236,6 +235,15 @@
     position: absolute;
     inset: 0;
     overflow: hidden;
+    background: #0b0b0c;
+    -webkit-clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 40px),
+      66% 100%,
+      34% 100%,
+      0 calc(100% - 40px)
+    );
     clip-path: polygon(
       0 0,
       100% 0,
@@ -250,15 +258,23 @@
     );
   }
 
-  .pipe-body > i {
+  /* Bez container-query jedinica i filtera: iOS Safari ih u kombinaciji
+     s clip-pathom ne iscrtava pouzdano. Sve je izraženo postotcima
+     širine i visine same svirale. */
+  .pipe-body > img {
     position: absolute;
     bottom: 0;
-    left: calc(var(--i) * -1 * (100cqw + var(--g)) / var(--n));
-    width: 100cqw;
-    height: 100cqh;
-    background: var(--hero-image) center 35% / cover no-repeat;
-    filter: brightness(0.82) saturate(0.92);
-    transition: filter 0.35s ease;
+    left: calc(var(--i) * -1 * (100% + var(--g)));
+    display: block;
+    width: calc(var(--n) * 100% + (var(--n) - 1) * var(--g));
+    max-width: none;
+    height: calc(10000% / var(--hn));
+    object-fit: cover;
+    object-position: center 35%;
+    opacity: 0.86;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: opacity 0.35s ease;
   }
 
   /* Usna (labij) svirale */
@@ -279,8 +295,8 @@
       transform: translateY(-10px);
     }
 
-    .pipe:hover .pipe-body > i {
-      filter: brightness(1.12) saturate(1);
+    .pipe:hover .pipe-body > img {
+      opacity: 1;
     }
   }
 
@@ -288,8 +304,8 @@
     animation: pipe-sound 1.6s ease-out;
   }
 
-  .pipe.is-sounding .pipe-body > i {
-    filter: brightness(1.2) saturate(1.05);
+  .pipe.is-sounding .pipe-body > img {
+    opacity: 1;
   }
 
   .hero-chest {

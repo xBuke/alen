@@ -157,7 +157,6 @@ export function PipeProspect({ image }: { image: string }) {
       style={
         {
           "--n": HEIGHTS.length,
-          "--hero-image": `url(${image})`,
         } as CSSProperties
       }
     >
@@ -169,7 +168,9 @@ export function PipeProspect({ image }: { image: string }) {
           aria-hidden="true"
           data-pipe={index}
           className="pipe"
-          style={{ "--i": index, "--h": `${height}%` } as CSSProperties}
+          style={
+            { "--i": index, "--h": `${height}%`, "--hn": height } as CSSProperties
+          }
           onPointerEnter={(event) => {
             if (event.pointerType === "mouse") {
               sound(index, event.currentTarget);
@@ -191,7 +192,11 @@ export function PipeProspect({ image }: { image: string }) {
           }}
         >
           <span className="pipe-body">
-            <i />
+            {/* Ista fotografija u svakoj svirali, pomaknuta tako da se
+                svirale zajedno slože u jednu sliku. Preglednik je preuzima
+                samo jednom. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={image} alt="" draggable={false} decoding="async" />
           </span>
         </button>
       ))}
