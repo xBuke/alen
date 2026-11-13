@@ -86,7 +86,7 @@ export const alenProfile = {
   role: "Graditelj orgulja",
   portrait: alenPortrait as ImageAsset | null,
   shortBio:
-    "Orguljama se bavim od 2001. godine. U radionici u Draganovcu kraj Koprivnice gradim nove instrumente, obnavljam stare i brinem se da orgulje po našim crkvama sviraju onako kako trebaju.",
+    "Orguljama se bavi od 2001. godine. U radionici u Draganovcu kraj Koprivnice gradi nove instrumente, obnavlja stare i brine se da orgulje po našim crkvama sviraju onako kako trebaju.",
 } as const;
 
 export const navigation = {

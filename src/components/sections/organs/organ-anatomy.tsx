@@ -23,22 +23,61 @@ type OrganAnatomyProps = {
   parts: readonly AnatomyPart[];
 };
 
-type HotspotConfig = {
-  cx: number;
-  cy: number;
-  r: number;
-};
+const PIPES = [
+  { x: 236, h: 118 },
+  { x: 256, h: 142 },
+  { x: 276, h: 166 },
+  { x: 296, h: 188 },
+  { x: 316, h: 206 },
+  { x: 336, h: 188 },
+  { x: 356, h: 166 },
+  { x: 376, h: 142 },
+  { x: 396, h: 118 },
+];
 
-const hotspots: Record<string, HotspotConfig> = {
-  facade: { cx: 200, cy: 120, r: 70 },
-  pipes: { cx: 200, cy: 75, r: 45 },
-  console: { cx: 90, cy: 290, r: 40 },
-  keyboards: { cx: 140, cy: 305, r: 30 },
-  stops: { cx: 55, cy: 265, r: 25 },
-  wind: { cx: 295, cy: 240, r: 32 },
-  action: { cx: 200, cy: 210, r: 38 },
-};
+const CHEST_TOP = 250;
 
+function Marker({
+  x,
+  y,
+  number,
+  active,
+}: {
+  x: number;
+  y: number;
+  number: number;
+  active: boolean;
+}) {
+  return (
+    <g aria-hidden="true">
+      <circle
+        cx={x}
+        cy={y}
+        r={10}
+        fill={active ? "#b38a5a" : "#151515"}
+        stroke="#b38a5a"
+        strokeWidth={1}
+      />
+      <text
+        x={x}
+        y={y + 3.5}
+        textAnchor="middle"
+        fontSize={10}
+        fontWeight={600}
+        fill={active ? "#0b0b0c" : "#b38a5a"}
+        style={{ fontFamily: "var(--font-body)" }}
+      >
+        {number}
+      </text>
+    </g>
+  );
+}
+
+/**
+ * Pojednostavljeni presjek orgulja s mehaničkom trakturom:
+ * motor i mijeh daju zrak -> kanal -> zračnica -> svirale;
+ * tipka preko apstrakta i kutnika otvara ventil u zračnici.
+ */
 function OrganIllustration({
   parts,
   activeId,
@@ -50,98 +89,238 @@ function OrganIllustration({
   onSelect: (id: string) => void;
   groupId: string;
 }) {
+  const numberOf = (id: string) => parts.findIndex((p) => p.id === id) + 1;
+
+  const part = (id: string) => ({
+    className: cn("anatomy-part", activeId === id && "is-active"),
+    onClick: () => onSelect(id),
+    onMouseEnter: () => onSelect(id),
+  });
+
   return (
     <svg
-      viewBox="0 0 400 360"
-      className="mx-auto w-full max-w-md text-text-muted"
+      viewBox="0 0 480 430"
+      className="mx-auto w-full max-w-xl"
       role="img"
       aria-labelledby={`${groupId}-title`}
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <title id={`${groupId}-title`}>
-        Shema orgulja — interaktivna ilustracija
+        Pojednostavljeni presjek orgulja: kućište, svirale, zračnica, zračni
+        sustav, traktura i sviraonik
       </title>
 
-      <g aria-hidden="true">
+      {/* Pod */}
+      <line x1={10} y1={408} x2={470} y2={408} stroke="rgba(255,255,255,0.14)" />
+
+      {/* 1 Kućište i pročelje */}
+      <g {...part("facade")}>
         <path
-          d="M90,210 L310,210 L290,35 L110,35 Z"
-          fill="none"
+          d="M206 408 V40 L316 14 L426 40 V408"
           stroke="currentColor"
-          strokeWidth="1.5"
-          className="text-border-dark"
+          strokeWidth={1.6}
         />
-        {[120, 150, 180, 210, 240, 270].map((x) => (
-          <rect
-            key={x}
-            x={x}
-            y={45}
-            width={12}
-            height={160}
-            rx={2}
-            fill="currentColor"
-            className="text-surface-elevated"
+        <path d="M206 40 H426" stroke="currentColor" strokeWidth={1} />
+        <path d="M206 300 H426" stroke="currentColor" strokeWidth={1} />
+        <rect x={206} y={40} width={220} height={368} fill="transparent" />
+      </g>
+
+      {/* 2 Svirale */}
+      <g {...part("pipes")}>
+        {PIPES.map((pipe) => {
+          const top = CHEST_TOP - pipe.h;
+          return (
+            <g key={pipe.x}>
+              <path
+                d={`M${pipe.x - 7} ${top} H${pipe.x + 7} V${CHEST_TOP - 16} L${pipe.x + 2.5} ${CHEST_TOP} H${pipe.x - 2.5} L${pipe.x - 7} ${CHEST_TOP - 16} Z`}
+                stroke="currentColor"
+                strokeWidth={1.3}
+                fill="rgba(255,255,255,0.03)"
+              />
+              {/* usna svirale */}
+              <path
+                d={`M${pipe.x - 4.5} ${CHEST_TOP - 22} Q${pipe.x} ${CHEST_TOP - 29} ${pipe.x + 4.5} ${CHEST_TOP - 22}`}
+                stroke="currentColor"
+                strokeWidth={1.1}
+              />
+            </g>
+          );
+        })}
+      </g>
+
+      {/* 3 Zračnica */}
+      <g {...part("chest")}>
+        <rect
+          x={216}
+          y={CHEST_TOP}
+          width={200}
+          height={34}
+          stroke="currentColor"
+          strokeWidth={1.5}
+          fill="rgba(255,255,255,0.03)"
+        />
+        <line
+          x1={216}
+          y1={CHEST_TOP + 12}
+          x2={416}
+          y2={CHEST_TOP + 12}
+          stroke="currentColor"
+          strokeWidth={0.8}
+        />
+        {/* ventili */}
+        {PIPES.map((pipe) => (
+          <line
+            key={pipe.x}
+            x1={pipe.x - 6}
+            y1={CHEST_TOP + 20}
+            x2={pipe.x + 6}
+            y2={CHEST_TOP + 20}
+            stroke="currentColor"
+            strokeWidth={2}
           />
         ))}
-        <rect
-          x={40}
-          y={260}
-          width={100}
-          height={60}
-          rx={3}
-          fill="currentColor"
-          className="text-surface"
-        />
-        <rect
-          x={250}
-          y={220}
-          width={80}
-          height={40}
-          rx={2}
-          fill="currentColor"
-          className="text-surface-elevated"
-        />
-        <line
-          x1={140}
-          y1={290}
-          x2={200}
-          y2={220}
+      </g>
+
+      {/* 4 Zračni sustav: motor, mijeh, kanal */}
+      <g {...part("wind")}>
+        <circle cx={398} cy={382} r={15} stroke="currentColor" strokeWidth={1.4} />
+        <path
+          d="M398 372 V392 M388 382 H408 M391 375 L405 389 M405 375 L391 389"
           stroke="currentColor"
-          strokeWidth="1"
-          className="text-gold/30"
-          strokeDasharray="4 3"
+          strokeWidth={0.9}
         />
-        <line
-          x1={200}
-          y1={220}
-          x2={280}
-          y2={240}
+        <g className="anatomy-bellows">
+          <path
+            d="M300 398 H366 V352 L300 340 Z"
+            stroke="currentColor"
+            strokeWidth={1.4}
+            fill="rgba(255,255,255,0.03)"
+          />
+          <path
+            d="M300 369 L366 375 M300 355 L366 364 M300 384 L366 387"
+            stroke="currentColor"
+            strokeWidth={0.8}
+          />
+        </g>
+        <path d="M383 386 H366" stroke="currentColor" strokeWidth={1.4} />
+        {/* kanal od mijeha do zračnice */}
+        <path
+          d="M320 340 V284"
           stroke="currentColor"
-          strokeWidth="1"
-          className="text-gold/30"
-          strokeDasharray="4 3"
+          strokeWidth={5}
+          opacity={0.25}
+        />
+        <path
+          className="anatomy-wind"
+          d="M383 386 H366 M320 344 V286"
+          stroke="currentColor"
+          strokeWidth={1.6}
+        />
+        {/* strujanje u svirale */}
+        <path
+          className="anatomy-wind"
+          d="M316 248 V60"
+          stroke="currentColor"
+          strokeWidth={1.2}
+          opacity={0.7}
         />
       </g>
 
-      {parts.map((part) => {
-        const spot = hotspots[part.id];
-        if (!spot) return null;
-        const isActive = activeId === part.id;
+      {/* 5 Traktura */}
+      <g {...part("action")}>
+        <path
+          d="M150 296 H190 M190 296 L196 302 M196 302 V330 H256 V272"
+          stroke="currentColor"
+          strokeWidth={1.3}
+        />
+        <path
+          d="M190 290 L202 302 L190 302 Z"
+          stroke="currentColor"
+          strokeWidth={1.1}
+        />
+        <circle cx={256} cy={330} r={2.4} fill="currentColor" />
+        <path
+          d="M130 396 H184 V344 H276 V272"
+          stroke="currentColor"
+          strokeWidth={1}
+          strokeDasharray="2 4"
+        />
+      </g>
 
-        return (
-          <circle
-            key={part.id}
-            cx={spot.cx}
-            cy={spot.cy}
-            r={spot.r}
-            fill={isActive ? "rgba(179,138,90,0.22)" : "rgba(255,255,255,0.02)"}
-            stroke={isActive ? "#b38a5a" : "rgba(179,138,90,0.2)"}
-            strokeWidth={isActive ? 2 : 1}
-            aria-hidden="true"
-            className="pointer-events-auto cursor-pointer"
-            onClick={() => onSelect(part.id)}
-            onMouseEnter={() => onSelect(part.id)}
-          />
-        );
-      })}
+      {/* 6 Sviraonik */}
+      <g {...part("console")}>
+        <path
+          d="M150 408 V236 H206"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        />
+        <path d="M150 306 H206" stroke="currentColor" strokeWidth={1} />
+        {/* notni stalak */}
+        <path d="M162 250 L176 274 H200" stroke="currentColor" strokeWidth={1} />
+        {/* klupa */}
+        <path
+          d="M52 352 H112 M60 352 V408 M104 352 V408"
+          stroke="currentColor"
+          strokeWidth={1.4}
+        />
+        <rect x={40} y={236} width={166} height={172} fill="transparent" />
+      </g>
+
+      {/* 7 Manuali i pedal */}
+      <g {...part("keyboards")}>
+        <rect
+          className="anatomy-key"
+          x={112}
+          y={293}
+          width={40}
+          height={6}
+          stroke="currentColor"
+          strokeWidth={1.3}
+          fill="rgba(255,255,255,0.05)"
+        />
+        <rect
+          x={122}
+          y={281}
+          width={30}
+          height={6}
+          stroke="currentColor"
+          strokeWidth={1.3}
+          fill="rgba(255,255,255,0.05)"
+        />
+        <path
+          d="M72 400 L150 392 V400 Z"
+          stroke="currentColor"
+          strokeWidth={1.3}
+          fill="rgba(255,255,255,0.05)"
+        />
+      </g>
+
+      {/* 8 Registri */}
+      <g {...part("stops")}>
+        {[250, 262, 274].map((y) => (
+          <g key={y}>
+            <line x1={150} y1={y} x2={140} y2={y} stroke="currentColor" strokeWidth={1.2} />
+            <circle cx={136} cy={y} r={3.6} stroke="currentColor" strokeWidth={1.2} fill="#151515" />
+          </g>
+        ))}
+        <path
+          d="M150 250 H168 V256 H216"
+          stroke="currentColor"
+          strokeWidth={0.9}
+          strokeDasharray="1 4"
+        />
+      </g>
+
+      <Marker x={438} y={120} number={numberOf("facade")} active={activeId === "facade"} />
+      <Marker x={316} y={84} number={numberOf("pipes")} active={activeId === "pipes"} />
+      <Marker x={438} y={CHEST_TOP + 17} number={numberOf("chest")} active={activeId === "chest"} />
+      <Marker x={438} y={382} number={numberOf("wind")} active={activeId === "wind"} />
+      <Marker x={228} y={330} number={numberOf("action")} active={activeId === "action"} />
+      <Marker x={176} y={222} number={numberOf("console")} active={activeId === "console"} />
+      <Marker x={94} y={296} number={numberOf("keyboards")} active={activeId === "keyboards"} />
+      <Marker x={116} y={262} number={numberOf("stops")} active={activeId === "stops"} />
     </svg>
   );
 }
@@ -289,7 +468,7 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
           </h2>
         </MotionReveal>
 
-        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16">
+        <div className="hidden lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16">
           <MotionReveal>
             <OrganIllustration
               parts={parts}
@@ -336,6 +515,7 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
                           : "border-border-dark text-text-muted hover:border-gold/50 hover:text-text-light",
                       )}
                     >
+                      <span className="mr-1.5 opacity-70">{index + 1}</span>
                       {part.label}
                     </button>
                   );
@@ -359,6 +539,14 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
         </div>
 
         <div className="lg:hidden">
+          <div className="mb-8">
+            <OrganIllustration
+              parts={parts}
+              activeId={mobileOpenId ?? ""}
+              onSelect={handleMobileToggle}
+              groupId={`${baseId}-m`}
+            />
+          </div>
           <MotionReveal>
             <MobileAccordion
               parts={parts}

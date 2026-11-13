@@ -150,7 +150,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 href="/blog"
                 className="font-body text-xs font-medium uppercase tracking-[0.2em] text-gold transition-colors hover:text-text-light"
               >
-                ← Blog
+                Blog
               </Link>
               <p className="mt-6 font-body text-xs uppercase tracking-[0.18em] text-text-muted">
                 {post.category} · {formatBlogDate(post.date)} ·{" "}

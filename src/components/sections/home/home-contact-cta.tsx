@@ -34,7 +34,7 @@ export function HomeContactCta() {
             <p className="mt-5 text-base md:text-lg">
               {homeContactCta.description}
             </p>
-            <Button asChild size="lg" className="mt-8 rounded-sm">
+            <Button asChild size="lg" className="mt-8 ">
               <Link href={homeContactCta.cta.href}>
                 {homeContactCta.cta.label}
               </Link>

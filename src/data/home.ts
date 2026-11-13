@@ -1,4 +1,4 @@
-import { officialImages } from "@/data/site";
+import { photos } from "@/data/photos";
 import type { ImageAsset } from "@/types";
 
 export const homeIntro = {
@@ -21,7 +21,7 @@ export const homeAbout = {
   description:
     "Orguljarstvo Kvaternik bavi se gradnjom novih orgulja, servisom i restauracijom postojećih instrumenata. Rad obuhvaća klasične mehaničke sustave, digitalnu elektromagnetsku trakturu i pažljivo zvukovno oblikovanje instrumenta.",
   cta: { label: "Više o radionici", href: "/o-nama" },
-  image: officialImages.construction,
+  image: photos.donjaVelika,
 } as const;
 
 export type WorkArea = {
@@ -38,7 +38,7 @@ export const homeWorkAreas: WorkArea[] = [
     title: "Nove orgulje",
     description:
       "Gradnja novih instrumenata prilagođenih prostoru, namjeni i zvukovnoj koncepciji.",
-    image: officialImages.construction,
+    image: photos.pozitiv,
     href: "/usluge#izrada-novih-orgulja",
   },
   {
@@ -46,7 +46,7 @@ export const homeWorkAreas: WorkArea[] = [
     title: "Postojeći instrumenti",
     description:
       "Servis i restauracija uz pažljivo sagledavanje konstrukcije i sačuvanih elemenata.",
-    image: officialImages.restoration,
+    image: photos.legradProspect,
     href: "/usluge#servis-orgulja",
   },
   {
@@ -54,7 +54,7 @@ export const homeWorkAreas: WorkArea[] = [
     title: "Traktura i mehanika",
     description:
       "Klasični mehanički sustavi i digitalna elektromagnetska traktura za nove i postojeće orgulje.",
-    image: officialImages.service,
+    image: photos.knezijaMagnets,
     href: "/usluge#digitalna-elektromagnetska-traktura",
   },
   {
@@ -62,7 +62,7 @@ export const homeWorkAreas: WorkArea[] = [
     title: "Intonacija i zvuk",
     description:
       "Zvukovno oblikovanje instrumenta kako bi se prirodno uklopio u prostor kojemu je namijenjen.",
-    image: officialImages.service,
+    image: photos.varazdinTop,
     href: "/usluge#intonacija",
   },
 ];
@@ -113,5 +113,5 @@ export const homeContactCta = {
   description:
     "Za novi projekt, servis ili restauraciju pošaljite osnovne informacije o instrumentu i prostoru.",
   cta: { label: "Pošaljite upit", href: "/kontakt" },
-  image: officialImages.contactBackground,
+  image: photos.mace,
 } as const;

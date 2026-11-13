@@ -20,7 +20,7 @@ export function HomeUsedOrgans() {
               Informacije o dostupnim polovnim orguljama možete zatražiti putem
               kontaktne forme.
             </p>
-            <Button asChild className="mt-8 rounded-sm">
+            <Button asChild className="mt-8 ">
               <Link href="/kontakt?vrsta=polovne-orgulje">Pošaljite upit</Link>
             </Button>
           </div>

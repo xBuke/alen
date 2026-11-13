@@ -1,4 +1,5 @@
-import { alenPortrait, officialImages } from "@/data/site";
+import { photos } from "@/data/photos";
+import { alenPortrait } from "@/data/site";
 import { services } from "@/data/services";
 import type { ProcessStep } from "@/data/home";
 
@@ -14,14 +15,14 @@ export const aboutPage = {
       "Poštovanje instrumenta. Preciznost izvedbe. Odgovornost prema zvuku.",
     description:
       "Orguljarstvo povezuje glazbu, mehaniku, materijale, arhitekturu i prostor u jedinstvenu cjelinu.",
-    image: officialImages.hero,
+    image: photos.varazdinWide,
     breadcrumbLabel: "O nama",
   },
   workshop: {
     eyebrow: "O RADIONICI",
     title: "Instrument promatramo kao cjelinu.",
     paragraphs: [
-      "Orgulje nisu zbir odvojenih dijelova. Njihov zvuk i pouzdanost ovise o međusobnom odnosu cijevi, zračnog sustava, mehanike, sviraonika, kućišta i akustike prostora.",
+      "Orgulje nisu zbir odvojenih dijelova. Njihov zvuk i pouzdanost ovise o međusobnom odnosu svirala, zračnog sustava, mehanike, sviraonika, kućišta i akustike prostora.",
       "Zato svakom instrumentu pristupamo individualno. Prije prijedloga radova potrebno je razumjeti njegovo stanje, konstrukciju, promjene koje je tijekom vremena doživio i ulogu koju danas treba imati.",
       "Cilj nije samo riješiti pojedini tehnički problem, nego pronaći rješenje koje je funkcionalno, smisleno i primjereno instrumentu.",
     ],
@@ -63,14 +64,13 @@ export const aboutPage = {
     ],
   },
   profile: {
-    eyebrow: "O MENI",
+    eyebrow: "GRADITELJ ORGULJA",
     title: "Alen Kvaternik",
-    role: "Graditelj orgulja · Orguljarstvo Kvaternik",
+    role: "Orguljarstvo Kvaternik, Draganovec",
     paragraphs: [
-      "Zovem se Alen Kvaternik i gradim orgulje. Tim se poslom bavim od 2001. godine, a danas vodim Orguljarstvo Kvaternik u Draganovcu kraj Koprivnice.",
-      "U radionici gradimo nove orgulje po klasičnom mehaničkom sustavu, obnavljamo stare instrumente i ugrađujemo digitalnu elektromagnetsku trakturu. Radili smo na orguljama u župnim crkvama, kapelama i katedralama diljem Hrvatske i u susjednim zemljama.",
-      "Najviše volim trenutak na kraju posla, kad se instrument prvi put oglasi u prostoru za koji je građen. Tada se vidi je li sve prije toga, od mijeha do zadnje svirale, napravljeno kako treba.",
-      "Osim crkvenih orgulja, radio sam i na jednom posve drukčijem instrumentu. U našoj su radionici izrađene svirale za vjetroorgulje na brdu Trovro iznad Rogotina, koje je zamislio inženjer Željko Škorić iz Ploča.",
+      "Alen Kvaternik graditelj je orgulja iz Draganovca kraj Koprivnice. Orguljama se bavi od 2001. godine, dakle već 25 godina, a danas vodi radionicu Orguljarstvo Kvaternik.",
+      "U radionici nastaju nove orgulje građene po klasičnom mehaničkom sustavu, obnavljaju se stari instrumenti i ugrađuje digitalna elektromagnetska traktura. Iza njega su radovi na orguljama u župnim crkvama, kapelama i katedralama diljem Hrvatske i u susjednim zemljama.",
+      "Uz crkvene orgulje potpisuje i jedan posve drukčiji instrument. U njegovoj su radionici izrađene svirale za vjetroorgulje na brdu Trovro iznad Rogotina, prve i jedinstvene u svijetu, koje je zamislio inženjer Željko Škorić iz Ploča.",
     ],
     image: alenPortrait,
     link: {

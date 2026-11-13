@@ -30,14 +30,14 @@ export default function NotFound() {
             Tražena stranica ne postoji ili još nije objavljena.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <Button asChild size="lg" className="min-h-11 rounded-sm">
+            <Button asChild size="lg" className="min-h-11 ">
               <Link href="/">Povratak na početnu</Link>
             </Button>
             <Button
               asChild
               variant="secondary"
               size="lg"
-              className="min-h-11 rounded-sm"
+              className="min-h-11 "
             >
               <Link href="/kontakt">Kontakt</Link>
             </Button>
@@ -45,7 +45,7 @@ export default function NotFound() {
               asChild
               variant="ghost"
               size="lg"
-              className="min-h-11 rounded-sm"
+              className="min-h-11 "
             >
               <Link href="/usluge">Usluge</Link>
             </Button>

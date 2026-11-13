@@ -1,4 +1,4 @@
-import { officialImages } from "@/data/site";
+import { photos } from "@/data/photos";
 import type { Service } from "@/types";
 
 export const servicesPage = {
@@ -23,7 +23,7 @@ export const services: Service[] = [
     description:
       "Gradimo nove orgulje s klasičnom mehaničkom trakturom, prilagođene prostoru, namjeni i zvukovnoj koncepciji instrumenta.",
     verifiedFromOfficialSite: true,
-    image: officialImages.construction,
+    image: photos.drnje,
     pageDetail: {
       additionalText:
         "Svaki novi instrument treba povezati tehničku pouzdanost, glazbenu namjenu i odnos s arhitekturom prostora.",
@@ -38,7 +38,7 @@ export const services: Service[] = [
     verifiedFromOfficialSite: false,
     // needsCopyConfirmation: detaljan opis servisa potvrditi s Alenom
     needsCopyConfirmation: true,
-    image: officialImages.service,
+    image: photos.ploceSvirale,
     pageDetail: {
       note: "Točan opseg rada utvrđuje se prema stanju konkretnog instrumenta.",
       cta: { label: "Dogovorite početni razgovor", href: "/kontakt" },
@@ -51,7 +51,7 @@ export const services: Service[] = [
       "Radovi na postojećim instrumentima uz pažljivo sagledavanje njihove konstrukcije, zvuka i sačuvanih elemenata.",
     verifiedFromOfficialSite: true,
     needsCopyConfirmation: true,
-    image: officialImages.restoration,
+    image: photos.mijehPoslije,
     pageDetail: {
       additionalText:
         "Prijedlog zahvata oblikuje se prema stanju instrumenta i cilju projekta.",
@@ -64,10 +64,10 @@ export const services: Service[] = [
     description:
       "U nove i postojeće orgulje ugrađujemo digitalnu elektromagnetsku trakturu.",
     verifiedFromOfficialSite: true,
-    image: officialImages.service,
+    image: photos.varazdinMagnets,
     pageDetail: {
       additionalText:
-        "Traktura prenosi radnju sa sviraonika prema dijelovima instrumenta, povezujući sviraonik s mehanikom i cijevima.",
+        "Traktura prenosi radnju sa sviraonika prema dijelovima instrumenta, povezujući tipke s ventilima ispod svirala.",
       cta: { label: "Razgovarajmo o tehničkom rješenju", href: "/kontakt" },
     },
   },
@@ -77,7 +77,7 @@ export const services: Service[] = [
     description:
       "Posebnu pozornost posvećujemo intonaciji kako bi se instrument zvukovno što prirodnije uklopio u prostor kojemu je namijenjen.",
     verifiedFromOfficialSite: true,
-    image: officialImages.construction,
+    image: photos.pulaWindow,
     pageDetail: {
       additionalText:
         "Akustika i namjena prostora važan su dio promišljanja zvukovnog karaktera instrumenta.",

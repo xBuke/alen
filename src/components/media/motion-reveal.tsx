@@ -1,7 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -12,33 +16,56 @@ type MotionRevealProps = {
   as?: "div" | "section" | "article";
 };
 
+/**
+ * Lagani "reveal" bez animacijske biblioteke: IntersectionObserver dodaje
+ * klasu, a prijelaz odrađuje CSS (vidi .reveal u globals.css).
+ */
 export function MotionReveal({
   children,
   className,
   delay = 0,
   as = "div",
 }: MotionRevealProps) {
-  const shouldReduceMotion = useReducedMotion();
-  const Component = motion[as];
+  const ref = useRef<HTMLElement | null>(null);
 
-  if (shouldReduceMotion) {
-    const StaticComponent = as;
-    return <StaticComponent className={className}>{children}</StaticComponent>;
-  }
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      node.classList.add("is-in");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  const Tag = as;
 
   return (
-    <Component
-      className={cn(className)}
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        duration: 0.7,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+    <Tag
+      ref={ref as never}
+      className={cn("reveal", className)}
+      style={
+        delay
+          ? ({ "--reveal-delay": `${delay}s` } as CSSProperties)
+          : undefined
+      }
     >
       {children}
-    </Component>
+    </Tag>
   );
 }

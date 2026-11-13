@@ -149,7 +149,7 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
               <Button
                 type="button"
                 variant="secondary"
-                className="rounded-sm"
+               
                 onClick={() =>
                   setVisibleCount((count) => count + LOAD_MORE_STEP)
                 }

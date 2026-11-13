@@ -88,7 +88,7 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
 
         <div className="mt-auto space-y-6 border-t border-border-dark px-6 py-8">
           <SheetClose asChild>
-            <Button asChild className="w-full rounded-sm">
+            <Button asChild className="w-full ">
               <Link href="/kontakt">Pošaljite upit</Link>
             </Button>
           </SheetClose>

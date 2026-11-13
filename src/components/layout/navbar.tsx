@@ -83,7 +83,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Button
             asChild
-            className="hidden rounded-sm sm:inline-flex"
+            className="hidden sm:inline-flex"
             size="default"
           >
             <Link href="/kontakt">Pošaljite upit</Link>

@@ -2,6 +2,7 @@ import type { ImageAsset } from "@/types";
 
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container } from "@/components/layout/container";
+import { PipeRule } from "@/components/media/pipe-rule";
 import { SiteImage } from "@/components/media/site-image";
 import { cn } from "@/lib/utils";
 
@@ -70,7 +71,7 @@ export function PageHero({
         <h1
           className={cn(
             "max-w-4xl text-balance",
-            "text-3xl leading-[1.1] sm:text-4xl md:text-5xl lg:text-6xl",
+            "text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl",
           )}
         >
           {title}
@@ -82,6 +83,11 @@ export function PageHero({
           </p>
         ) : null}
       </Container>
+      <PipeRule className="pointer-events-none absolute bottom-0 right-[max(1.25rem,6vw)] z-10 hidden h-28 md:flex" />
+      <div
+        className="absolute inset-x-0 bottom-0 z-10 h-px bg-gold/40"
+        aria-hidden="true"
+      />
     </section>
   );
 }

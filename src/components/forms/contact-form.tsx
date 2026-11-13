@@ -479,7 +479,7 @@ export function ContactForm() {
         type="submit"
         size="lg"
         disabled={isSubmitting}
-        className="min-h-11 w-full rounded-sm sm:w-auto"
+        className="min-h-11 w-full sm:w-auto"
         aria-disabled={isSubmitting}
       >
         {isSubmitting ? (

@@ -33,7 +33,7 @@ export function HomeAbout() {
               <p className="mt-6 text-base md:text-lg">
                 {homeAbout.description}
               </p>
-              <Button asChild variant="secondary" className="mt-8 rounded-sm">
+              <Button asChild variant="secondary" className="mt-8 ">
                 <Link href={homeAbout.cta.href}>{homeAbout.cta.label}</Link>
               </Button>
             </div>
@@ -67,7 +67,7 @@ export function HomeAbout() {
                 href="/o-nama#o-meni"
                 className="mt-4 inline-block font-body text-xs font-medium uppercase tracking-[0.15em] text-gold transition-colors hover:text-text-light"
               >
-                Više o meni →
+                Više o Alenu
               </Link>
             </div>
           </div>

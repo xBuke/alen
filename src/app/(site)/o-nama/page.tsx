@@ -142,7 +142,7 @@ export default function AboutPage() {
                   href={profile.link.href}
                   className="mt-6 inline-block font-body text-xs font-medium uppercase tracking-[0.15em] text-gold transition-colors hover:text-text-light"
                 >
-                  {profile.link.label} →
+                  {profile.link.label}
                 </Link>
               </div>
             </MotionReveal>

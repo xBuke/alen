@@ -24,7 +24,7 @@ export function HomeBlog() {
                 poput vjetroorgulja na Trovru iznad Rogotina.
               </p>
             </div>
-            <Button asChild variant="secondary" className="rounded-sm">
+            <Button asChild variant="secondary">
               <Link href="/blog">Svi članci</Link>
             </Button>
           </div>

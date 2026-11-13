@@ -45,21 +45,21 @@ export const blogPosts: BlogPost[] = [
     slug: "vjetroorgulje-na-trovru",
     title: "Vjetroorgulje na Trovru: instrument na kojem svira vjetar",
     excerpt:
-      "Na brdu iznad Rogotina, kraj Ploča, stoje orgulje bez orguljaša. Sviraju ih bura, jugo i maestral, a svirale za njih nastale su u našoj radionici.",
+      "Na brdu iznad Rogotina, kraj Ploča, stoje prve vjetroorgulje na svijetu. Sviraju ih bura, jugo i maestral, a svirale za njih nastale su u našoj radionici.",
     date: "2026-11-13",
     category: "Projekti",
     readingMinutes: 5,
     featured: true,
     cover: img(
-      `${ref}/ploce-svirale.webp`,
-      "Metalne svirale orgulja snimljene izbliza",
+      "/images/orguljarstvo/galerija/pula-sv-anton/01-p1310157.webp",
+      "Velike metalne svirale snimljene izbliza",
+      2400,
       1800,
-      1200,
     ),
     blocks: [
       {
         type: "p",
-        text: "U dvadesetak godina rada na orguljama gotovo je svaki posao imao isti okvir: crkva, kor, instrument i orguljaš. Onda je stigao poziv iz doline Neretve. Trebalo je napraviti svirale za orgulje koje neće stajati ni u jednoj crkvi i na kojima neće svirati čovjek, nego vjetar.",
+        text: "U više od dva desetljeća rada na orguljama gotovo je svaki posao imao isti okvir: crkva, kor, instrument i orguljaš. Onda je stigao poziv iz doline Neretve. Trebalo je napraviti svirale za orgulje koje neće stajati ni u jednoj crkvi i na kojima neće svirati čovjek, nego vjetar.",
       },
       { type: "h2", text: "Ideja Željka Škorića" },
       {
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "Jedinstvene u svijetu" },
       {
         type: "p",
-        text: "Inspiracija su bile zadarske Morske orgulje, na kojima svira more. Ovdje svira vjetar, i to na tri strane svijeta. Vjetroorgulje na Trovru u medijima se opisuju kao prve i jedinstvene u svijetu, a prikazane su i u međunarodnoj televizijskoj razmjeni. Nama je to projekt na koji smo posebno ponosni i drago nam je da na njemu stoji i naš potpis.",
+        text: "Inspiracija su bile zadarske Morske orgulje, na kojima svira more. Ovdje svira vjetar, i to na tri strane svijeta. Vjetroorgulje na Trovru prve su i jedinstvene u svijetu, a prikazane su i u međunarodnoj televizijskoj razmjeni. Nama je to projekt na koji smo posebno ponosni i drago nam je da na njemu stoji i naš potpis.",
       },
       {
         type: "p",
@@ -141,10 +141,10 @@ export const blogPosts: BlogPost[] = [
     category: "O orguljama",
     readingMinutes: 5,
     cover: img(
-      `${ref}/ploce-prospekt.webp`,
-      "Prospekt orgulja sa sviralama",
-      1800,
+      `${ref}/bistra.webp`,
+      "Orgulje na oslikanom koru crkve",
       1200,
+      1800,
     ),
     blocks: [
       {
@@ -268,10 +268,10 @@ export const blogPosts: BlogPost[] = [
     category: "O orguljama",
     readingMinutes: 4,
     cover: img(
-      `${ref}/ploce-elektromagneti.webp`,
-      "Elektromagneti i elektronika trakture u orguljama",
-      1350,
-      1800,
+      "/images/orguljarstvo/galerija/knezija-zagreb/11-img-1355.webp",
+      "Elektromagneti trakture u orguljama",
+      2400,
+      1600,
     ),
     blocks: [
       {
@@ -326,7 +326,12 @@ export const blogPosts: BlogPost[] = [
     date: "2026-10-16",
     category: "Održavanje",
     readingMinutes: 4,
-    cover: img(`${ref}/mace.webp`, "Orgulje na koru crkve", 1800, 1200),
+    cover: img(
+      `${ref}/sigetec.webp`,
+      "Neogotičko kućište orgulja na koru",
+      1800,
+      1200,
+    ),
     blocks: [
       {
         type: "p",

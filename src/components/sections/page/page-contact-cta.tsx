@@ -46,7 +46,7 @@ export function PageContactCta({
             <p className="mt-5 text-base md:text-lg">
               {description}
             </p>
-            <Button asChild size="lg" className="mt-8 rounded-sm">
+            <Button asChild size="lg" className="mt-8 ">
               <Link href={cta.href}>
                 {cta.label}
               </Link>

@@ -45,10 +45,10 @@ export function ProjectsEmptyState() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg" className="rounded-sm">
+            <Button asChild size="lg">
               <Link href="/usluge">Upoznajte područja našeg rada</Link>
             </Button>
-            <Button asChild variant="secondary" size="lg" className="rounded-sm">
+            <Button asChild variant="secondary" size="lg">
               <Link href="/kontakt">Pošaljite upit</Link>
             </Button>
           </div>

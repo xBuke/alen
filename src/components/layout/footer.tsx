@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
+import { PipeRule } from "@/components/media/pipe-rule";
 import { footerContent, navigation, siteConfig } from "@/data/site";
 import { services } from "@/data/services";
 
@@ -11,9 +12,12 @@ export function Footer() {
   return (
     <footer className="border-t border-border-dark bg-surface">
       <Container className="section-padding">
-        <p className="mb-12 max-w-4xl font-heading text-2xl font-medium leading-snug tracking-tight text-text-light md:text-3xl lg:text-4xl">
-          {footerContent.statement}
-        </p>
+        <div className="mb-14 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <p className="max-w-3xl text-balance font-heading text-3xl italic leading-tight text-text-light md:text-5xl">
+            {footerContent.statement}
+          </p>
+          <PipeRule className="h-20 shrink-0" />
+        </div>
 
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="space-y-4 lg:col-span-4">
@@ -24,7 +28,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="mb-4 font-body text-xs font-medium uppercase tracking-[0.2em] text-gold">
+            <h3 className="mb-4 font-heading text-base italic text-gold">
               Navigacija
             </h3>
             <ul className="space-y-2">
@@ -42,7 +46,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="mb-4 font-body text-xs font-medium uppercase tracking-[0.2em] text-gold">
+            <h3 className="mb-4 font-heading text-base italic text-gold">
               Usluge
             </h3>
             <ul className="space-y-2">
@@ -60,7 +64,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="mb-4 font-body text-xs font-medium uppercase tracking-[0.2em] text-gold">
+            <h3 className="mb-4 font-heading text-base italic text-gold">
               Kontakt
             </h3>
             <ul className="space-y-2 font-body text-sm text-text-muted">

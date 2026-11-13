@@ -22,7 +22,7 @@ export function UsedOrgansEmptyState({ className }: UsedOrgansEmptyStateProps) {
         Za informacije o trenutačno dostupnim instrumentima obratite nam se
         putem kontaktne forme.
       </p>
-      <Button asChild className="mt-8 rounded-sm">
+      <Button asChild className="mt-8 ">
         <Link href="/kontakt?vrsta=polovne-orgulje">Pošaljite upit</Link>
       </Button>
     </div>

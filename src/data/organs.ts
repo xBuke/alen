@@ -1,71 +1,77 @@
-import { officialImages } from "@/data/site";
+import { photos } from "@/data/photos";
 
 export const organsPage = {
   metadata: {
     title: "Orgulje",
     description:
-      "Upoznajte orgulje kao spoj cijevi, zraka, mehanike, sviraonika, intonacije i arhitekture prostora.",
+      "Upoznajte orgulje kao spoj svirala, zraka, mehanike, sviraonika, intonacije i arhitekture prostora.",
   },
   hero: {
     eyebrow: "INSTRUMENT I PROSTOR",
     title: "Zvuk, konstrukcija i arhitektura povezani u cjelinu.",
     description:
       "Svaki instrument ima vlastiti karakter koji oblikuju materijali, konstrukcija, mehanika, intonacija i prostor u kojem se nalazi.",
-    image: officialImages.hero,
+    image: photos.vukovina,
     breadcrumbLabel: "Orgulje",
   },
   instrumentWhole: {
     title: "Složeni instrument iza vidljivog pročelja",
     paragraphs: [
-      "Orgulje proizvode zvuk prolaskom zraka kroz cijevi različitih oblika, dimenzija i materijala. Orguljaš instrumentom upravlja putem sviraonika, manuala, pedala i registara.",
+      "Orgulje proizvode zvuk prolaskom zraka kroz svirale različitih oblika, dimenzija i materijala. Orguljaš instrumentom upravlja putem sviraonika, manuala, pedala i registara.",
       "Iza pročelja nalazi se sustav čiji dijelovi moraju djelovati povezano i pouzdano. Zbog toga se pojedini zahvat uvijek treba sagledati u odnosu na cjelinu instrumenta.",
     ],
-    image: officialImages.construction,
+    image: photos.pulaPipes,
   },
   anatomy: {
     title: "Anatomija orgulja",
     parts: [
       {
         id: "facade",
-        label: "Pročelje i kućište",
+        label: "Kućište i pročelje",
         description:
-          "Vanjski oblik instrumenta koji oblikuje vizualni odnos prema prostoru i sadrži glavne dijelove vidljive iz crkve ili dvorane.",
+          "Drveno kućište nosi i štiti instrument, a ujedno usmjerava zvuk prema prostoru. Prednja strana sa sviralama zove se pročelje ili prospekt i jedini je dio koji se vidi iz crkve.",
       },
       {
         id: "pipes",
-        label: "Cijevi",
+        label: "Svirale",
         description:
-          "Metalne ili drvene cijevi različitih dimenzija i oblika kroz koje zrak stvara zvuk instrumenta.",
+          "Svaka svirala daje jedan ton. Dulja svirala zvuči dublje, kraća više. Izrađuju se od legure kositra i olova ili od drva, a niz svirala iste boje zvuka čini jedan registar.",
+      },
+      {
+        id: "chest",
+        label: "Zračnica",
+        description:
+          "Drvena kutija na kojoj stoje svirale. U njoj su ventili koji propuštaju zrak samo u svirale onog tona i onog registra koje je orguljaš odabrao.",
+      },
+      {
+        id: "wind",
+        label: "Motor, mijeh i kanali",
+        description:
+          "Električni ventilator daje zrak, mijeh ga sprema i drži pod stalnim tlakom, a kanali ga vode do zračnice. O mirnom tlaku ovisi miran ton.",
+      },
+      {
+        id: "action",
+        label: "Traktura",
+        description:
+          "Veza između tipke i ventila u zračnici. Kod mehaničke trakture to su tanke drvene letvice (apstrakti) i kutnici, a kod elektromagnetske električni kontakt i magnet.",
       },
       {
         id: "console",
         label: "Sviraonik",
         description:
-          "Mjesto s kojeg orguljaš upravlja instrumentom putem manuala, pedala i registara.",
+          "Mjesto s kojeg orguljaš upravlja instrumentom. Može biti ugrađen u kućište ili stajati odvojeno od orgulja.",
       },
       {
         id: "keyboards",
         label: "Manuali i pedal",
         description:
-          "Tipkovnice i pedal preko kojih se prenosi radnja sviraonika prema mehanici i trakturi.",
+          "Manuali su tipkovnice za ruke, a pedal tipkovnica za noge. Svaki manual upravlja svojim dijelom instrumenta.",
       },
       {
         id: "stops",
         label: "Registri",
         description:
-          "Registri odabiru i kombiniraju glasove instrumenta, omogućujući različite zvučne karakteristike.",
-      },
-      {
-        id: "wind",
-        label: "Zračni sustav",
-        description:
-          "Sustav koji opskrbljuje instrument zrakom potrebnim za rad cijevi i stabilnost zvuka.",
-      },
-      {
-        id: "action",
-        label: "Traktura i mehanika",
-        description:
-          "Mehanički sustav koji prenosi radnju sa sviraonika prema ventilima i cijevima instrumenta.",
+          "Registarskim potezima orguljaš uključuje i isključuje nizove svirala i tako slaže boju i jačinu zvuka.",
       },
     ],
   },
@@ -76,27 +82,27 @@ export const organsPage = {
     ],
     highlight:
       "Gradnja novih orgulja s klasičnom mehaničkom trakturom.",
-    image: officialImages.construction,
+    image: photos.stepinac,
   },
   existingInstruments: {
     title: "Razumjeti postojeće stanje prije zahvata",
     paragraphs: [
       "Postojeći instrument može sadržavati dijelove, popravke i preinake iz različitih razdoblja. Prije prijedloga većeg zahvata potrebno je sagledati što je sačuvano, što je mijenjano i koje probleme treba riješiti.",
     ],
-    image: officialImages.restoration,
+    image: photos.donjaVisnjica,
   },
   tracture: {
     title: "Veza između sviraonika i instrumenta",
     confirmed:
       "U nove i postojeće orgulje ugrađujemo digitalnu elektromagnetsku trakturu.",
     explanation:
-      "Traktura prenosi radnju sa sviraonika prema dijelovima instrumenta, povezujući sviraonik s mehanikom i cijevima.",
-    image: officialImages.service,
+      "Traktura prenosi radnju sa sviraonika prema dijelovima instrumenta, povezujući tipke s ventilima ispod svirala.",
+    image: photos.legradConsole,
   },
   intonation: {
     title: "Zvuk usklađen s prostorom",
     confirmed:
       "Posebnu pozornost posvećujemo intonaciji kako bi se instrument zvukovno što prirodnije uklopio u prostor kojemu je namijenjen.",
-    image: officialImages.service,
+    image: photos.varazdinPipes,
   },
 } as const;

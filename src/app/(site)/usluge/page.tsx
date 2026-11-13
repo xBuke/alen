@@ -136,7 +136,7 @@ export default function ServicesPage() {
                       <Button
                         asChild
                         variant={isEven ? "default" : "secondary"}
-                        className="mt-8 rounded-sm"
+                        className="mt-8 "
                       >
                         <Link href={detail.cta.href}>{detail.cta.label}</Link>
                       </Button>

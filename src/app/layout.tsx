@@ -36,6 +36,9 @@ export default function RootLayout({
   return (
     <html lang="hr" className={fontVariables}>
       <body className={`${montserrat.className} min-h-screen bg-background`}>
+        <noscript>
+          <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <OrganizationJsonLd />
         <a href="#main-content" className="skip-link">
           Preskoči na sadržaj

@@ -8,32 +8,30 @@ export function HomeProcess() {
       <Container>
         <MotionReveal>
           <div className="mb-12 max-w-3xl md:mb-16">
-            <p className="eyebrow mb-4 text-bronze">{homeProcess.eyebrow}</p>
-            <h2 className="text-balance text-3xl text-text-dark md:text-4xl lg:text-5xl">
+            <p className="eyebrow mb-5 text-bronze">{homeProcess.eyebrow}</p>
+            <h2 className="text-balance text-3xl text-text-dark md:text-5xl">
               {homeProcess.title}
             </h2>
           </div>
         </MotionReveal>
 
-        <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {homeProcess.steps.map((step, index) => (
             <MotionReveal key={step.number} delay={index * 0.06}>
-              <article
-                className="border-t border-border-light py-8 first:border-t-0 md:py-10 lg:border-l lg:border-t-0 lg:px-8 lg:py-0 lg:first:border-l-0 lg:first:pl-0"
-              >
-                <span className="font-body text-xs font-medium tracking-[0.2em] text-bronze">
-                  {step.number}
+              <li className="border-t border-text-dark/25 pt-6">
+                <span className="font-heading text-5xl italic text-bronze">
+                  {index + 1}
                 </span>
-                <h3 className="mt-4 text-xl text-text-dark md:text-2xl">
+                <h3 className="mt-5 text-xl text-text-dark md:text-2xl">
                   {step.title}
                 </h3>
                 <p className="mt-3 text-sm text-text-dark/70 md:text-base">
                   {step.description}
                 </p>
-              </article>
+              </li>
             </MotionReveal>
           ))}
-        </div>
+        </ol>
       </Container>
     </section>
   );
