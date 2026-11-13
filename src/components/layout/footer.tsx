@@ -100,23 +100,9 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-border-dark pt-8 md:flex-row md:items-center md:justify-between">
-          <div className="space-y-1 font-body text-xs text-text-muted">
-            <p>
-              © {currentYear} {siteConfig.name}. Sva prava pridržana.
-            </p>
-            <p>
-              Izrada i održavanje stranice:{" "}
-              <a
-                href="https://mangai.hr"
-                target="_blank"
-                rel="noopener"
-                className="text-text-light underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold focus-visible:text-gold"
-              >
-                mangai.hr
-              </a>
-              . Dizajn i kod © {currentYear} Mangai. Sva prava pridržana.
-            </p>
-          </div>
+          <p className="font-body text-xs text-text-muted">
+            © {currentYear} {siteConfig.name}. Sva prava pridržana.
+          </p>
           <div className="flex flex-wrap gap-4">
             {navigation.legal.map((link) => (
               <Link
@@ -130,6 +116,25 @@ export function Footer() {
           </div>
         </div>
       </Container>
+
+      <div className="border-t border-border-dark bg-background">
+        <Container className="flex flex-col items-center gap-2 py-8 text-center">
+          <p className="font-body text-sm text-text-muted">
+            Izrada i održavanje stranice
+          </p>
+          <a
+            href="https://mangai.hr"
+            target="_blank"
+            rel="noopener"
+            className="font-heading text-2xl text-text-light underline decoration-gold/60 decoration-1 underline-offset-8 transition-colors hover:text-gold focus-visible:text-gold md:text-3xl"
+          >
+            MangAI.hr
+          </a>
+          <p className="mt-2 font-body text-xs text-text-muted">
+            Dizajn i kod © {currentYear} MangAI.hr. Sva prava pridržana.
+          </p>
+        </Container>
+      </div>
     </footer>
   );
 }
