@@ -52,6 +52,45 @@ const ERROR_MESSAGE =
 const RATE_LIMIT_MESSAGE =
   "Poslano je previše zahtjeva u kratkom razdoblju. Molimo pokušajte ponovno nešto kasnije.";
 
+/**
+ * Web3Forms javni pristupni ključ. Kada je postavljen, forma šalje poruku
+ * izravno na Web3Forms, koji je prosljeđuje na e-poštu vezanu uz ključ.
+ * Bez ključa koristi se postojeća /api/contact ruta (Resend).
+ */
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
+async function submitViaWeb3Forms(values: ContactFormValues): Promise<boolean> {
+  const inquiryLabel = inquiryTypeLabels[values.inquiryType];
+  const response = await fetch(WEB3FORMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `Novi upit — Orguljarstvo Kvaternik — ${inquiryLabel}`,
+      from_name: "Web stranica Orguljarstvo Kvaternik",
+      replyto: values.email,
+      "Ime i prezime": values.fullName,
+      email: values.email,
+      Telefon: values.phone || "—",
+      "Vrsta upita": inquiryLabel,
+      "Lokacija instrumenta": values.instrumentLocation || "—",
+      message: values.message,
+      // Web3Forms honeypot: popunjeno polje znači bot.
+      botcheck: values.companyWebsite ? "1" : "",
+    }),
+  });
+
+  const data = (await response.json().catch(() => null)) as {
+    success?: boolean;
+  } | null;
+
+  return response.ok && data?.success === true;
+}
+
 const fieldClassName =
   "rounded-sm border-border-dark bg-background focus-visible:border-gold/50 focus-visible:ring-gold/30";
 
@@ -117,6 +156,19 @@ export function ContactForm() {
       setStatusMessage("");
 
       try {
+        if (WEB3FORMS_ACCESS_KEY) {
+          const sent = await submitViaWeb3Forms(values);
+          if (sent) {
+            setStatus("success");
+            setStatusMessage(SUCCESS_MESSAGE);
+            reset(contactFormDefaultValues);
+          } else {
+            setStatus("error");
+            setStatusMessage(ERROR_MESSAGE);
+          }
+          return;
+        }
+
         const response = await fetch("/api/contact", {
           method: "POST",
           headers: {

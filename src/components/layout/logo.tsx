@@ -9,21 +9,23 @@ type LogoProps = {
   showLocation?: boolean;
 };
 
-function OrganMark({ className }: { className?: string }) {
+function OrganMark({
+  className,
+  isLight,
+}: {
+  className?: string;
+  isLight: boolean;
+}) {
   return (
-    <svg
-      viewBox="0 0 28 36"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("shrink-0", className)}
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={isLight ? "/brand/logo-mark-light.png" : "/brand/logo-mark-dark.png"}
+      alt=""
+      width={896}
+      height={640}
+      className={cn("shrink-0 object-contain", className)}
       aria-hidden="true"
-    >
-      <rect x="1" y="10" width="3.5" height="26" rx="0.5" fill="currentColor" />
-      <rect x="7" y="6" width="3.5" height="30" rx="0.5" fill="currentColor" />
-      <rect x="13" y="14" width="3.5" height="22" rx="0.5" fill="currentColor" />
-      <rect x="19" y="2" width="3.5" height="34" rx="0.5" fill="currentColor" />
-      <rect x="25" y="8" width="2" height="28" rx="0.5" fill="currentColor" opacity="0.6" />
-    </svg>
+    />
   );
 }
 
@@ -41,12 +43,8 @@ export function Logo({
       aria-label={`${siteConfig.name} — početna stranica`}
     >
       <OrganMark
-        className={cn(
-          "h-9 w-7 transition-colors md:h-10 md:w-8",
-          isLight
-            ? "text-gold group-hover:text-text-light"
-            : "text-bronze group-hover:text-text-dark",
-        )}
+        isLight={isLight}
+        className="h-10 w-14 transition-opacity group-hover:opacity-80 md:h-12 md:w-16"
       />
       <span className="flex flex-col gap-0.5">
         <span

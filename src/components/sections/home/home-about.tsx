@@ -42,13 +42,16 @@ export function HomeAbout() {
 
         <MotionReveal delay={0.15} className="mt-16 md:mt-20">
           <div className="flex flex-col gap-6 border-t border-border-dark pt-12 md:flex-row md:items-center md:gap-10">
-            <div
-              className="flex h-20 w-20 shrink-0 items-center justify-center rounded-sm border border-gold/30 bg-surface-elevated"
-              aria-hidden="true"
-            >
-              <span className="font-heading text-2xl font-medium tracking-wider text-gold">
-                AK
-              </span>
+            <div className="relative h-28 w-40 shrink-0 overflow-hidden rounded-sm border border-gold/30">
+              {alenProfile.portrait ? (
+                <SiteImage
+                  image={alenProfile.portrait}
+                  fill
+                  sizes="160px"
+                  className="absolute inset-0"
+                  showTemporaryBadge={false}
+                />
+              ) : null}
             </div>
             <div className="max-w-2xl">
               <p className="font-heading text-xl font-medium text-text-light md:text-2xl">
@@ -60,6 +63,12 @@ export function HomeAbout() {
               <p className="mt-4 text-sm leading-relaxed md:text-base">
                 {alenProfile.shortBio}
               </p>
+              <Link
+                href="/o-nama#o-meni"
+                className="mt-4 inline-block font-body text-xs font-medium uppercase tracking-[0.15em] text-gold transition-colors hover:text-text-light"
+              >
+                Više o meni →
+              </Link>
             </div>
           </div>
         </MotionReveal>

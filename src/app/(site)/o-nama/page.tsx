@@ -99,46 +99,51 @@ export default function AboutPage() {
         </div>
       </ContentSection>
 
-      <section className="section-padding bg-surface">
+      <section
+        id="o-meni"
+        className="section-padding scroll-mt-20 bg-surface"
+      >
         <div className="container-site">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <MotionReveal>
-              <div className="relative">
-                <span
-                  className="pointer-events-none absolute -left-4 top-0 font-heading text-[8rem] font-medium leading-none text-gold/10 md:-left-8 md:text-[12rem]"
-                  aria-hidden="true"
-                >
-                  AK
-                </span>
-                <div className="relative border-l border-gold/40 pl-8 md:pl-12">
-                  <p className="eyebrow mb-4">{profile.eyebrow}</p>
-                  <h2 className="text-balance text-3xl md:text-4xl lg:text-5xl">
-                    {profile.title}
-                  </h2>
-                  <p className="mt-2 font-body text-sm uppercase tracking-[0.15em] text-gold">
-                    {profile.role}
-                  </p>
-                  <div className="mt-6 space-y-4 text-base md:mt-8 md:text-lg">
-                    <p>{profile.paragraphs[0]}</p>
-                    <p className="text-text-muted">{profile.paragraphs[1]}</p>
-                  </div>
+              <figure>
+                <div className="relative aspect-[3/2] overflow-hidden rounded-sm border border-border-dark">
+                  <SiteImage
+                    image={profile.image}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="absolute inset-0"
+                    showTemporaryBadge={false}
+                  />
                 </div>
-              </div>
+                {profile.image.credit ? (
+                  <figcaption className="mt-2 font-body text-xs text-text-muted/80">
+                    {profile.image.credit}
+                  </figcaption>
+                ) : null}
+              </figure>
             </MotionReveal>
 
             <MotionReveal delay={0.1}>
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <SiteImage
-                  image={profile.image}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="absolute inset-0"
-                  objectPosition="center 30%"
-                />
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-surface/60 to-transparent"
-                  aria-hidden="true"
-                />
+              <div className="border-l border-gold/40 pl-8 md:pl-12">
+                <p className="eyebrow mb-4">{profile.eyebrow}</p>
+                <h2 className="text-balance text-3xl md:text-4xl lg:text-5xl">
+                  {profile.title}
+                </h2>
+                <p className="mt-2 font-body text-sm uppercase tracking-[0.15em] text-gold">
+                  {profile.role}
+                </p>
+                <div className="mt-6 space-y-4 text-base text-text-muted md:mt-8 md:text-lg">
+                  {profile.paragraphs.map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                  ))}
+                </div>
+                <Link
+                  href={profile.link.href}
+                  className="mt-6 inline-block font-body text-xs font-medium uppercase tracking-[0.15em] text-gold transition-colors hover:text-text-light"
+                >
+                  {profile.link.label} →
+                </Link>
               </div>
             </MotionReveal>
           </div>

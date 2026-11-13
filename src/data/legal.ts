@@ -58,7 +58,7 @@ export const privacyPolicy = {
       bullets: [
         "ovlaštene osobe Orguljarstva Kvaternik",
         "pružatelj hostinga web-stranice",
-        "Resend kao tehnički pružatelj slanja e-pošte",
+        "tehnički pružatelj slanja poruka s kontaktne forme (Web3Forms ili Resend)",
         "drugi tehnički pružatelji samo ako su potrebni za rad i sigurnost stranice",
       ],
     },

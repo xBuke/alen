@@ -1,4 +1,4 @@
-import { officialImages } from "@/data/site";
+import { alenPortrait, officialImages } from "@/data/site";
 import { services } from "@/data/services";
 import type { ProcessStep } from "@/data/home";
 
@@ -14,7 +14,7 @@ export const aboutPage = {
       "Poštovanje instrumenta. Preciznost izvedbe. Odgovornost prema zvuku.",
     description:
       "Orguljarstvo povezuje glazbu, mehaniku, materijale, arhitekturu i prostor u jedinstvenu cjelinu.",
-    image: officialImages.construction,
+    image: officialImages.hero,
     breadcrumbLabel: "O nama",
   },
   workshop: {
@@ -63,14 +63,20 @@ export const aboutPage = {
     ],
   },
   profile: {
-    eyebrow: "OSOBA IZA RADIONICE",
+    eyebrow: "O MENI",
     title: "Alen Kvaternik",
-    role: "Orguljarstvo Kvaternik",
+    role: "Graditelj orgulja · Orguljarstvo Kvaternik",
     paragraphs: [
-      "Alen Kvaternik stoji iza Orguljarstva Kvaternik i kontakta za nove projekte, servis i restauraciju orgulja.",
-      "U radu je naglasak na razumijevanju instrumenta kao cjeline, preciznoj izvedbi i usklađivanju tehničkog rješenja sa zvukom i prostorom.",
+      "Zovem se Alen Kvaternik i gradim orgulje. Tim se poslom bavim od 2001. godine, a danas vodim Orguljarstvo Kvaternik u Draganovcu kraj Koprivnice.",
+      "U radionici gradimo nove orgulje po klasičnom mehaničkom sustavu, obnavljamo stare instrumente i ugrađujemo digitalnu elektromagnetsku trakturu. Radili smo na orguljama u župnim crkvama, kapelama i katedralama diljem Hrvatske i u susjednim zemljama.",
+      "Najviše volim trenutak na kraju posla, kad se instrument prvi put oglasi u prostoru za koji je građen. Tada se vidi je li sve prije toga, od mijeha do zadnje svirale, napravljeno kako treba.",
+      "Osim crkvenih orgulja, radio sam i na jednom posve drukčijem instrumentu. U našoj su radionici izrađene svirale za vjetroorgulje na brdu Trovro iznad Rogotina, koje je zamislio inženjer Željko Škorić iz Ploča.",
     ],
-    image: officialImages.service,
+    image: alenPortrait,
+    link: {
+      label: "Priča o vjetroorguljama",
+      href: "/blog/vjetroorgulje-na-trovru",
+    },
   },
   process: {
     eyebrow: "NAČIN RADA",

@@ -22,72 +22,71 @@ export const siteConfig = {
   },
 } as const;
 
+/**
+ * Fotografije iz arhive Orguljarstva Kvaternik (mapa "slike za letak" i
+ * "Orguljarstvo slike"). Zamijenile su ranije privremene stock fotografije.
+ * Naziv `officialImages` zadržan je radi postojećih importa.
+ */
 export const officialImages = {
   hero: {
-    src: "https://orguljarstvo-kvaternik.hr/wp-content/uploads/2025/03/mark-foster-_TWQ7o8v4zU-unsplash-Copy.jpg",
-    alt: "Orgulje u sakralnom prostoru",
-    sourcePage: officialSource,
-    status: "official-site-stock",
-    usedOnCurrentOfficialSite: true,
-    verifiedAsKvaternikProject: false,
-    temporary: true,
-    width: 1920,
-    height: 1080,
+    src: "/images/orguljarstvo/reference/ploce-prospekt.webp",
+    alt: "Prospekt orgulja sa sviralama i drvenim kućištem",
+    status: "verified-original",
+    temporary: false,
+    width: 1800,
+    height: 1200,
   },
   construction: {
-    src: "https://orguljarstvo-kvaternik.hr/wp-content/uploads/2025/03/pipe-organ-669589_1280-1024x678.jpg",
-    alt: "Drveni sviraonik orgulja s više manuala i registrima",
-    sourcePage: officialSource,
-    status: "official-site-stock",
-    usedOnCurrentOfficialSite: true,
-    verifiedAsKvaternikProject: false,
-    temporary: true,
-    width: 1024,
-    height: 678,
+    src: "/images/orguljarstvo/reference/donja-velika.webp",
+    alt: "Orgulje u svijetlom drvenom kućištu s rezbarenim prospektom",
+    status: "verified-original",
+    temporary: false,
+    width: 1350,
+    height: 1800,
   },
   service: {
-    src: "https://orguljarstvo-kvaternik.hr/wp-content/uploads/2025/03/pipe-organ-2297819_1280-1024x768.jpg",
-    alt: "Detalj metalnih orguljskih cijevi",
-    sourcePage: officialSource,
-    status: "official-site-stock",
-    usedOnCurrentOfficialSite: true,
-    verifiedAsKvaternikProject: false,
-    temporary: true,
-    width: 1024,
-    height: 768,
+    src: "/images/orguljarstvo/reference/ploce-svirale.webp",
+    alt: "Detalj metalnih svirala u unutrašnjosti orgulja",
+    status: "verified-original",
+    temporary: false,
+    width: 1800,
+    height: 1200,
   },
   restoration: {
-    src: "https://orguljarstvo-kvaternik.hr/wp-content/uploads/2025/03/denny-muller-zBRE_VEnY_E-unsplash.jpg",
-    alt: "Manuali drvenog orguljskog sviraonika",
-    sourcePage: officialSource,
-    status: "official-site-stock",
-    usedOnCurrentOfficialSite: true,
-    verifiedAsKvaternikProject: false,
-    temporary: true,
-    width: 1368,
-    height: 912,
+    src: "/images/orguljarstvo/prije-poslije/fonicki-fundus-poslije-popravka.webp",
+    alt: "Svirale orgulja nakon popravka i čišćenja",
+    status: "verified-original",
+    temporary: false,
+    width: 1800,
+    height: 1350,
   },
   contactBackground: {
-    src: "https://orguljarstvo-kvaternik.hr/wp-content/uploads/2025/03/josh-applegate-0FtwZMrMJAo-unsplash.jpg",
-    alt: "Unutrašnjost sakralnog prostora",
-    sourcePage: officialSource,
-    status: "official-site-stock",
-    usedOnCurrentOfficialSite: true,
-    verifiedAsKvaternikProject: false,
-    temporary: true,
-    width: 1920,
-    height: 1080,
+    src: "/images/orguljarstvo/reference/mace.webp",
+    alt: "Orgulje na koru crkve",
+    status: "verified-original",
+    temporary: false,
+    width: 1800,
+    height: 1200,
   },
 } satisfies Record<string, ImageAsset>;
 
+export const alenPortrait: ImageAsset = {
+  src: "/images/orguljarstvo/alen/alen-kvaternik.webp",
+  alt: "Alen Kvaternik u radionici među orguljskim sviralama",
+  credit: "Foto: Ivan Balija / ePodravina.hr",
+  sourcePage: "https://epodravina.hr/",
+  status: "pending-verification",
+  temporary: false,
+  width: 1620,
+  height: 1080,
+};
+
 export const alenProfile = {
   name: "Alen Kvaternik",
-  role: "Orguljarstvo Kvaternik",
-  portrait: null as ImageAsset | null,
+  role: "Graditelj orgulja",
+  portrait: alenPortrait as ImageAsset | null,
   shortBio:
-    "Alen Kvaternik stoji iza Orguljarstva Kvaternik i kontakta za nove projekte, servis i restauraciju orgulja.",
-  verificationNote:
-    "Biografske podatke, obrazovanje i stručni put potrebno je potvrditi prije objave.",
+    "Orguljama se bavim od 2001. godine. U radionici u Draganovcu kraj Koprivnice gradim nove instrumente, obnavljam stare i brinem se da orgulje po našim crkvama sviraju onako kako trebaju.",
 } as const;
 
 export const navigation = {
@@ -99,6 +98,7 @@ export const navigation = {
     { label: "Usluge", href: "/usluge" },
     { label: "Projekti", href: "/projekti" },
     { label: "Galerija", href: "/galerija" },
+    { label: "Blog", href: "/blog" },
     { label: "Kontakt", href: "/kontakt" },
   ],
   legal: [
@@ -131,6 +131,7 @@ export const footerContent = {
     { label: "Usluge", href: "/usluge" },
     { label: "Projekti", href: "/projekti" },
     { label: "Galerija", href: "/galerija" },
+    { label: "Blog", href: "/blog" },
     { label: "Polovne orgulje", href: "/polovne-orgulje" },
     { label: "Kontakt", href: "/kontakt" },
   ],

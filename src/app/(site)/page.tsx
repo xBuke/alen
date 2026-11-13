@@ -1,4 +1,5 @@
 import { HomeAbout } from "@/components/sections/home/home-about";
+import { HomeBlog } from "@/components/sections/home/home-blog";
 import { HomeContactCta } from "@/components/sections/home/home-contact-cta";
 import { HomeHero } from "@/components/sections/home/home-hero";
 import { HomeIntro } from "@/components/sections/home/home-intro";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <HomeAbout />
       <HomeWorkAreas />
       <HomeProcess />
+      <HomeBlog />
       <HomeUsedOrgans />
       <HomeQuote />
       <HomeContactCta />

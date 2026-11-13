@@ -1,7 +1,38 @@
 import { generatedGalleryAlbums } from "@/data/generated/gallery-generated";
+import { referencePhotos } from "@/data/reference-album";
 import type { GalleryAlbum, GalleryItem } from "@/types";
 
-export const galleryAlbums: GalleryAlbum[] = generatedGalleryAlbums.map(
+const referenceAlbum: GalleryAlbum = (() => {
+  const items: GalleryItem[] = referencePhotos.map((photo, index) => ({
+    id: `reference-${index + 1}`,
+    albumSlug: "reference",
+    category: "orgulje",
+    title: photo.title,
+    alt: `Orgulje — ${photo.title}`,
+    caption: photo.title,
+    verifiedAsKvaternikProject: true,
+    image: {
+      src: photo.src,
+      alt: `Orgulje — ${photo.title}`,
+      width: photo.width,
+      height: photo.height,
+      status: "verified-original",
+      temporary: false,
+      verifiedAsKvaternikProject: true,
+    },
+  }));
+
+  return {
+    slug: "reference",
+    title: "Reference",
+    description: "Po jedna fotografija s lokacija na kojima smo radili.",
+    coverImage: items[0].image,
+    photoCount: items.length,
+    items,
+  };
+})();
+
+const locationAlbums: GalleryAlbum[] = generatedGalleryAlbums.map(
   (album) => {
     const items: GalleryItem[] = album.images.map((image) => ({
       id: image.id,
@@ -34,6 +65,11 @@ export const galleryAlbums: GalleryAlbum[] = generatedGalleryAlbums.map(
     };
   },
 );
+
+export const galleryAlbums: GalleryAlbum[] = [
+  referenceAlbum,
+  ...locationAlbums,
+];
 
 /** Flat list for lightbox / legacy helpers. */
 export const galleryItems: GalleryItem[] = galleryAlbums.flatMap(
