@@ -100,9 +100,23 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-border-dark pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="font-body text-xs text-text-muted">
-            © {currentYear} {siteConfig.name}. Sva prava pridržana.
-          </p>
+          <div className="space-y-1 font-body text-xs text-text-muted">
+            <p>
+              © {currentYear} {siteConfig.name}. Sva prava pridržana.
+            </p>
+            <p>
+              Izrada i održavanje stranice:{" "}
+              <a
+                href="https://mangai.hr"
+                target="_blank"
+                rel="noopener"
+                className="text-text-light underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold focus-visible:text-gold"
+              >
+                mangai.hr
+              </a>
+              . Dizajn i kod © {currentYear} Mangai. Sva prava pridržana.
+            </p>
+          </div>
           <div className="flex flex-wrap gap-4">
             {navigation.legal.map((link) => (
               <Link
