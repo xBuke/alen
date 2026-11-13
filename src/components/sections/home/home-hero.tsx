@@ -36,8 +36,8 @@ export function HomeHero() {
 
         <div className="relative h-[46svh] min-h-[280px] lg:col-span-7 lg:h-[80svh]">
           <PipeProspect image={heroContent.image.src} />
-          <p className="hero-hint pointer-events-none absolute -top-7 right-0 hidden font-heading text-sm italic text-text-muted md:block">
-            Dotaknite sviralu.
+          <p className="hero-hint pointer-events-none absolute -top-7 right-0 font-heading text-sm italic text-text-muted">
+            Dotaknite svirale.
           </p>
         </div>
       </Container>

@@ -218,6 +218,7 @@
     gap: var(--g);
     align-items: end;
     height: 100%;
+    touch-action: pan-y;
   }
 
   .pipe {
