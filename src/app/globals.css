@@ -322,8 +322,90 @@
     animation-delay: 0.24s;
   }
 
-  .hero-hint {
-    animation: hero-in 1s ease 1.6s both;
+  /* Poziv na sviranje iznad svirala */
+  .prospect {
+    position: relative;
+  }
+
+  .prospect-hint {
+    position: absolute;
+    top: -2.9rem;
+    left: 0;
+    z-index: 2;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem 0.6rem 0.8rem;
+    border: 1px solid rgba(179, 138, 90, 0.7);
+    border-radius: 999px;
+    background: rgba(11, 11, 12, 0.72);
+    backdrop-filter: blur(6px);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--color-text-light);
+    pointer-events: none;
+    animation: hero-in 0.9s ease 1.5s both;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .prospect-hint.is-done {
+    opacity: 0 !important;
+    transform: translateY(-6px);
+  }
+
+  .prospect-hint-dot {
+    position: relative;
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-gold);
+  }
+
+  .prospect-hint-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid var(--color-gold);
+    animation: hint-pulse 1.8s ease-out infinite;
+  }
+
+  .prospect-hint-mouse {
+    display: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .prospect-hint-touch {
+      display: none;
+    }
+
+    .prospect-hint-mouse {
+      display: inline;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .prospect-hint {
+      top: 5%;
+      font-size: 0.9375rem;
+    }
+  }
+
+  @keyframes hint-pulse {
+    from {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    to {
+      transform: scale(3.2);
+      opacity: 0;
+    }
   }
 
   @keyframes pipe-rise {

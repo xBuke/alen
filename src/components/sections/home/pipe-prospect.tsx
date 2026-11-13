@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useRef,
+  useState,
   type CSSProperties,
   type TouchEvent,
 } from "react";
@@ -28,6 +29,8 @@ export function PipeProspect({ image }: { image: string }) {
   const contextRef = useRef<AudioContext | null>(null);
   const touchRef = useRef(false);
   const lastTouchedRef = useRef<Element | null>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const [played, setPlayed] = useState(false);
 
   /** Stvara (po potrebi) i budi AudioContext. Smije se zvati bilo kada. */
   const wake = useCallback(() => {
@@ -58,8 +61,38 @@ export function PipeProspect({ image }: { image: string }) {
       events.forEach((name) => window.removeEventListener(name, unlock));
   }, [wake]);
 
+  // Dok nitko nije zasvirao, svirale se povremeno tiho zanjišu u valu
+  // kako bi bilo jasno da se s njima može nešto raditi.
+  useEffect(() => {
+    if (played) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const timers: number[] = [];
+    const wave = () => {
+      const pipes = rootRef.current?.querySelectorAll("[data-pipe]");
+      pipes?.forEach((pipe, index) => {
+        timers.push(
+          window.setTimeout(() => {
+            pipe.classList.remove("is-sounding");
+            void (pipe as HTMLElement).offsetWidth;
+            pipe.classList.add("is-sounding");
+          }, index * 70),
+        );
+      });
+    };
+
+    const first = window.setTimeout(wave, 2600);
+    const loop = window.setInterval(wave, 6000);
+    return () => {
+      window.clearTimeout(first);
+      window.clearInterval(loop);
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
+  }, [played]);
+
   const sound = useCallback(
     (index: number, element: Element) => {
+      setPlayed(true);
       element.classList.remove("is-sounding");
       // Ponovno pokretanje CSS animacije.
       void (element as HTMLElement).offsetWidth;
@@ -115,6 +148,7 @@ export function PipeProspect({ image }: { image: string }) {
 
   return (
     <div
+      ref={rootRef}
       className="prospect"
       onTouchMove={handleTouchMove}
       onTouchEnd={() => {
@@ -161,6 +195,18 @@ export function PipeProspect({ image }: { image: string }) {
           </span>
         </button>
       ))}
+      <p
+        className={played ? "prospect-hint is-done" : "prospect-hint"}
+        aria-hidden="true"
+      >
+        <span className="prospect-hint-dot" />
+        <span className="prospect-hint-touch">
+          Dotaknite svirale i zasvirajte
+        </span>
+        <span className="prospect-hint-mouse">
+          Prijeđite mišem i zasvirajte
+        </span>
+      </p>
     </div>
   );
 }

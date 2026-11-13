@@ -34,11 +34,8 @@ export function HomeHero() {
           </div>
         </div>
 
-        <div className="relative h-[46svh] min-h-[280px] lg:col-span-7 lg:h-[80svh]">
+        <div className="relative mt-8 h-[46svh] min-h-[280px] lg:col-span-7 lg:mt-0 lg:h-[80svh]">
           <PipeProspect image={heroContent.image.src} />
-          <p className="hero-hint pointer-events-none absolute -top-7 right-0 font-heading text-sm italic text-text-muted">
-            Dotaknite svirale.
-          </p>
         </div>
       </Container>
       <div className="hero-chest" aria-hidden="true" />
