@@ -96,7 +96,6 @@ export const navigation = {
     { label: "Orgulje", href: "/orgulje" },
     { label: "Polovne orgulje", href: "/polovne-orgulje" },
     { label: "Usluge", href: "/usluge" },
-    { label: "Projekti", href: "/projekti" },
     { label: "Galerija", href: "/galerija" },
     { label: "Blog", href: "/blog" },
     { label: "Kontakt", href: "/kontakt" },
@@ -129,16 +128,9 @@ export const footerContent = {
   quickLinks: [
     { label: "O nama", href: "/o-nama" },
     { label: "Usluge", href: "/usluge" },
-    { label: "Projekti", href: "/projekti" },
     { label: "Galerija", href: "/galerija" },
     { label: "Blog", href: "/blog" },
     { label: "Polovne orgulje", href: "/polovne-orgulje" },
     { label: "Kontakt", href: "/kontakt" },
   ],
-} as const;
-
-export const projectsEmptyState = {
-  title: "Odabrani projekti uskoro će biti predstavljeni.",
-  description:
-    "Radovi Orguljarstva Kvaternik bit će objavljeni nakon potvrde podataka i fotografija.",
 } as const;

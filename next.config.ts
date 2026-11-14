@@ -21,13 +21,11 @@ const nextConfig: NextConfig = {
     ],
   },
   async redirects() {
-    // Uklonjeni projekti (studeni 2026.) — stari linkovi vode na popis.
-    const removed = ["varazdin-katedrala", "pula-sv-anton", "pozega-katedrala"];
-    return removed.map((slug) => ({
-      source: `/projekti/${slug}`,
-      destination: "/projekti",
-      permanent: false,
-    }));
+    // Sekcija Projekti uklonjena (studeni 2026.) — stari linkovi vode na galeriju.
+    return [
+      { source: "/projekti", destination: "/galerija", permanent: true },
+      { source: "/projekti/:path*", destination: "/galerija", permanent: true },
+    ];
   },
   async headers() {
     return [

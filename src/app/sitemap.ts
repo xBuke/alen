@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 
 import { blogPosts } from "@/data/blog";
-import { getPublishedProjectSlugs } from "@/lib/projects";
 import { getAbsoluteUrl } from "@/lib/site-url";
 
 const staticRoutes = [
@@ -10,7 +9,6 @@ const staticRoutes = [
   "/orgulje",
   "/polovne-orgulje",
   "/usluge",
-  "/projekti",
   "/galerija",
   "/blog",
   "/kontakt",
@@ -25,14 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "/" ? 1 : 0.7,
   }));
 
-  const projectEntries: MetadataRoute.Sitemap = getPublishedProjectSlugs().map(
-    (slug) => ({
-      url: getAbsoluteUrl(`/projekti/${slug}`),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    }),
-  );
-
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: getAbsoluteUrl(`/blog/${post.slug}`),
     lastModified: post.date,
@@ -40,5 +30,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...projectEntries, ...blogEntries];
+  return [...staticEntries, ...blogEntries];
 }
