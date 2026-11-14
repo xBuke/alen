@@ -2,14 +2,20 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 import { LEGAL_REVIEW_REQUIRED } from "@/data/legal";
+import type { Locale } from "@/i18n/config";
+import { getUi } from "@/i18n/ui";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
 type LegalReviewBadgeProps = {
   className?: string;
+  locale?: Locale;
 };
 
-export function LegalReviewBadge({ className }: LegalReviewBadgeProps) {
+export function LegalReviewBadge({
+  className,
+  locale = "hr",
+}: LegalReviewBadgeProps) {
   if (!isDevelopment || !LEGAL_REVIEW_REQUIRED) {
     return null;
   }
@@ -21,7 +27,7 @@ export function LegalReviewBadge({ className }: LegalReviewBadgeProps) {
         className,
       )}
     >
-      Potreban pravni pregled prije produkcijske objave
+      {getUi(locale).legal.reviewBadge}
     </p>
   );
 }

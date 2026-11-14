@@ -3,16 +3,21 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
-import { homeWorkAreas } from "@/data/home";
+import { getHome } from "@/content";
+import { localizePath, type Locale } from "@/i18n/config";
+import { getUi } from "@/i18n/ui";
 
 /** Četiri visoke pločice, proporcijama nalik sviralama u prospektu. */
-export function HomeWorkAreas() {
+export function HomeWorkAreas({ locale = "hr" }: { locale?: Locale }) {
+  const homeWorkAreas = getHome(locale).workAreas;
+  const t = getUi(locale);
+
   return (
     <section className="section-padding bg-surface">
       <Container>
         <MotionReveal>
           <h2 className="mb-12 max-w-2xl text-balance text-3xl md:mb-16 md:text-5xl">
-            Područja našeg rada
+            {t.home.workAreasTitle}
           </h2>
         </MotionReveal>
 
@@ -24,7 +29,7 @@ export function HomeWorkAreas() {
               className={index % 2 === 1 ? "lg:pb-10" : undefined}
             >
               <Link
-                href={area.href}
+                href={localizePath(area.href, locale)}
                 className="group relative block aspect-[3/4] overflow-hidden rounded-t-[999px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold lg:aspect-[9/16]"
               >
                 <SiteImage

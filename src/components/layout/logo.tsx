@@ -1,12 +1,15 @@
 import Link from "next/link";
 
 import { siteConfig } from "@/data/site";
+import { localizePath, type Locale } from "@/i18n/config";
+import { getUi } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
   className?: string;
   variant?: "light" | "dark";
   showLocation?: boolean;
+  locale?: Locale;
 };
 
 function OrganMark({
@@ -33,14 +36,16 @@ export function Logo({
   className,
   variant = "light",
   showLocation = true,
+  locale = "hr",
 }: LogoProps) {
   const isLight = variant === "light";
+  const t = getUi(locale);
 
   return (
     <Link
-      href="/"
+      href={localizePath("/", locale)}
       className={cn("group inline-flex items-center gap-3", className)}
-      aria-label={`${siteConfig.name} — početna stranica`}
+      aria-label={`${siteConfig.name} — ${t.nav.homeAria}`}
     >
       <OrganMark
         isLight={isLight}
@@ -64,7 +69,7 @@ export function Logo({
               isLight ? "text-text-muted" : "text-text-dark/60",
             )}
           >
-            Draganovec
+            {t.logoLocation}
           </span>
         ) : null}
       </span>

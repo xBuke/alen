@@ -4,10 +4,15 @@ import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
 import { Button } from "@/components/ui/button";
-import { homeAbout } from "@/data/home";
-import { alenProfile } from "@/data/site";
+import { getAlenProfile, getHome } from "@/content";
+import { localizePath, type Locale } from "@/i18n/config";
+import { getUi } from "@/i18n/ui";
 
-export function HomeAbout() {
+export function HomeAbout({ locale = "hr" }: { locale?: Locale }) {
+  const homeAbout = getHome(locale).about;
+  const alenProfile = getAlenProfile(locale);
+  const t = getUi(locale);
+
   return (
     <section className="section-padding bg-background">
       <Container>
@@ -34,7 +39,7 @@ export function HomeAbout() {
                 {homeAbout.description}
               </p>
               <Button asChild variant="secondary" className="mt-8 ">
-                <Link href={homeAbout.cta.href}>{homeAbout.cta.label}</Link>
+                <Link href={localizePath(homeAbout.cta.href, locale)}>{homeAbout.cta.label}</Link>
               </Button>
             </div>
           </MotionReveal>
@@ -64,10 +69,10 @@ export function HomeAbout() {
                 {alenProfile.shortBio}
               </p>
               <Link
-                href="/o-nama#o-meni"
+                href={localizePath("/o-nama#o-meni", locale)}
                 className="mt-4 inline-block font-body text-xs font-medium uppercase tracking-[0.15em] text-gold transition-colors hover:text-text-light"
               >
-                Više o Alenu
+                {t.home.moreAboutAlen}
               </Link>
             </div>
           </div>

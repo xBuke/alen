@@ -1,10 +1,15 @@
+import { localizePath, type Locale } from "@/i18n/config";
 import { getAbsoluteUrl } from "@/lib/site-url";
 
 type BreadcrumbJsonLdProps = {
   items: { label: string; href: string }[];
+  locale?: Locale;
 };
 
-export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
+export function BreadcrumbJsonLd({
+  items,
+  locale = "hr",
+}: BreadcrumbJsonLdProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -12,7 +17,7 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      item: getAbsoluteUrl(item.href),
+      item: getAbsoluteUrl(localizePath(item.href, locale)),
     })),
   };
 

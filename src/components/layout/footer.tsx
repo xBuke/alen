@@ -3,39 +3,43 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
 import { PipeRule } from "@/components/media/pipe-rule";
-import { footerContent, navigation, siteConfig } from "@/data/site";
-import { services } from "@/data/services";
+import { getServices, getSiteConfig } from "@/content";
+import { localizePath, type Locale } from "@/i18n/config";
+import { getUi } from "@/i18n/ui";
 
-export function Footer() {
+export function Footer({ locale = "hr" }: { locale?: Locale }) {
   const currentYear = new Date().getFullYear();
+  const t = getUi(locale);
+  const siteConfig = getSiteConfig(locale);
+  const services = getServices(locale);
 
   return (
     <footer className="border-t border-border-dark bg-surface">
       <Container className="section-padding">
         <div className="mb-14 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <p className="max-w-3xl text-balance font-heading text-3xl italic leading-tight text-text-light md:text-5xl">
-            {footerContent.statement}
+            {t.footer.statement}
           </p>
           <PipeRule className="h-20 shrink-0" />
         </div>
 
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="space-y-4 lg:col-span-4">
-            <Logo />
+            <Logo locale={locale} />
             <p className="max-w-sm text-sm leading-relaxed text-text-muted">
-              {footerContent.description}
+              {t.footer.description}
             </p>
           </div>
 
           <div className="lg:col-span-2">
             <h3 className="mb-4 font-heading text-base italic text-gold">
-              Navigacija
+              {t.footer.navigation}
             </h3>
             <ul className="space-y-2">
-              {footerContent.quickLinks.map((link) => (
+              {t.footer.quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={localizePath(link.href, locale)}
                     className="font-body text-sm text-text-muted transition-colors hover:text-gold focus-visible:text-gold"
                   >
                     {link.label}
@@ -47,13 +51,13 @@ export function Footer() {
 
           <div className="lg:col-span-3">
             <h3 className="mb-4 font-heading text-base italic text-gold">
-              Usluge
+              {t.footer.services}
             </h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link
-                    href={`/usluge#${service.slug}`}
+                    href={localizePath(`/usluge#${service.slug}`, locale)}
                     className="block text-balance font-body text-sm text-text-muted transition-colors hover:text-gold focus-visible:text-gold"
                   >
                     {service.title}
@@ -65,7 +69,7 @@ export function Footer() {
 
           <div className="lg:col-span-3">
             <h3 className="mb-4 font-heading text-base italic text-gold">
-              Kontakt
+              {t.footer.contact}
             </h3>
             <ul className="space-y-2 font-body text-sm text-text-muted">
               <li>
@@ -101,13 +105,13 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-border-dark pt-8 md:flex-row md:items-center md:justify-between">
           <p className="font-body text-xs text-text-muted">
-            © {currentYear} {siteConfig.name}. Sva prava pridržana.
+            © {currentYear} {siteConfig.name}. {t.footer.rights}
           </p>
           <div className="flex flex-wrap gap-4">
-            {navigation.legal.map((link) => (
+            {t.nav.legal.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={localizePath(link.href, locale)}
                 className="font-body text-xs text-text-muted transition-colors hover:text-gold focus-visible:text-gold"
               >
                 {link.label}
@@ -120,7 +124,7 @@ export function Footer() {
       <div className="border-t border-border-dark bg-background">
         <Container className="flex flex-col items-center gap-2 py-8 text-center">
           <p className="font-body text-sm text-text-muted">
-            Izrada i održavanje stranice
+            {t.footer.madeBy}
           </p>
           <a
             href="https://mangai.hr"
@@ -131,7 +135,7 @@ export function Footer() {
             MangAI.hr
           </a>
           <p className="mt-2 font-body text-xs text-text-muted">
-            Dizajn i kod © {currentYear} MangAI.hr. Sva prava pridržana.
+            {t.footer.designRights} {currentYear} MangAI.hr. {t.footer.rights}
           </p>
         </Container>
       </div>

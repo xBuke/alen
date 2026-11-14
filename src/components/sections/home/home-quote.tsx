@@ -1,9 +1,12 @@
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { PipeRule } from "@/components/media/pipe-rule";
-import { homeQuote } from "@/data/home";
+import { getHome } from "@/content";
+import type { Locale } from "@/i18n/config";
 
-export function HomeQuote() {
+export function HomeQuote({ locale = "hr" }: { locale?: Locale }) {
+  const homeQuote = getHome(locale).quote;
+
   return (
     <section className="bg-background py-24 md:py-36">
       <Container>

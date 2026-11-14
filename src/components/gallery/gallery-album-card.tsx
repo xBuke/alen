@@ -2,6 +2,8 @@
 
 import { SiteImage } from "@/components/media/site-image";
 import type { GalleryAlbum } from "@/types";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
 
 type GalleryAlbumCardProps = {
@@ -17,6 +19,8 @@ export function GalleryAlbumCard({
   className,
   priority = false,
 }: GalleryAlbumCardProps) {
+  const t = getUi(useLocale()).gallery;
+
   return (
     <article className={cn("group", className)}>
       <button
@@ -27,7 +31,7 @@ export function GalleryAlbumCard({
           "transition-colors hover:border-gold/30",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         )}
-        aria-label={`Otvori album: ${album.title}`}
+        aria-label={`${t.openAlbum}: ${album.title}`}
       >
         <div className="relative aspect-[4/3]">
           <SiteImage
@@ -50,10 +54,10 @@ export function GalleryAlbumCard({
             <p className="mt-1 font-body text-xs uppercase tracking-[0.14em] text-gold">
               {album.photoCount}{" "}
               {album.photoCount === 1
-                ? "fotografija"
+                ? t.photoOne
                 : album.photoCount < 5
-                  ? "fotografije"
-                  : "fotografija"}
+                  ? t.photoFew
+                  : t.photoMany}
             </p>
           </div>
         </div>

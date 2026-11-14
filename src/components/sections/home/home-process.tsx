@@ -1,8 +1,11 @@
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
-import { homeProcess } from "@/data/home";
+import { getHome } from "@/content";
+import type { Locale } from "@/i18n/config";
 
-export function HomeProcess() {
+export function HomeProcess({ locale = "hr" }: { locale?: Locale }) {
+  const homeProcess = getHome(locale).process;
+
   return (
     <section className="section-padding bg-ivory">
       <Container>

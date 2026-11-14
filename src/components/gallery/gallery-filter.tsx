@@ -1,6 +1,8 @@
 "use client";
 
-import { galleryAlbumFilters } from "@/data/gallery";
+import { getGalleryFilters } from "@/content";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
 
 type GalleryFilterProps = {
@@ -15,10 +17,13 @@ export function GalleryFilter({
   onCategoryChange,
   className,
 }: GalleryFilterProps) {
+  const locale = useLocale();
+  const galleryAlbumFilters = getGalleryFilters(locale);
+
   return (
     <div
       role="group"
-      aria-label="Filtriraj galeriju po albumu"
+      aria-label={getUi(locale).gallery.filterAria}
       className={cn("flex flex-wrap gap-x-6 gap-y-2", className)}
     >
       {galleryAlbumFilters.map((category) => {

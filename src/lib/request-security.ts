@@ -5,7 +5,21 @@ const LOCAL_DEV_ORIGIN = "http://localhost:3000";
 export const MAX_REQUEST_BODY_BYTES = 20 * 1024;
 
 export function getAllowedOrigins(): string[] {
-  const origins = new Set<string>([getSiteOrigin()]);
+  const siteOrigin = getSiteOrigin();
+  const origins = new Set<string>([siteOrigin]);
+
+  // Stranica je dostupna i s "www" i bez njega; oba su legitimna izvora.
+  try {
+    const url = new URL(siteOrigin);
+    if (url.hostname !== "localhost") {
+      const alternateHost = url.hostname.startsWith("www.")
+        ? url.hostname.slice(4)
+        : `www.${url.hostname}`;
+      origins.add(`${url.protocol}//${alternateHost}${url.port ? `:${url.port}` : ""}`);
+    }
+  } catch {
+    // Neispravan site URL: ostaje samo osnovni origin.
+  }
 
   if (process.env.NODE_ENV === "development") {
     origins.add(LOCAL_DEV_ORIGIN);

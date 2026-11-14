@@ -1,5 +1,8 @@
 "use client";
 
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
+
 import { cn } from "@/lib/utils";
 
 export type AlbumFilterOption = {
@@ -23,7 +26,7 @@ export function GalleryAlbumFilter({
   return (
     <div
       role="group"
-      aria-label="Filtriraj galeriju po albumu"
+      aria-label={getUi(useLocale()).gallery.filterAria}
       className={cn(
         "flex max-w-full flex-wrap gap-x-5 gap-y-2 overflow-x-auto pb-1",
         className,

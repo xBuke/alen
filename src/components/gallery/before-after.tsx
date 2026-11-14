@@ -1,6 +1,8 @@
 import { SiteImage } from "@/components/media/site-image";
 import type { BeforeAfterPair } from "@/data/before-after";
 import type { ImageAsset } from "@/types";
+import { getUi } from "@/i18n/ui";
+import type { Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
 function Frame({
@@ -38,23 +40,27 @@ function Frame({
 export function BeforeAfter({
   pair,
   className,
+  locale = "hr",
 }: {
   pair: BeforeAfterPair;
   className?: string;
+  locale?: Locale;
 }) {
+  const t = getUi(locale).gallery;
+
   return (
     <figure className={cn("not-prose", className)}>
       {pair.combined ? (
         <div className="mx-auto max-w-md">
-          <Frame image={pair.combined} label="Novo i staro" tone="both" />
+          <Frame image={pair.combined} label={t.both} tone="both" />
         </div>
       ) : (
         <div className="grid gap-3 sm:grid-cols-2">
           {pair.before ? (
-            <Frame image={pair.before} label="Prije" tone="before" />
+            <Frame image={pair.before} label={t.before} tone="before" />
           ) : null}
           {pair.after ? (
-            <Frame image={pair.after} label="Poslije" tone="after" />
+            <Frame image={pair.after} label={t.after} tone="after" />
           ) : null}
         </div>
       )}

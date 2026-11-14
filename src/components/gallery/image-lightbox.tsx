@@ -11,6 +11,8 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SiteImage } from "@/components/media/site-image";
 import type { GalleryItem } from "@/types";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
 
 type ImageLightboxProps = {
   items: GalleryItem[];
@@ -28,6 +30,7 @@ export function ImageLightbox({
   onClose,
   onNavigate,
 }: ImageLightboxProps) {
+  const t = getUi(useLocale()).gallery;
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
@@ -169,7 +172,7 @@ export function ImageLightbox({
               "inline-flex h-11 w-11 items-center justify-center rounded-sm border border-border-dark text-text-light transition-colors hover:border-gold hover:text-gold",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             )}
-            aria-label="Zatvori galeriju"
+            aria-label={t.closeGallery}
           >
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
@@ -204,7 +207,7 @@ export function ImageLightbox({
               "absolute left-2 top-1/2 flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-sm border border-border-dark bg-background/80 text-text-light backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:left-4",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             )}
-            aria-label="Prethodna fotografija"
+            aria-label={t.previousPhoto}
           >
             <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" aria-hidden="true" />
           </button>
@@ -218,7 +221,7 @@ export function ImageLightbox({
               "absolute right-2 top-1/2 flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-sm border border-border-dark bg-background/80 text-text-light backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:right-4",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             )}
-            aria-label="Sljedeća fotografija"
+            aria-label={t.nextPhoto}
           >
             <ChevronRight className="h-5 w-5 md:h-6 md:w-6" aria-hidden="true" />
           </button>

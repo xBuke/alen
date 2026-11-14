@@ -44,6 +44,7 @@ export function normalizeContactInput(body: unknown): {
   normalized: ReturnType<typeof sanitizeContactPayload>;
   inquiryType: string;
   privacyAcknowledged: boolean;
+  locale: "hr" | "en";
 } | null {
   if (!body || typeof body !== "object") {
     return null;
@@ -68,5 +69,6 @@ export function normalizeContactInput(body: unknown): {
     normalized,
     inquiryType: typeof raw.inquiryType === "string" ? raw.inquiryType : "",
     privacyAcknowledged: raw.privacyAcknowledged === true,
+    locale: raw.locale === "en" ? "en" : "hr",
   };
 }

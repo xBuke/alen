@@ -4,9 +4,11 @@ import { preload } from "react-dom";
 import { Container } from "@/components/layout/container";
 import { PipeProspect } from "@/components/sections/home/pipe-prospect";
 import { Button } from "@/components/ui/button";
-import { heroContent } from "@/data/site";
+import { getHeroContent } from "@/content";
+import { localizePath, type Locale } from "@/i18n/config";
 
-export function HomeHero() {
+export function HomeHero({ locale = "hr" }: { locale?: Locale }) {
+  const heroContent = getHeroContent(locale);
   preload(heroContent.image.src, { as: "image", fetchPriority: "high" });
 
   return (
@@ -22,12 +24,12 @@ export function HomeHero() {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button asChild size="lg">
-              <Link href={heroContent.primaryCta.href}>
+              <Link href={localizePath(heroContent.primaryCta.href, locale)}>
                 {heroContent.primaryCta.label}
               </Link>
             </Button>
             <Button asChild variant="secondary" size="lg">
-              <Link href={heroContent.secondaryCta.href}>
+              <Link href={localizePath(heroContent.secondaryCta.href, locale)}>
                 {heroContent.secondaryCta.label}
               </Link>
             </Button>
@@ -35,7 +37,7 @@ export function HomeHero() {
         </div>
 
         <div className="relative mt-8 h-[46svh] min-h-[280px] lg:col-span-7 lg:mt-0 lg:h-[80svh]">
-          <PipeProspect image={heroContent.image.src} />
+          <PipeProspect image={heroContent.image.src} locale={locale} />
         </div>
       </Container>
       <div className="hero-chest" aria-hidden="true" />

@@ -1,9 +1,12 @@
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { PipeRule } from "@/components/media/pipe-rule";
-import { homeIntro } from "@/data/home";
+import { getHome } from "@/content";
+import type { Locale } from "@/i18n/config";
 
-export function HomeIntro() {
+export function HomeIntro({ locale = "hr" }: { locale?: Locale }) {
+  const homeIntro = getHome(locale).intro;
+
   return (
     <section className="section-padding bg-background">
       <Container>

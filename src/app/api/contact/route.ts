@@ -1,10 +1,11 @@
 import { randomUUID } from "node:crypto";
 
 import {
-  contactFormSchema,
+  createContactFormSchema,
   inquiryTypeLabels,
   type ContactFormValues,
 } from "@/lib/contact-schema";
+import { getUi } from "@/i18n/ui";
 import {
   buildRateLimitHeaders,
   checkContactRateLimit,
@@ -149,10 +150,10 @@ export async function POST(request: Request) {
       return errorResponse("Neispravan JSON.", 400);
     }
 
+    const t = getUi(extracted.locale).form;
+
     if (extracted.companyWebsite.trim()) {
-      return successResponse(
-        "Hvala na upitu. Vaša poruka je uspješno poslana.",
-      );
+      return successResponse(t.success);
     }
 
     const candidate = {
@@ -162,10 +163,12 @@ export async function POST(request: Request) {
       companyWebsite: "",
     };
 
-    const validation = contactFormSchema.safeParse(candidate);
+    const validation = createContactFormSchema(extracted.locale).safeParse(
+      candidate,
+    );
     if (!validation.success) {
       return errorResponse(
-        "Provjerite unesene podatke.",
+        t.checkData,
         400,
         { fieldErrors: mapFieldErrors(validation.error.issues) },
       );
@@ -181,7 +184,7 @@ export async function POST(request: Request) {
         );
       }
 
-      return errorResponse(SERVICE_UNAVAILABLE_MESSAGE, 503);
+      return errorResponse(t.error, 503);
     }
 
     const resend = getResendClient();
@@ -189,11 +192,13 @@ export async function POST(request: Request) {
     const toEmail = getContactToEmail();
 
     if (!resend || !fromEmail) {
-      return errorResponse(SERVICE_UNAVAILABLE_MESSAGE, 503);
+      return errorResponse(t.error, 503);
     }
 
     const submittedAt = new Date();
-    const pageUrl = getAbsoluteUrl("/kontakt");
+    const pageUrl = getAbsoluteUrl(
+      extracted.locale === "en" ? "/en/contact" : "/kontakt",
+    );
 
     const emailProps = {
       fullName: sanitized.fullName,
@@ -211,7 +216,9 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: toEmail,
       replyTo: sanitized.email,
-      subject: `Novi upit — Orguljarstvo Kvaternik — ${inquiryLabel}`,
+      subject: `Novi upit — Orguljarstvo Kvaternik — ${inquiryLabel}${
+        extracted.locale === "en" ? " (EN)" : ""
+      }`,
       react: ContactEmail(emailProps),
       text: buildContactEmailText(emailProps),
     });
@@ -220,12 +227,10 @@ export async function POST(request: Request) {
       console.error(
         `[contact:${requestId}] Resend error code: ${sendResult.error.name}`,
       );
-      return errorResponse(SERVICE_UNAVAILABLE_MESSAGE, 503);
+      return errorResponse(t.error, 503);
     }
 
-    return successResponse(
-      "Hvala na upitu. Vaša poruka je uspješno poslana.",
-    );
+    return successResponse(t.success);
   } catch {
     console.error(`[contact:${requestId}] Unexpected contact API error.`);
     return errorResponse(SERVICE_UNAVAILABLE_MESSAGE, 500);

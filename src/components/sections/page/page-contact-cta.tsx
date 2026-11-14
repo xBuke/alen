@@ -4,7 +4,8 @@ import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
 import { Button } from "@/components/ui/button";
-import { homeContactCta } from "@/data/home";
+import { getHome } from "@/content";
+import { localizePath, type Locale } from "@/i18n/config";
 import type { ImageAsset } from "@/types";
 
 type PageContactCtaProps = {
@@ -12,14 +13,21 @@ type PageContactCtaProps = {
   description?: string;
   cta?: { label: string; href: string };
   image?: ImageAsset;
+  locale?: Locale;
 };
 
 export function PageContactCta({
-  title = homeContactCta.title,
-  description = homeContactCta.description,
-  cta = homeContactCta.cta,
-  image = homeContactCta.image,
+  locale = "hr",
+  ...overrides
 }: PageContactCtaProps = {}) {
+  const defaults = getHome(locale).contactCta;
+  const {
+    title = defaults.title,
+    description = defaults.description,
+    cta = defaults.cta,
+    image = defaults.image,
+  } = overrides;
+
   return (
     <section className="relative min-h-[28rem] overflow-hidden">
       <SiteImage
@@ -47,7 +55,7 @@ export function PageContactCta({
               {description}
             </p>
             <Button asChild size="lg" className="mt-8 ">
-              <Link href={cta.href}>
+              <Link href={localizePath(cta.href, locale)}>
                 {cta.label}
               </Link>
             </Button>

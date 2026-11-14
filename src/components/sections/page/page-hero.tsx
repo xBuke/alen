@@ -4,6 +4,8 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Container } from "@/components/layout/container";
 import { PipeRule } from "@/components/media/pipe-rule";
 import { SiteImage } from "@/components/media/site-image";
+import { getUi } from "@/i18n/ui";
+import type { Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
 type PageHeroProps = {
@@ -13,6 +15,7 @@ type PageHeroProps = {
   image?: ImageAsset;
   breadcrumbLabel: string;
   className?: string;
+  locale?: Locale;
 };
 
 export function PageHero({
@@ -22,6 +25,7 @@ export function PageHero({
   image,
   breadcrumbLabel,
   className,
+  locale = "hr",
 }: PageHeroProps) {
   const hasImage = Boolean(image);
 
@@ -60,10 +64,11 @@ export function PageHero({
       <Container className="relative z-10 flex flex-1 flex-col justify-end pb-12 pt-28 md:pb-16 md:pt-32">
         <Breadcrumbs
           items={[
-            { label: "Početna", href: "/" },
+            { label: getUi(locale).homeLabel, href: "/" },
             { label: breadcrumbLabel },
           ]}
           className="mb-6 md:mb-8"
+          locale={locale}
         />
 
         {eyebrow ? <p className="eyebrow mb-4 md:mb-5">{eyebrow}</p> : null}

@@ -3,10 +3,13 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
-import { homeServicesSection } from "@/data/home";
-import { services } from "@/data/services";
+import { getHome, getServices } from "@/content";
+import { localizePath, type Locale } from "@/i18n/config";
 
-export function HomeServices() {
+export function HomeServices({ locale = "hr" }: { locale?: Locale }) {
+  const homeServicesSection = getHome(locale).servicesSection;
+  const services = getServices(locale);
+
   return (
     <section className="section-padding bg-ivory">
       <Container>
@@ -30,7 +33,7 @@ export function HomeServices() {
               <MotionReveal key={service.slug} delay={index * 0.04}>
                 <li className="border-t border-border-light last:border-b">
                   <Link
-                    href={`/usluge#${service.slug}`}
+                    href={localizePath(`/usluge#${service.slug}`, locale)}
                     className="group grid grid-cols-[1fr_auto] items-center gap-6 py-7 text-text-dark transition-colors hover:text-bronze focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze md:py-9"
                   >
                     <div>

@@ -8,15 +8,21 @@ import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
 import { Button } from "@/components/ui/button";
-import { desktopNavigation } from "@/data/site";
-import { isNavHrefActive } from "@/lib/navigation";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { localizePath, toHrPath } from "@/i18n/config";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
+import { getDesktopNavItems, isNavHrefActive } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 const SCROLL_THRESHOLD = 32;
 
 export function Navbar() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
+  const pathname = usePathname() ?? "/";
+  const locale = useLocale();
+  const t = getUi(locale);
+  const hrPathname = toHrPath(pathname);
+  const isHome = hrPathname === "/";
   const [scrollY, setScrollY] = useState(0);
 
   const showSolidNav = !isHome || scrollY > SCROLL_THRESHOLD;
@@ -48,19 +54,19 @@ export function Navbar() {
           showSolidNav ? "h-16" : "h-20",
         )}
       >
-        <Logo />
+        <Logo locale={locale} />
 
         <nav
           className="hidden items-center gap-4 lg:flex xl:gap-6 2xl:gap-7"
-          aria-label="Glavna navigacija"
+          aria-label={t.nav.mainAria}
         >
-          {desktopNavigation.map((item) => {
-            const isActive = isNavHrefActive(pathname, item.href);
+          {getDesktopNavItems(locale).map((item) => {
+            const isActive = isNavHrefActive(hrPathname, item.href);
 
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={localizePath(item.href, locale)}
                 className={cn(
                   "relative whitespace-nowrap py-1 font-body text-sm font-medium tracking-wide transition-colors hover:text-text-light",
                   showSolidNav ? "text-text-muted" : "text-text-light/90",
@@ -80,13 +86,14 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <LanguageSwitcher />
           <Button
             asChild
             className="hidden sm:inline-flex"
             size="default"
           >
-            <Link href="/kontakt">Pošaljite upit</Link>
+            <Link href={localizePath("/kontakt", locale)}>{t.sendInquiry}</Link>
           </Button>
           <MobileNavigation
             key={pathname}

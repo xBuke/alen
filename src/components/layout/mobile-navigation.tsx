@@ -15,7 +15,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { siteConfig } from "@/data/site";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { getSiteConfig } from "@/content";
+import { localizePath, toHrPath } from "@/i18n/config";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
 import { getMobileNavItems, isNavHrefActive } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
@@ -24,9 +28,13 @@ type MobileNavigationProps = {
 };
 
 export function MobileNavigation({ transparent = false }: MobileNavigationProps) {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "/";
+  const locale = useLocale();
+  const t = getUi(locale);
+  const siteConfig = getSiteConfig(locale);
+  const hrPathname = toHrPath(pathname);
   const [open, setOpen] = useState(false);
-  const items = useMemo(() => getMobileNavItems(), []);
+  const items = useMemo(() => getMobileNavItems(locale), [locale]);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -40,7 +48,7 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
               ? "text-text-light hover:bg-white/10 hover:text-text-light"
               : "text-text-muted hover:text-text-light",
           )}
-          aria-label="Otvori izbornik"
+          aria-label={t.nav.openMenu}
           aria-expanded={open}
         >
           <Menu className="h-5 w-5" />
@@ -51,21 +59,21 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
         className="flex h-full w-full flex-col border-border-dark bg-background p-0 sm:max-w-md"
       >
         <SheetHeader className="border-b border-border-dark px-6 py-6 text-left">
-          <SheetTitle className="sr-only">Navigacija</SheetTitle>
-          <Logo showLocation={false} />
+          <SheetTitle className="sr-only">{t.nav.menuTitle}</SheetTitle>
+          <Logo showLocation={false} locale={locale} />
         </SheetHeader>
 
         <nav
           className="flex flex-1 flex-col overflow-y-auto px-6 py-8"
-          aria-label="Mobilna navigacija"
+          aria-label={t.nav.mobileAria}
         >
           {items.map((item) => {
-            const isActive = isNavHrefActive(pathname, item.href);
+            const isActive = isNavHrefActive(hrPathname, item.href);
 
             return (
               <SheetClose key={item.href} asChild>
                 <Link
-                  href={item.href}
+                  href={localizePath(item.href, locale)}
                   className={cn(
                     "group flex items-baseline gap-4 border-b border-border-dark py-5 transition-colors",
                     isActive ? "text-gold" : "text-text-light hover:text-gold",
@@ -89,9 +97,10 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
         <div className="mt-auto space-y-6 border-t border-border-dark px-6 py-8">
           <SheetClose asChild>
             <Button asChild className="w-full ">
-              <Link href="/kontakt">Pošaljite upit</Link>
+              <Link href={localizePath("/kontakt", locale)}>{t.sendInquiry}</Link>
             </Button>
           </SheetClose>
+          <LanguageSwitcher />
           <div className="space-y-2 font-body text-sm text-text-muted">
             <a
               href={siteConfig.phoneHref}

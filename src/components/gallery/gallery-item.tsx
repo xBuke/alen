@@ -3,6 +3,8 @@
 import { useState } from "react";
 
 import { SiteImage } from "@/components/media/site-image";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
 import type { GalleryItem } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -20,6 +22,7 @@ export function GalleryItemCard({
   priority = false,
 }: GalleryItemCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
+  const locale = useLocale();
 
   const aspectRatio =
     item.image.width && item.image.height
@@ -55,7 +58,7 @@ export function GalleryItemCard({
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         )}
         style={{ aspectRatio }}
-        aria-label={`Otvori fotografiju: ${item.title}`}
+        aria-label={`${getUi(locale).gallery.openPhoto}: ${item.title}`}
       >
         <SiteImage
           image={item.image}

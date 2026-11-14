@@ -9,7 +9,9 @@ import { GalleryItemCard } from "@/components/gallery/gallery-item";
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { Button } from "@/components/ui/button";
-import { galleryAlbumFilters } from "@/data/gallery";
+import { getGalleryFilters } from "@/content";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
 import type { GalleryAlbum, GalleryItem } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -34,7 +36,9 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const filterOptions = useMemo(() => galleryAlbumFilters, []);
+  const locale = useLocale();
+  const t = getUi(locale).gallery;
+  const filterOptions = useMemo(() => getGalleryFilters(locale), [locale]);
 
   const selectedAlbum = useMemo(
     () => albums.find((album) => album.slug === activeAlbum) ?? null,
@@ -102,7 +106,7 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
         </div>
       ) : albumItems.length === 0 ? (
         <p className="text-center text-text-muted">
-          Nema fotografija u odabranom albumu.
+          {t.noPhotos}
         </p>
       ) : (
         <>
@@ -121,7 +125,7 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
                 onClick={() => handleAlbumChange("sve")}
                 className="font-body text-xs uppercase tracking-[0.14em] text-gold transition-colors hover:text-text-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               >
-                Svi albumi
+                {t.allAlbums}
               </button>
             </div>
           </MotionReveal>
@@ -154,7 +158,7 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
                   setVisibleCount((count) => count + LOAD_MORE_STEP)
                 }
               >
-                Prikaži još
+                {t.showMore}
               </Button>
             </div>
           ) : null}

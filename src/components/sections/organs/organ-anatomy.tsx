@@ -10,6 +10,8 @@ import {
 
 import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
 
 type AnatomyPart = {
@@ -89,6 +91,7 @@ function OrganIllustration({
   onSelect: (id: string) => void;
   groupId: string;
 }) {
+  const diagramTitle = getUi(useLocale()).organs.diagramTitle;
   const numberOf = (id: string) => parts.findIndex((p) => p.id === id) + 1;
 
   const part = (id: string) => ({
@@ -108,8 +111,7 @@ function OrganIllustration({
       strokeLinejoin="round"
     >
       <title id={`${groupId}-title`}>
-        Pojednostavljeni presjek orgulja: kućište, svirale, zračnica, zračni
-        sustav, traktura i sviraonik
+        {diagramTitle}
       </title>
 
       {/* Pod */}
@@ -389,6 +391,7 @@ function MobileAccordion({
 }
 
 export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
+  const partsAria = getUi(useLocale()).organs.partsAria;
   const baseId = useId();
   const tabListRef = useRef<HTMLDivElement>(null);
   const [activeId, setActiveId] = useState(parts[0]?.id ?? "");
@@ -490,7 +493,7 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
               <div
                 ref={tabListRef}
                 role="tablist"
-                aria-label="Dijelovi orgulja"
+                aria-label={partsAria}
                 className="flex flex-wrap gap-2"
               >
                 {parts.map((part, index) => {

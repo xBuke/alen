@@ -22,12 +22,16 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import {
   contactFormDefaultValues,
-  contactFormSchema,
+  createContactFormSchema,
+  getInquiryTypeLabels,
   inquiryTypeLabels,
   inquiryTypeValues,
   resolveInquiryTypeFromQuery,
   type ContactFormValues,
 } from "@/lib/contact-schema";
+import { localizePath, type Locale } from "@/i18n/config";
+import { useLocale } from "@/i18n/locale-context";
+import { getUi } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
 
 type FormStatus = "idle" | "submitting" | "success" | "error" | "rate-limited";
@@ -43,15 +47,6 @@ type ApiErrorResponse = {
   fieldErrors?: Partial<Record<keyof ContactFormValues, string[]>>;
 };
 
-const SUCCESS_MESSAGE =
-  "Hvala na upitu. Vaša poruka je uspješno poslana. Javit ćemo Vam se u najkraćem mogućem roku.";
-
-const ERROR_MESSAGE =
-  "Poruku trenutačno nije moguće poslati. Molimo pokušajte ponovno ili nam se javite izravno putem telefona ili e-pošte.";
-
-const RATE_LIMIT_MESSAGE =
-  "Poslano je previše zahtjeva u kratkom razdoblju. Molimo pokušajte ponovno nešto kasnije.";
-
 /**
  * Web3Forms javni pristupni ključ. Kada je postavljen, forma šalje poruku
  * izravno na Web3Forms, koji je prosljeđuje na e-poštu vezanu uz ključ.
@@ -60,7 +55,10 @@ const RATE_LIMIT_MESSAGE =
 const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
-async function submitViaWeb3Forms(values: ContactFormValues): Promise<boolean> {
+async function submitViaWeb3Forms(
+  values: ContactFormValues,
+  locale: Locale,
+): Promise<boolean> {
   const inquiryLabel = inquiryTypeLabels[values.inquiryType];
   const response = await fetch(WEB3FORMS_ENDPOINT, {
     method: "POST",
@@ -70,13 +68,16 @@ async function submitViaWeb3Forms(values: ContactFormValues): Promise<boolean> {
     },
     body: JSON.stringify({
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: `Novi upit — Orguljarstvo Kvaternik — ${inquiryLabel}`,
+      subject: `Novi upit — Orguljarstvo Kvaternik — ${inquiryLabel}${
+        locale === "en" ? " (EN)" : ""
+      }`,
       from_name: "Web stranica Orguljarstvo Kvaternik",
       replyto: values.email,
       "Ime i prezime": values.fullName,
       email: values.email,
       Telefon: values.phone || "—",
       "Vrsta upita": inquiryLabel,
+      "Jezik stranice": locale === "en" ? "engleski" : "hrvatski",
       "Lokacija instrumenta": values.instrumentLocation || "—",
       message: values.message,
       // Web3Forms honeypot: popunjeno polje znači bot.
@@ -100,6 +101,10 @@ function buildDescribedBy(...ids: Array<string | false | undefined>): string | u
 }
 
 export function ContactForm() {
+  const locale = useLocale();
+  const t = getUi(locale).form;
+  const labels = getInquiryTypeLabels(locale);
+  const schema = useMemo(() => createContactFormSchema(locale), [locale]);
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<FormStatus>("idle");
   const [statusMessage, setStatusMessage] = useState("");
@@ -121,7 +126,7 @@ export function ContactForm() {
     setValue,
     formState: { errors },
   } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       ...contactFormDefaultValues,
       inquiryType: initialInquiryType,
@@ -157,14 +162,14 @@ export function ContactForm() {
 
       try {
         if (WEB3FORMS_ACCESS_KEY) {
-          const sent = await submitViaWeb3Forms(values);
+          const sent = await submitViaWeb3Forms(values, locale);
           if (sent) {
             setStatus("success");
-            setStatusMessage(SUCCESS_MESSAGE);
+            setStatusMessage(t.success);
             reset(contactFormDefaultValues);
           } else {
             setStatus("error");
-            setStatusMessage(ERROR_MESSAGE);
+            setStatusMessage(t.error);
           }
           return;
         }
@@ -174,7 +179,7 @@ export function ContactForm() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify({ ...values, locale }),
         });
 
         let data: ApiSuccessResponse | ApiErrorResponse;
@@ -184,7 +189,7 @@ export function ContactForm() {
             | ApiErrorResponse;
         } catch {
           setStatus("error");
-          setStatusMessage(ERROR_MESSAGE);
+          setStatusMessage(t.error);
           return;
         }
 
@@ -194,13 +199,13 @@ export function ContactForm() {
           typeof data.success !== "boolean"
         ) {
           setStatus("error");
-          setStatusMessage(ERROR_MESSAGE);
+          setStatusMessage(t.error);
           return;
         }
 
         if (response.status === 429) {
           setStatus("rate-limited");
-          setStatusMessage(RATE_LIMIT_MESSAGE);
+          setStatusMessage(t.rateLimit);
           return;
         }
 
@@ -227,22 +232,22 @@ export function ContactForm() {
 
             setStatus("error");
             setStatusMessage(
-              errorData.message || "Provjerite unesene podatke.",
+              errorData.message || t.checkData,
             );
             return;
           }
 
           setStatus("error");
-          setStatusMessage(ERROR_MESSAGE);
+          setStatusMessage(t.error);
           return;
         }
 
         setStatus("success");
-        setStatusMessage(SUCCESS_MESSAGE);
+        setStatusMessage(t.success);
         reset(contactFormDefaultValues);
       } catch {
         setStatus("error");
-        setStatusMessage(ERROR_MESSAGE);
+        setStatusMessage(t.error);
       }
     })(event);
   };
@@ -261,7 +266,7 @@ export function ContactForm() {
         aria-hidden="false"
       >
         <Label htmlFor="companyWebsite" className="sr-only">
-          Ostavite ovo polje prazno
+          {t.honeypot}
         </Label>
         <Input
           id="companyWebsite"
@@ -274,7 +279,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="fullName">Ime i prezime</Label>
+        <Label htmlFor="fullName">{t.fullName}</Label>
         <Input
           id="fullName"
           autoComplete="name"
@@ -292,7 +297,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="email">E-pošta</Label>
+        <Label htmlFor="email">{t.email}</Label>
         <Input
           id="email"
           type="email"
@@ -306,7 +311,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="phone">Telefon</Label>
+        <Label htmlFor="phone">{t.phone}</Label>
         <Input
           id="phone"
           type="tel"
@@ -320,7 +325,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="inquiryType">Vrsta upita</Label>
+        <Label htmlFor="inquiryType">{t.inquiryType}</Label>
         <Controller
           name="inquiryType"
           control={control}
@@ -334,12 +339,12 @@ export function ContactForm() {
                 )}
                 className={cn(fieldClassName, "mt-2")}
               >
-                <SelectValue placeholder="Odaberite vrstu upita" />
+                <SelectValue placeholder={t.inquiryPlaceholder} />
               </SelectTrigger>
               <SelectContent>
                 {inquiryTypeValues.map((value) => (
                   <SelectItem key={value} value={value}>
-                    {inquiryTypeLabels[value]}
+                    {labels[value]}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -353,7 +358,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="instrumentLocation">Lokacija instrumenta</Label>
+        <Label htmlFor="instrumentLocation">{t.instrumentLocation}</Label>
         <Input
           id="instrumentLocation"
           aria-invalid={Boolean(errors.instrumentLocation)}
@@ -368,7 +373,7 @@ export function ContactForm() {
           id="instrumentLocation-help"
           className="mt-2 font-body text-sm text-text-muted"
         >
-          Mjesto, župa, crkva ili drugi prostor, ako je poznato.
+          {t.instrumentLocationHelp}
         </p>
         <FormFieldError
           id="instrumentLocation-error"
@@ -378,7 +383,7 @@ export function ContactForm() {
 
       <div>
         <div className="flex items-baseline justify-between gap-4">
-          <Label htmlFor="message">Poruka</Label>
+          <Label htmlFor="message">{t.message}</Label>
           <span
             id="message-count"
             className="font-body text-xs text-text-muted"
@@ -400,14 +405,14 @@ export function ContactForm() {
           {...register("message")}
         />
         <p id="message-help" className="mt-2 font-body text-sm text-text-muted">
-          Opišite instrument, trenutačno stanje i vrstu zahvata koja Vas zanima.
+          {t.messageHelp}
         </p>
         {showMessageLengthWarning ? (
           <p
             id="message-length-warning"
             className="mt-2 font-body text-xs text-gold/80"
           >
-            Približavate se maksimalnoj duljini poruke.
+            {t.messageNearLimit}
           </p>
         ) : null}
         <FormFieldError id="message-error" message={errors.message?.message} />
@@ -437,14 +442,14 @@ export function ContactForm() {
             htmlFor="privacyAcknowledged"
             className="cursor-pointer py-1 text-sm leading-relaxed text-text-muted"
           >
-            Pročitao/la sam{" "}
+            {t.privacyBefore}{" "}
             <Link
-              href="/pravila-privatnosti"
+              href={localizePath("/pravila-privatnosti", locale)}
               className="text-gold underline-offset-4 hover:underline"
             >
-              Pravila privatnosti
+              {t.privacyLink}
             </Link>{" "}
-            i razumijem kako se moji podatci koriste radi odgovora na upit.
+            {t.privacyAfter}
           </Label>
         </div>
         <FormFieldError
@@ -485,10 +490,10 @@ export function ContactForm() {
         {isSubmitting ? (
           <>
             <Loader2 className="animate-spin" aria-hidden="true" />
-            Slanje…
+            {t.submitting}
           </>
         ) : (
-          "Pošaljite upit"
+          t.submit
         )}
       </Button>
     </form>

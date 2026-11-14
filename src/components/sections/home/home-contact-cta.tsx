@@ -4,10 +4,13 @@ import { Container } from "@/components/layout/container";
 import { MotionReveal } from "@/components/media/motion-reveal";
 import { SiteImage } from "@/components/media/site-image";
 import { Button } from "@/components/ui/button";
-import { homeContactCta } from "@/data/home";
-import { siteConfig } from "@/data/site";
+import { getHome, getSiteConfig } from "@/content";
+import { localizePath, type Locale } from "@/i18n/config";
 
-export function HomeContactCta() {
+export function HomeContactCta({ locale = "hr" }: { locale?: Locale }) {
+  const homeContactCta = getHome(locale).contactCta;
+  const siteConfig = getSiteConfig(locale);
+
   return (
     <section className="relative min-h-[28rem] overflow-hidden">
       <SiteImage
@@ -35,7 +38,7 @@ export function HomeContactCta() {
               {homeContactCta.description}
             </p>
             <Button asChild size="lg" className="mt-8 ">
-              <Link href={homeContactCta.cta.href}>
+              <Link href={localizePath(homeContactCta.cta.href, locale)}>
                 {homeContactCta.cta.label}
               </Link>
             </Button>

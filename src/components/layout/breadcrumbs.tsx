@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { localizePath, type Locale } from "@/i18n/config";
+
 type BreadcrumbItem = {
   label: string;
   href?: string;
@@ -8,9 +10,14 @@ type BreadcrumbItem = {
 type BreadcrumbsProps = {
   items: BreadcrumbItem[];
   className?: string;
+  locale?: Locale;
 };
 
-export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
+export function Breadcrumbs({
+  items,
+  className,
+  locale = "hr",
+}: BreadcrumbsProps) {
   return (
     <nav aria-label="Breadcrumb" className={className}>
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-body text-xs tracking-wide text-text-muted">
@@ -30,7 +37,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
                 </span>
               ) : (
                 <Link
-                  href={item.href}
+                  href={localizePath(item.href, locale)}
                   className="transition-colors hover:text-gold focus-visible:text-gold"
                 >
                   {item.label}

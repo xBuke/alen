@@ -9,6 +9,8 @@ import {
   type TouchEvent,
 } from "react";
 
+import { getUi } from "@/i18n/ui";
+
 /** Visine svirala u postotku: najviša u sredini, kao na prospektu. */
 const HEIGHTS = [48, 58, 68, 78, 89, 100, 89, 78, 68, 58, 48];
 
@@ -25,7 +27,14 @@ const FREQUENCY = HEIGHTS.map((_, index) => SCALE[ORDER.indexOf(index)]);
 type AudioWindow = Window &
   typeof globalThis & { webkitAudioContext?: typeof AudioContext };
 
-export function PipeProspect({ image }: { image: string }) {
+export function PipeProspect({
+  image,
+  locale = "hr",
+}: {
+  image: string;
+  locale?: "hr" | "en";
+}) {
+  const hint = getUi(locale).home;
   const contextRef = useRef<AudioContext | null>(null);
   const touchRef = useRef(false);
   const lastTouchedRef = useRef<Element | null>(null);
@@ -206,10 +215,10 @@ export function PipeProspect({ image }: { image: string }) {
       >
         <span className="prospect-hint-dot" />
         <span className="prospect-hint-touch">
-          Dotaknite svirale i zasvirajte
+          {hint.prospectTouch}
         </span>
         <span className="prospect-hint-mouse">
-          Prijeđite mišem i zasvirajte
+          {hint.prospectMouse}
         </span>
       </p>
     </div>
