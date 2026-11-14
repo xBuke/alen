@@ -61,6 +61,10 @@ export function PipeProspect({
   // Prvu takvu radnju bilo gdje na stranici koristimo da "otključamo" zvuk,
   // pa nakon toga svirale sviraju i na sam prelazak mišem.
   useEffect(() => {
+    // Pripremi AudioContext odmah pri učitavanju. Ako je korisnik već bio
+    // aktivan na stranici (npr. došao je klikom), zvuk je odmah spreman.
+    wake();
+
     const unlock = () => wake();
     const events = ["pointerdown", "touchend", "click", "keydown"] as const;
     events.forEach((name) =>
@@ -108,32 +112,48 @@ export function PipeProspect({
       element.classList.add("is-sounding");
 
       const context = wake();
-      // Dok zvuk nije otključan, svirala se samo pomakne.
-      if (!context || context.state !== "running") return;
+      if (!context) return;
 
-      try {
-        const now = context.currentTime;
-        const master = context.createGain();
-        master.gain.setValueAtTime(0, now);
-        master.gain.linearRampToValueAtTime(0.09, now + 0.06);
-        master.gain.setValueAtTime(0.09, now + 0.45);
-        master.gain.exponentialRampToValueAtTime(0.0001, now + 1.6);
-        master.connect(context.destination);
+      const play = () => {
+        try {
+          const now = context.currentTime;
+          const master = context.createGain();
+          master.gain.setValueAtTime(0, now);
+          master.gain.linearRampToValueAtTime(0.09, now + 0.06);
+          master.gain.setValueAtTime(0.09, now + 0.45);
+          master.gain.exponentialRampToValueAtTime(0.0001, now + 1.6);
+          master.connect(context.destination);
 
-        // Nekoliko harmonika daje boju nalik principalu.
-        [1, 2, 3, 4].forEach((harmonic, position) => {
-          const oscillator = context.createOscillator();
-          const gain = context.createGain();
-          oscillator.type = "sine";
-          oscillator.frequency.value = FREQUENCY[index] * harmonic;
-          gain.gain.value = [1, 0.45, 0.22, 0.1][position];
-          oscillator.connect(gain).connect(master);
-          oscillator.start(now);
-          oscillator.stop(now + 1.7);
-        });
-      } catch {
-        // Zvuk je dodatak; bez njega prospekt i dalje radi.
+          // Nekoliko harmonika daje boju nalik principalu.
+          [1, 2, 3, 4].forEach((harmonic, position) => {
+            const oscillator = context.createOscillator();
+            const gain = context.createGain();
+            oscillator.type = "sine";
+            oscillator.frequency.value = FREQUENCY[index] * harmonic;
+            gain.gain.value = [1, 0.45, 0.22, 0.1][position];
+            oscillator.connect(gain).connect(master);
+            oscillator.start(now);
+            oscillator.stop(now + 1.7);
+          });
+        } catch {
+          // Zvuk je dodatak; bez njega prospekt i dalje radi.
+        }
+      };
+
+      if (context.state === "running") {
+        play();
+        return;
       }
+
+      // Kontekst se još budi: čim se probudi, odsviraj ton umjesto da ga
+      // preskočimo (prije je prvih nekoliko svirala ostajalo nijemo).
+      // Ako preglednik još ne dopušta zvuk (nije bilo klika), ništa se ne čuje.
+      void context
+        .resume()
+        .then(() => {
+          if (context.state === "running") play();
+        })
+        .catch(() => {});
     },
     [wake],
   );
