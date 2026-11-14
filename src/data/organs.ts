@@ -20,7 +20,7 @@ export const organsPage = {
       "Orgulje proizvode zvuk prolaskom zraka kroz svirale različitih oblika, dimenzija i materijala. Orguljaš instrumentom upravlja putem sviraonika, manuala, pedala i registara.",
       "Iza pročelja nalazi se sustav čiji dijelovi moraju djelovati povezano i pouzdano. Zbog toga se pojedini zahvat uvijek treba sagledati u odnosu na cjelinu instrumenta.",
     ],
-    image: photos.pulaPipes,
+    image: photos.knezijaPipeRows,
   },
   anatomy: {
     title: "Anatomija orgulja",
@@ -103,6 +103,6 @@ export const organsPage = {
     title: "Zvuk usklađen s prostorom",
     confirmed:
       "Posebnu pozornost posvećujemo intonaciji kako bi se instrument zvukovno što prirodnije uklopio u prostor kojemu je namijenjen.",
-    image: photos.varazdinPipes,
+    image: photos.jeronimPipes,
   },
 } as const;

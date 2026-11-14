@@ -62,7 +62,7 @@ export const homeWorkAreas: WorkArea[] = [
     title: "Intonacija i zvuk",
     description:
       "Zvukovno oblikovanje instrumenta kako bi se prirodno uklopio u prostor kojemu je namijenjen.",
-    image: photos.varazdinTop,
+    image: photos.knezijaPipesTop,
     href: "/usluge#intonacija",
   },
 ];

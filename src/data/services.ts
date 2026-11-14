@@ -64,7 +64,7 @@ export const services: Service[] = [
     description:
       "U nove i postojeće orgulje ugrađujemo digitalnu elektromagnetsku trakturu.",
     verifiedFromOfficialSite: true,
-    image: photos.varazdinMagnets,
+    image: photos.zeelinaWiring,
     pageDetail: {
       additionalText:
         "Traktura prenosi radnju sa sviraonika prema dijelovima instrumenta, povezujući tipke s ventilima ispod svirala.",
@@ -77,7 +77,7 @@ export const services: Service[] = [
     description:
       "Posebnu pozornost posvećujemo intonaciji kako bi se instrument zvukovno što prirodnije uklopio u prostor kojemu je namijenjen.",
     verifiedFromOfficialSite: true,
-    image: photos.pulaWindow,
+    image: photos.zeelinaPipes,
     pageDetail: {
       additionalText:
         "Akustika i namjena prostora važan su dio promišljanja zvukovnog karaktera instrumenta.",

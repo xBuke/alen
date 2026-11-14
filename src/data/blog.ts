@@ -51,10 +51,10 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     featured: true,
     cover: img(
-      "/images/orguljarstvo/galerija/pula-sv-anton/01-p1310157.webp",
+      "/images/orguljarstvo/galerija/knezija-zagreb/17-img-1133.webp",
       "Velike metalne svirale snimljene izbliza",
       2400,
-      1800,
+      1600,
     ),
     blocks: [
       {

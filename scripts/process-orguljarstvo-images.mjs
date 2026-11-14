@@ -35,10 +35,9 @@ const MIN_LONG_EDGE = 900;
 const MIN_BYTES = 80_000;
 
 /** @type {Array<{ folder: string; slug: string; title: string; location?: string }>} */
+// Virje, Pula sv. Anton, Varaždin katedrala i Požega katedrala namjerno
+// su izostavljeni (odluka klijenta, studeni 2026.).
 const ALBUMS = [
-  { folder: "Varaždin katedrala", slug: "varazdin-katedrala", title: "Varaždin — katedrala", location: "Varaždin" },
-  { folder: "Požega katedrala", slug: "pozega-katedrala", title: "Požega — katedrala", location: "Požega" },
-  { folder: "Pula sv. Anton", slug: "pula-sv-anton", title: "Pula — sv. Anton", location: "Pula" },
   { folder: "Knežija Zagreb", slug: "knezija-zagreb", title: "Zagreb — Knežija", location: "Zagreb" },
   { folder: "Sv. Jeronim Zagreb", slug: "sv-jeronim-zagreb", title: "Zagreb — sv. Jeronim", location: "Zagreb" },
   { folder: "Sveta mati slobode", slug: "sveta-mati-slobode", title: "Sveta Mati Slobode", location: "Zagreb" },
@@ -46,7 +45,6 @@ const ALBUMS = [
   { folder: "Banja Luka- katedrala", slug: "banja-luka-katedrala", title: "Banja Luka — katedrala", location: "Banja Luka" },
   { folder: "Banja Luka -Trapisti", slug: "banja-luka-trapisti", title: "Banja Luka — Trapisti", location: "Banja Luka" },
   { folder: "Banja Luka-župna crkva", slug: "banja-luka-zupna-crkva", title: "Banja Luka — župna crkva", location: "Banja Luka" },
-  { folder: "Virje", slug: "virje", title: "Virje", location: "Virje" },
   { folder: "Legrad", slug: "legrad", title: "Legrad", location: "Legrad" },
   { folder: "Ludbreg", slug: "ludbreg", title: "Ludbreg", location: "Ludbreg" },
   { folder: "Vivodina", slug: "vivodina", title: "Vivodina", location: "Vivodina" },
@@ -58,10 +56,7 @@ const ALBUMS = [
 
 /** Published projects (subset of albums). */
 const PROJECTS = [
-  { albumSlug: "varazdin-katedrala", slug: "varazdin-katedrala", title: "Varaždin — katedrala", location: "Varaždin" },
-  { albumSlug: "pula-sv-anton", slug: "pula-sv-anton", title: "Pula — sv. Anton", location: "Pula" },
   { albumSlug: "knezija-zagreb", slug: "knezija-zagreb", title: "Zagreb — Knežija", location: "Zagreb" },
-  { albumSlug: "pozega-katedrala", slug: "pozega-katedrala", title: "Požega — katedrala", location: "Požega" },
   { albumSlug: "sveta-mati-slobode", slug: "sveta-mati-slobode", title: "Sveta Mati Slobode", location: "Zagreb" },
 ];
 

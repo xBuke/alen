@@ -15,7 +15,7 @@ export const aboutPage = {
       "Poštovanje instrumenta. Preciznost izvedbe. Odgovornost prema zvuku.",
     description:
       "Orguljarstvo povezuje glazbu, mehaniku, materijale, arhitekturu i prostor u jedinstvenu cjelinu.",
-    image: photos.varazdinWide,
+    image: photos.jeronimProspect,
     breadcrumbLabel: "O nama",
   },
   workshop: {
