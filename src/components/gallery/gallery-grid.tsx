@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { GalleryAlbumCard } from "@/components/gallery/gallery-album-card";
 import { GalleryAlbumFilter } from "@/components/gallery/gallery-album-filter";
@@ -38,6 +38,21 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
 
   const locale = useLocale();
   const t = getUi(locale).gallery;
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const isFirstRender = useRef(true);
+
+  // Kad gumb kojim je korisnik otvorio/zatvorio album nestane iz DOM-a,
+  // fokus se premješta na naslov novog prikaza umjesto da se izgubi (WCAG 2.4.3).
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const active = document.activeElement;
+    if (!active || active === document.body) {
+      headingRef.current?.focus({ preventScroll: false });
+    }
+  }, [activeAlbum]);
   const filterOptions = useMemo(() => getGalleryFilters(locale), [locale]);
 
   const selectedAlbum = useMemo(
@@ -93,6 +108,10 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
       </MotionReveal>
 
       {activeAlbum === "sve" ? (
+        <>
+        <h2 ref={headingRef} tabIndex={-1} className="sr-only">
+          {t.albumsHeading}
+        </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {albums.map((album, index) => (
             <MotionReveal key={album.slug} delay={index * 0.04}>
@@ -104,6 +123,7 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
             </MotionReveal>
           ))}
         </div>
+        </>
       ) : albumItems.length === 0 ? (
         <p className="text-center text-text-muted">
           {t.noPhotos}
@@ -113,7 +133,13 @@ export function GalleryGrid({ albums, className }: GalleryGridProps) {
           <MotionReveal>
             <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
               <div>
-                <h2 className="text-2xl md:text-3xl">{selectedAlbum?.title}</h2>
+                <h2
+                  ref={headingRef}
+                  tabIndex={-1}
+                  className="scroll-mt-nav text-2xl outline-none md:text-3xl"
+                >
+                  {selectedAlbum?.title}
+                </h2>
                 {selectedAlbum?.location ? (
                   <p className="mt-2 font-body text-sm text-text-muted">
                     {selectedAlbum.location}

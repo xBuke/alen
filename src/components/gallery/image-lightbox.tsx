@@ -56,6 +56,20 @@ export function ImageLightbox({
     };
   }, []);
 
+  // Kad se na prvoj/zadnjoj fotografiji ukloni gumb koji je imao fokus,
+  // fokus se premješta na preostali gumb ili gumb za zatvaranje (WCAG 2.4.3).
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const active = document.activeElement;
+    if (!active || active === document.body || !dialog.contains(active)) {
+      const fallback =
+        dialog.querySelector<HTMLButtonElement>("[data-lightbox-nav]") ??
+        closeButtonRef.current;
+      fallback?.focus();
+    }
+  }, [activeIndex]);
+
   const trapFocus = useCallback((event: ReactKeyboardEvent<HTMLDivElement>) => {
     if (event.key !== "Tab" || !dialogRef.current) return;
 
@@ -140,6 +154,7 @@ export function ImageLightbox({
   if (!item) return null;
 
   const titleId = "lightbox-title";
+  const counterId = "lightbox-counter";
 
   return (
     <div
@@ -152,14 +167,16 @@ export function ImageLightbox({
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={titleId}
+        aria-labelledby={`${titleId} ${counterId}`}
         className="relative flex max-h-full w-full max-w-5xl flex-col outline-none"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         <div className="mb-4 flex items-center justify-between gap-4">
           <p
-            id={titleId}
+            id={counterId}
+            aria-live="polite"
+            aria-atomic="true"
             className="font-body text-xs uppercase tracking-[0.15em] text-text-muted"
           >
             {activeIndex + 1} / {items.length}
@@ -190,18 +207,20 @@ export function ImageLightbox({
         </div>
 
         <div className="mt-4 space-y-2">
-          <p className="font-heading text-lg md:text-xl">{item.title}</p>
+          <p id={titleId} className="font-heading text-lg md:text-xl">
+            {item.title}
+          </p>
           {item.caption ? (
             <p className="text-sm text-text-muted md:text-base">
               {item.caption}
             </p>
           ) : null}
-          <p className="sr-only">{item.alt}</p>
         </div>
 
         {hasPrevious ? (
           <button
             type="button"
+            data-lightbox-nav
             onClick={() => onNavigate(activeIndex - 1)}
             className={cn(
               "absolute left-2 top-1/2 flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-sm border border-border-dark bg-background/80 text-text-light backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:left-4",
@@ -216,6 +235,7 @@ export function ImageLightbox({
         {hasNext ? (
           <button
             type="button"
+            data-lightbox-nav
             onClick={() => onNavigate(activeIndex + 1)}
             className={cn(
               "absolute right-2 top-1/2 flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-sm border border-border-dark bg-background/80 text-text-light backdrop-blur-sm transition-colors hover:border-gold hover:text-gold md:right-4",

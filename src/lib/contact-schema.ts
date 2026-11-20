@@ -57,7 +57,7 @@ const messages = {
     nameMin: "Ime i prezime mora imati najmanje 2 znaka.",
     nameMax: "Ime i prezime može imati najviše 100 znakova.",
     emailRequired: "Unesite e-poštu.",
-    emailInvalid: "Unesite valjanu email adresu.",
+    emailInvalid: "Unesite valjanu adresu e-pošte, npr. ime@primjer.hr.",
     emailMax: "E-pošta može imati najviše 254 znaka.",
     phoneMax: "Telefon može imati najviše 30 znakova.",
     phonePattern:
@@ -74,7 +74,7 @@ const messages = {
     nameMin: "Your name must be at least 2 characters long.",
     nameMax: "Your name can be at most 100 characters long.",
     emailRequired: "Enter your e-mail.",
-    emailInvalid: "Enter a valid e-mail address.",
+    emailInvalid: "Enter a valid e-mail address, e.g. name@example.com.",
     emailMax: "The e-mail can be at most 254 characters long.",
     phoneMax: "The phone number can be at most 30 characters long.",
     phonePattern:

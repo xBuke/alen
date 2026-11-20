@@ -14,6 +14,7 @@ const routeMap: Record<string, string> = {
   "/kontakt": "/contact",
   "/pravila-privatnosti": "/privacy-policy",
   "/impressum": "/imprint",
+  "/izjava-o-pristupacnosti": "/accessibility-statement",
 };
 
 /** Hrvatski slug članka -> engleski slug. */

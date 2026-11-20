@@ -17,6 +17,11 @@ type SiteImageProps = {
   showTemporaryBadge?: boolean;
   fallbackClassName?: string;
   onError?: () => void;
+  /**
+   * Dekorativna slika (alt=""): koristi se kad isti podatak već nosi
+   * okolni tekst, npr. naslov kartice unutar linka ili gumba.
+   */
+  decorative?: boolean;
 };
 
 const isDevelopment = process.env.NODE_ENV === "development";
@@ -32,6 +37,7 @@ export function SiteImage({
   showTemporaryBadge,
   fallbackClassName,
   onError,
+  decorative = false,
 }: SiteImageProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -44,7 +50,7 @@ export function SiteImage({
 
   if (hasError) {
     return (
-      <figure
+      <div
         className={cn(
           "relative overflow-hidden bg-surface",
           !fill && "w-full",
@@ -52,8 +58,7 @@ export function SiteImage({
           fallbackClassName,
         )}
         style={!fill ? { aspectRatio } : undefined}
-        role="img"
-        aria-label={image.alt}
+        {...(decorative ? { "aria-hidden": true } : { role: "img", "aria-label": image.alt })}
       >
         <div
           className={cn(
@@ -61,17 +66,18 @@ export function SiteImage({
             fill && "absolute inset-0",
           )}
         >
-          <span className="sr-only">{image.alt}</span>
         </div>
-      </figure>
+      </div>
     );
   }
 
   return (
-    <figure className={cn("relative overflow-hidden", className)}>
+    // <div> umjesto <figure>: slika se koristi i unutar linkova i gumba,
+    // gdje <figure> nije dopušten sadržaj.
+    <div className={cn("relative overflow-hidden", className)}>
       <Image
         src={image.src}
-        alt={image.alt}
+        alt={decorative ? "" : image.alt}
         {...(fill
           ? { fill: true }
           : {
@@ -88,10 +94,10 @@ export function SiteImage({
         }}
       />
       {shouldShowBadge ? (
-        <figcaption className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] rounded-sm bg-background/80 px-2 py-1 font-body text-[0.65rem] uppercase tracking-wider text-text-muted backdrop-blur-sm">
+        <span className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] rounded-sm bg-background/80 px-2 py-1 font-body text-[0.65rem] uppercase tracking-wider text-text-muted backdrop-blur-sm">
           Privremena fotografija sa postojeće službene stranice
-        </figcaption>
+        </span>
       ) : null}
-    </figure>
+    </div>
   );
 }

@@ -93,7 +93,7 @@ export function PrivacyView({ locale }: { locale: Locale }) {
                         {t.legal.rightsOutro}{" "}
                         <a
                           href={`mailto:${siteConfig.email}`}
-                          className="break-all text-gold underline-offset-4 hover:underline"
+                          className="break-all text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
                         >
                           {siteConfig.email}
                         </a>
@@ -113,7 +113,7 @@ export function PrivacyView({ locale }: { locale: Locale }) {
                       {t.legal.email}:{" "}
                       <a
                         href={`mailto:${siteConfig.email}`}
-                        className="break-all text-gold underline-offset-4 hover:underline"
+                        className="break-all text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
                       >
                         {siteConfig.email}
                       </a>
@@ -122,7 +122,7 @@ export function PrivacyView({ locale }: { locale: Locale }) {
                       {t.legal.phone}:{" "}
                       <a
                         href={siteConfig.phoneHref}
-                        className="text-gold underline-offset-4 hover:underline"
+                        className="text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
                       >
                         {siteConfig.phoneDisplay}
                       </a>

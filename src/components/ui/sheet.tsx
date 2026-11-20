@@ -48,12 +48,15 @@ const sheetVariants = cva(
 
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
-    VariantProps<typeof sheetVariants> {}
+    VariantProps<typeof sheetVariants> {
+  /** Tekst gumba za zatvaranje na jeziku stranice. */
+  closeLabel?: string;
+}
 
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className, children, ...props }, ref) => (
+>(({ side = "right", className, children, closeLabel = "Zatvori", ...props }, ref) => (
   <SheetPortal>
     <SheetOverlay />
     <SheetPrimitive.Content
@@ -62,8 +65,8 @@ const SheetContent = React.forwardRef<
       {...props}
     >
       <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm text-text-muted opacity-70 transition-opacity hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold disabled:pointer-events-none">
-        <X className="h-5 w-5" />
-        <span className="sr-only">Zatvori</span>
+        <X className="h-5 w-5" aria-hidden="true" />
+        <span className="sr-only">{closeLabel}</span>
       </SheetPrimitive.Close>
       {children}
     </SheetPrimitive.Content>

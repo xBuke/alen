@@ -77,7 +77,11 @@ export function SplitContent({
                 className={cn(
                   "space-y-4 text-base md:text-lg",
                   title ? "mt-6" : "",
-                  dark ? "text-text-dark/80" : "text-text-muted",
+                  // Odlomci bez vlastite klase inače dobivaju svijetlu boju iz baznog
+                  // stila za <p>, što je na ivory podlozi nečitljivo (1.49:1).
+                  dark
+                    ? "text-text-dark/80 [&>p:not([class])]:text-text-dark/80"
+                    : "text-text-muted",
                 )}
               >
                 {children}

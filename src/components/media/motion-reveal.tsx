@@ -13,7 +13,7 @@ type MotionRevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
-  as?: "div" | "section" | "article";
+  as?: "div" | "section" | "article" | "li";
 };
 
 /**

@@ -11,6 +11,7 @@ import {
 import type { Locale } from "@/i18n/config";
 import { getUi } from "@/i18n/ui";
 import { createPageMetadata } from "@/lib/page-metadata";
+import { accessibilityMetadata } from "@/views/accessibility";
 
 export type StaticPageKey =
   | "about"
@@ -21,7 +22,8 @@ export type StaticPageKey =
   | "blog"
   | "contact"
   | "privacy"
-  | "imprint";
+  | "imprint"
+  | "accessibility";
 
 /** Metapodatci statičkih stranica; `path` je uvijek hrvatska putanja. */
 export function getStaticPageMetadata(
@@ -66,6 +68,10 @@ export function getStaticPageMetadata(
       title: getImpressum(locale).metadata.title,
       description: getImpressum(locale).metadata.description,
       path: "/impressum",
+    },
+    accessibility: {
+      ...accessibilityMetadata[locale],
+      path: "/izjava-o-pristupacnosti",
     },
   };
 

@@ -172,7 +172,8 @@ export function BlogPostView({
                         rel="noopener noreferrer"
                         className="underline decoration-gold/40 underline-offset-4 transition-colors hover:text-gold"
                       >
-                        {source.label}
+                        <span lang={source.lang}>{source.label}</span>
+                        <span className="sr-only"> {t.newWindow}</span>
                       </a>
                     </li>
                   ))}

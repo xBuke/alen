@@ -7,7 +7,8 @@ export type BlogBlock =
   | { type: "image"; image: ImageAsset; caption?: string }
   | { type: "beforeAfter"; pairId: string };
 
-export type BlogSource = { label: string; url: string };
+/** `lang` se postavlja kad naslov izvora nije na jeziku stranice (WCAG 3.1.2). */
+export type BlogSource = { label: string; url: string; lang?: string };
 
 export type BlogPost = {
   slug: string;
@@ -128,6 +129,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         label: "Croatia Week: Unique wind organ above Rogotin nears completion",
+        lang: "en",
         url: "https://www.croatiaweek.com/video-unique-wind-organ-above-rogotin-nears-completion/",
       },
     ],

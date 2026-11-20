@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { siteConfig } from "@/data/site";
 import { localizePath, type Locale } from "@/i18n/config";
 import { getUi } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
@@ -22,10 +21,15 @@ function OrganMark({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={isLight ? "/brand/logo-mark-light.png" : "/brand/logo-mark-dark.png"}
+      // Umanjena WebP inačica (14 KB umjesto 70 KB PNG-a); prikazuje se na najviše 64 px širine.
+      src={
+        isLight
+          ? "/brand/logo-mark-light-224.webp"
+          : "/brand/logo-mark-dark-224.webp"
+      }
       alt=""
-      width={896}
-      height={640}
+      width={224}
+      height={160}
       className={cn("shrink-0 object-contain", className)}
       aria-hidden="true"
     />
@@ -45,7 +49,6 @@ export function Logo({
     <Link
       href={localizePath("/", locale)}
       className={cn("group inline-flex items-center gap-3", className)}
-      aria-label={`${siteConfig.name} — ${t.nav.homeAria}`}
     >
       <OrganMark
         isLight={isLight}
@@ -72,6 +75,8 @@ export function Logo({
             {t.logoLocation}
           </span>
         ) : null}
+        {/* Vidljivi tekst ostaje početak naziva linka (WCAG 2.5.3). */}
+        <span className="sr-only">, {t.nav.homeAria}</span>
       </span>
     </Link>
   );

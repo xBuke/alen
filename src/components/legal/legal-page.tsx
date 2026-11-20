@@ -72,6 +72,7 @@ export function LegalSection({
         {number ? (
           <span className="mr-3 font-body text-sm font-medium tracking-[0.2em] text-gold">
             {String(number).padStart(2, "0")}
+            <span className="sr-only">. </span>
           </span>
         ) : null}
         {title}

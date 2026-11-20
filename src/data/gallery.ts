@@ -1,4 +1,5 @@
 import { generatedGalleryAlbums } from "@/data/generated/gallery-generated";
+import { galleryAltText } from "@/data/gallery-alt";
 import { referencePhotos } from "@/data/reference-album";
 import type { GalleryAlbum, GalleryItem } from "@/types";
 
@@ -34,32 +35,37 @@ const referenceAlbum: GalleryAlbum = (() => {
 
 const locationAlbums: GalleryAlbum[] = generatedGalleryAlbums.map(
   (album) => {
-    const items: GalleryItem[] = album.images.map((image) => ({
+    const items: GalleryItem[] = album.images.map((image) => {
+      // Opis sadržaja fotografije + album (WCAG 1.1.1); rezerva je generički tekst.
+      const description = galleryAltText[image.id]?.[0];
+      const alt = description ? `${description} — ${album.title}` : image.alt;
+      return {
       id: image.id,
       albumSlug: album.slug,
       category: "orgulje",
       title: image.title,
-      alt: image.alt,
+      alt,
       caption: album.location
         ? `${album.title} — ${album.location}`
         : album.title,
       verifiedAsKvaternikProject: false,
       image: {
         src: image.src,
-        alt: image.alt,
+        alt,
         width: image.width,
         height: image.height,
         status: "verified-original",
         temporary: false,
         verifiedAsKvaternikProject: false,
       },
-    }));
+    };
+    });
 
     return {
       slug: album.slug,
       title: album.title,
       location: album.location,
-      coverImage: album.coverImage,
+      coverImage: { ...album.coverImage, alt: items[0]?.alt ?? album.coverImage.alt },
       photoCount: album.photoCount,
       items,
     };

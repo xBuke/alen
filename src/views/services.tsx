@@ -124,7 +124,7 @@ export function ServicesView({ locale }: { locale: Locale }) {
                       <p
                         className={cn(
                           "mt-4 text-sm italic md:text-base",
-                          !isEven ? "text-text-dark/60" : "text-text-muted/80",
+                          !isEven ? "text-text-dark/70" : "text-text-muted/80",
                         )}
                       >
                         {detail.note}
@@ -134,8 +134,9 @@ export function ServicesView({ locale }: { locale: Locale }) {
                     {detail?.cta ? (
                       <Button
                         asChild
-                        variant={isEven ? "default" : "secondary"}
-                        className="mt-8 "
+                        variant={isEven ? "default" : "secondaryOnLight"}
+                        // Duže oznake (EN) smiju se prelomiti na 320 px (WCAG 1.4.10).
+                        className="mt-8 h-auto min-h-11 whitespace-normal py-2 text-center"
                       >
                         <Link href={localizePath(detail.cta.href, locale)}>
                           {detail.cta.label}

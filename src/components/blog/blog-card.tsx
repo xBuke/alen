@@ -11,12 +11,16 @@ export function BlogCard({
   post,
   className,
   locale = "hr",
+  headingLevel = 3,
 }: {
   post: BlogPost;
   className?: string;
   locale?: Locale;
+  /** h2 na popisu članaka (odmah ispod h1), h3 unutar sekcija s h2. */
+  headingLevel?: 2 | 3;
 }) {
   const t = getUi(locale);
+  const Heading = headingLevel === 2 ? "h2" : "h3";
 
   return (
     <article
@@ -37,13 +41,16 @@ export function BlogCard({
             className="absolute inset-0"
             imageClassName="transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
             showTemporaryBadge={false}
+            decorative
           />
         </div>
         <div className="flex flex-1 flex-col border-t border-border-dark p-5 md:p-6">
           <p className="font-body text-xs uppercase tracking-[0.15em] text-gold">
             {post.category} · {formatBlogDate(post.date, locale)}
           </p>
-          <h3 className="mt-2 text-balance text-xl md:text-2xl">{post.title}</h3>
+          <Heading className="mt-2 text-balance text-xl leading-snug md:text-2xl">
+            {post.title}
+          </Heading>
           <p className="mt-3 flex-1 text-sm text-text-muted md:text-base">
             {post.excerpt}
           </p>

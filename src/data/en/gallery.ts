@@ -1,4 +1,5 @@
 import { galleryAlbums, galleryItems } from "@/data/gallery";
+import { galleryAltText } from "@/data/gallery-alt";
 import { beforeAfterPairs, type BeforeAfterPair } from "@/data/before-after";
 import type { GalleryAlbum } from "@/types";
 
@@ -32,7 +33,12 @@ function translateAlbum(album: GalleryAlbum): GalleryAlbum {
     const title = isReference
       ? (referenceTitles[item.title] ?? item.title)
       : `${albumTitle} — photo ${index + 1}`;
-    const alt = isReference ? `Organ — ${title}` : `${albumTitle} — photo ${index + 1}`;
+    const description = galleryAltText[item.id]?.[1];
+    const alt = isReference
+      ? `Organ — ${title}`
+      : description
+        ? `${description} — ${albumTitle}`
+        : `${albumTitle} — photo ${index + 1}`;
     return {
       ...item,
       title,

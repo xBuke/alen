@@ -58,6 +58,9 @@ export function ImprintView({ locale }: { locale: Locale }) {
                             : {})}
                         >
                           {field.value}
+                          {field.value === "orguljarstvo-kvaternik.hr" ? (
+                            <span className="sr-only"> {t.newWindow}</span>
+                          ) : null}
                         </a>
                       ) : (
                         field.value

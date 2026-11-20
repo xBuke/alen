@@ -67,6 +67,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={localizePath(item.href, locale)}
+                aria-current={isActive ? "page" : undefined}
                 className={cn(
                   "relative whitespace-nowrap py-1 font-body text-sm font-medium tracking-wide transition-colors hover:text-text-light",
                   showSolidNav ? "text-text-muted" : "text-text-light/90",

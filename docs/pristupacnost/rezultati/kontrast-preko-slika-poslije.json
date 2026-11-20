@@ -1,0 +1,602 @@
+[
+  {
+    "vp": "desktop",
+    "u": "/",
+    "n": 24,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "HR – hrvatski (trenutačni jezik)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/o-nama",
+    "n": 18,
+    "worst": {
+      "p2": 6.197614893113703,
+      "sel": ".md\\:mb-5",
+      "text": "ORGULJARSTVO KVATERNIK",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/orgulje",
+    "n": 27,
+    "worst": {
+      "p2": 2.8822645583324014,
+      "sel": "svg[aria-labelledby=\"_R_hbsnqbsivb_-title\"] > g[aria-hidden=\"true\"]:nth-child(11) > text[y=\"123.5\"][fill=\"#0b0b0c\"][x=\"438\"]",
+      "text": "1",
+      "need": 4.5
+    },
+    "fails": [
+      "'1' 2.88<4.5"
+    ]
+  },
+  {
+    "vp": "desktop",
+    "u": "/polovne-orgulje",
+    "n": 18,
+    "worst": {
+      "p2": 6.11224122294669,
+      "sel": ".eyebrow",
+      "text": "PONUDA",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/usluge",
+    "n": 18,
+    "worst": {
+      "p2": 6.020921892420141,
+      "sel": ".eyebrow",
+      "text": "NAŠE USLUGE",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/galerija",
+    "n": 40,
+    "worst": {
+      "p2": 3.188466816270996,
+      "sel": "figure:nth-child(1) > .sm\\:grid-cols-2.gap-3.grid > .aspect-\\[4\\/5\\].border.bg-surface:nth-child(1) > .bg-background\\/85.backdrop-blur-sm.left-3",
+      "text": "Prije",
+      "need": 4.5
+    },
+    "fails": [
+      "'Prije' 3.19<4.5",
+      "'Prije' 3.37<4.5",
+      "'Novo i staro' 3.86<4.5"
+    ]
+  },
+  {
+    "vp": "desktop",
+    "u": "/blog",
+    "n": 18,
+    "worst": {
+      "p2": 6.070664752344129,
+      "sel": ".eyebrow",
+      "text": "BLOG",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/blog/kako-rade-orgulje",
+    "n": 21,
+    "worst": {
+      "p2": 4.755789413396616,
+      "sel": ".tracking-\\[0\\.2em\\].uppercase[href$=\"blog\"]",
+      "text": "Blog",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/kontakt",
+    "n": 16,
+    "worst": {
+      "p2": 6.0243886184585,
+      "sel": ".eyebrow",
+      "text": "KONTAKT",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/pravila-privatnosti",
+    "n": 14,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "HR – hrvatski (trenutačni jezik)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/impressum",
+    "n": 14,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "HR – hrvatski (trenutačni jezik)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en",
+    "n": 24,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "EN – English (current language)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/about",
+    "n": 18,
+    "worst": {
+      "p2": 6.197614893113703,
+      "sel": ".md\\:mb-5",
+      "text": "ORGULJARSTVO KVATERNIK",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/organs",
+    "n": 27,
+    "worst": {
+      "p2": 2.8822645583324014,
+      "sel": "svg[aria-labelledby=\"_R_8lubt5ubsivb_-title\"] > g[aria-hidden=\"true\"]:nth-child(11) > text[y=\"123.5\"][fill=\"#0b0b0c\"][x=\"438\"]",
+      "text": "1",
+      "need": 4.5
+    },
+    "fails": [
+      "'1' 2.88<4.5"
+    ]
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/used-organs",
+    "n": 18,
+    "worst": {
+      "p2": 6.11224122294669,
+      "sel": ".eyebrow",
+      "text": "OFFER",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/services",
+    "n": 18,
+    "worst": {
+      "p2": 6.020921892420141,
+      "sel": ".eyebrow",
+      "text": "OUR SERVICES",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/gallery",
+    "n": 40,
+    "worst": {
+      "p2": 1.2588545514201581,
+      "sel": "figure:nth-child(1) > .sm\\:grid-cols-2.gap-3.grid > .aspect-\\[4\\/5\\].border.bg-surface:nth-child(1) > .bg-background\\/85.backdrop-blur-sm.left-3",
+      "text": "Before",
+      "need": 4.5
+    },
+    "fails": [
+      "'Before' 1.26<4.5",
+      "'Before' 3.44<4.5",
+      "'New and old' 3.86<4.5"
+    ]
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/blog",
+    "n": 18,
+    "worst": {
+      "p2": 6.020921892420141,
+      "sel": ".eyebrow",
+      "text": "BLOG",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/blog/how-organs-work",
+    "n": 21,
+    "worst": {
+      "p2": 4.755789413396616,
+      "sel": ".tracking-\\[0\\.2em\\].uppercase[href$=\"blog\"]",
+      "text": "Blog",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/contact",
+    "n": 16,
+    "worst": {
+      "p2": 6.0243886184585,
+      "sel": ".eyebrow",
+      "text": "CONTACT",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/privacy-policy",
+    "n": 14,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "EN – English (current language)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/imprint",
+    "n": 14,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "EN – English (current language)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/izjava-o-pristupacnosti",
+    "n": 14,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "HR – hrvatski (trenutačni jezik)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "desktop",
+    "u": "/en/accessibility-statement",
+    "n": 14,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "EN – English (current language)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/",
+    "n": 16,
+    "worst": {
+      "p2": 5.7683866137507405,
+      "sel": ".aspect-\\[3\\/4\\].rounded-t-\\[999px\\][href$=\"usluge#intonacija\"] > .bottom-0.p-6.inset-x-0 > .text-2xl.text-text-light",
+      "text": "Intonacija i zvuk",
+      "need": 3
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/o-nama",
+    "n": 11,
+    "worst": {
+      "p2": 5.924073225455777,
+      "sel": ".md\\:mb-5",
+      "text": "ORGULJARSTVO KVATERNIK",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/orgulje",
+    "n": 19,
+    "worst": {
+      "p2": 2.8822645583324014,
+      "sel": "svg[aria-labelledby=\"_R_hbsnqbsivb_-m-title\"] > g[aria-hidden=\"true\"]:nth-child(11) > text[y=\"123.5\"][fill=\"#0b0b0c\"][x=\"438\"]",
+      "text": "1",
+      "need": 4.5
+    },
+    "fails": [
+      "'1' 2.88<4.5"
+    ]
+  },
+  {
+    "vp": "mobile",
+    "u": "/polovne-orgulje",
+    "n": 11,
+    "worst": {
+      "p2": 6.11224122294669,
+      "sel": ".eyebrow",
+      "text": "PONUDA",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/usluge",
+    "n": 11,
+    "worst": {
+      "p2": 6.067299816849044,
+      "sel": ".eyebrow",
+      "text": "NAŠE USLUGE",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/galerija",
+    "n": 44,
+    "worst": {
+      "p2": 2.2710501224643105,
+      "sel": "figure:nth-child(2) > .sm\\:grid-cols-2.gap-3.grid > .aspect-\\[4\\/5\\].border.bg-surface:nth-child(1) > .bg-background\\/85.backdrop-blur-sm.left-3",
+      "text": "Prije",
+      "need": 4.5
+    },
+    "fails": [
+      "'Prije' 4.02<4.5",
+      "'Prije' 2.27<4.5",
+      "'Novo i staro' 3.79<4.5"
+    ]
+  },
+  {
+    "vp": "mobile",
+    "u": "/blog",
+    "n": 11,
+    "worst": {
+      "p2": 6.067299816849044,
+      "sel": ".eyebrow",
+      "text": "BLOG",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/blog/kako-rade-orgulje",
+    "n": 10,
+    "worst": {
+      "p2": 4.67151881595804,
+      "sel": ".tracking-\\[0\\.2em\\].uppercase[href$=\"blog\"]",
+      "text": "Blog",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/kontakt",
+    "n": 9,
+    "worst": {
+      "p2": 6.067299816849044,
+      "sel": ".eyebrow",
+      "text": "KONTAKT",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/pravila-privatnosti",
+    "n": 7,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "HR – hrvatski (trenutačni jezik)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/impressum",
+    "n": 7,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "HR – hrvatski (trenutačni jezik)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en",
+    "n": 16,
+    "worst": {
+      "p2": 5.8760017390164885,
+      "sel": ".aspect-\\[3\\/4\\].rounded-t-\\[999px\\][href$=\"services#voicing\"] > .bottom-0.p-6.inset-x-0 > .text-2xl.text-text-light",
+      "text": "Voicing and sound",
+      "need": 3
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/about",
+    "n": 11,
+    "worst": {
+      "p2": 5.924073225455777,
+      "sel": ".md\\:mb-5",
+      "text": "ORGULJARSTVO KVATERNIK",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/organs",
+    "n": 19,
+    "worst": {
+      "p2": 2.8822645583324014,
+      "sel": "svg[aria-labelledby=\"_R_8lubt5ubsivb_-m-title\"] > g[aria-hidden=\"true\"]:nth-child(11) > text[y=\"123.5\"][fill=\"#0b0b0c\"][x=\"438\"]",
+      "text": "1",
+      "need": 4.5
+    },
+    "fails": [
+      "'1' 2.88<4.5"
+    ]
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/used-organs",
+    "n": 11,
+    "worst": {
+      "p2": 6.11224122294669,
+      "sel": ".eyebrow",
+      "text": "OFFER",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/services",
+    "n": 11,
+    "worst": {
+      "p2": 6.0243886184585,
+      "sel": ".eyebrow",
+      "text": "OUR SERVICES",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/gallery",
+    "n": 44,
+    "worst": {
+      "p2": 2.275723747803127,
+      "sel": "figure:nth-child(2) > .sm\\:grid-cols-2.gap-3.grid > .aspect-\\[4\\/5\\].border.bg-surface:nth-child(1) > .bg-background\\/85.backdrop-blur-sm.left-3",
+      "text": "Before",
+      "need": 4.5
+    },
+    "fails": [
+      "'Before' 3.83<4.5",
+      "'Before' 2.28<4.5",
+      "'New and old' 3.75<4.5"
+    ]
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/blog",
+    "n": 7,
+    "worst": {
+      "p2": 6.067299816849044,
+      "sel": ".eyebrow",
+      "text": "BLOG",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/blog/how-organs-work",
+    "n": 10,
+    "worst": {
+      "p2": 4.67151881595804,
+      "sel": ".tracking-\\[0\\.2em\\].uppercase[href$=\"blog\"]",
+      "text": "Blog",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/contact",
+    "n": 9,
+    "worst": {
+      "p2": 6.067299816849044,
+      "sel": ".eyebrow",
+      "text": "CONTACT",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/privacy-policy",
+    "n": 7,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "EN – English (current language)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/imprint",
+    "n": 7,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "EN – English (current language)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/izjava-o-pristupacnosti",
+    "n": 7,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "HR – hrvatski (trenutačni jezik)",
+      "need": 4.5
+    },
+    "fails": []
+  },
+  {
+    "vp": "mobile",
+    "u": "/en/accessibility-statement",
+    "n": 7,
+    "worst": {
+      "p2": 6.276676609312914,
+      "sel": "span[aria-current=\"true\"]",
+      "text": "EN – English (current language)",
+      "need": 4.5
+    },
+    "fails": []
+  }
+]

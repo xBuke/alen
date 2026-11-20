@@ -58,8 +58,9 @@ export function GalleryItemCard({
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         )}
         style={{ aspectRatio }}
-        aria-label={`${getUi(locale).gallery.openPhoto}: ${item.title}`}
       >
+        {/* Naziv gumba: "Otvori fotografiju: " + alternativni tekst slike. */}
+        <span className="sr-only">{getUi(locale).gallery.openPhoto}: </span>
         <SiteImage
           image={item.image}
           fill
@@ -70,7 +71,6 @@ export function GalleryItemCard({
           showTemporaryBadge={false}
           onError={() => setImageFailed(true)}
         />
-        <span className="sr-only">{item.alt}</span>
       </button>
       {(item.caption || item.title) && (
         <figcaption className="mt-3 text-sm text-text-muted">

@@ -10,14 +10,18 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gold text-background hover:bg-bronze active:scale-[0.98]",
+          // Hover: brončana podloga sa svijetlim tekstom (4.74:1; tamni tekst bio je 4.18:1).
+          "bg-gold text-background hover:bg-bronze hover:text-text-light active:scale-[0.98]",
         secondary:
           "border border-gold/40 bg-transparent text-text-light hover:border-gold hover:bg-gold/10",
+        /** Obrubni gumb za svijetle (ivory) sekcije: tamni tekst umjesto svijetlog. */
+        secondaryOnLight:
+          "border border-text-dark/50 bg-transparent text-text-dark hover:border-bronze hover:bg-bronze/10 focus-visible:ring-text-dark focus-visible:ring-offset-ivory",
         ghost:
           "text-text-muted hover:bg-surface-elevated hover:text-text-light",
         ivory:
           "bg-text-dark text-ivory hover:bg-bronze hover:text-text-light",
-        link: "text-gold underline-offset-4 hover:underline",
+        link: "text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold",
       },
       size: {
         default: "h-11 px-6 py-2",

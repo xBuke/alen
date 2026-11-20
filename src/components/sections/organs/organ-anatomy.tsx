@@ -85,11 +85,14 @@ function OrganIllustration({
   activeId,
   onSelect,
   groupId,
+  selectOnHover = true,
 }: {
   parts: readonly AnatomyPart[];
   activeId: string;
   onSelect: (id: string) => void;
   groupId: string;
+  /** Na uskom prikazu prelazak mišem ne smije otvarati/zatvarati harmoniku. */
+  selectOnHover?: boolean;
 }) {
   const diagramTitle = getUi(useLocale()).organs.diagramTitle;
   const numberOf = (id: string) => parts.findIndex((p) => p.id === id) + 1;
@@ -97,7 +100,7 @@ function OrganIllustration({
   const part = (id: string) => ({
     className: cn("anatomy-part", activeId === id && "is-active"),
     onClick: () => onSelect(id),
-    onMouseEnter: () => onSelect(id),
+    onMouseEnter: selectOnHover ? () => onSelect(id) : undefined,
   });
 
   return (
@@ -327,6 +330,32 @@ function OrganIllustration({
   );
 }
 
+/** WCAG 2.2.2: animacije koje se ponavljaju dulje od 5 s moraju se moći zaustaviti. */
+function AnimationToggle({
+  paused,
+  onToggle,
+}: {
+  paused: boolean;
+  onToggle: () => void;
+}) {
+  const t = getUi(useLocale()).organs;
+
+  return (
+    <div className="mt-4 flex justify-center motion-reduce:hidden">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="inline-flex min-h-11 items-center gap-2 px-3 font-body text-xs tracking-wide text-text-muted transition-colors hover:text-gold focus-visible:text-gold"
+      >
+        <span aria-hidden="true" className="text-gold">
+          {paused ? "▶" : "❚❚"}
+        </span>
+        {paused ? t.playAnimation : t.pauseAnimation}
+      </button>
+    </div>
+  );
+}
+
 function MobileAccordion({
   parts,
   openId,
@@ -395,6 +424,11 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
   const baseId = useId();
   const tabListRef = useRef<HTMLDivElement>(null);
   const [activeId, setActiveId] = useState(parts[0]?.id ?? "");
+  const [animationPaused, setAnimationPaused] = useState(false);
+  const toggleAnimation = useCallback(
+    () => setAnimationPaused((value) => !value),
+    [],
+  );
   const [mobileOpenId, setMobileOpenId] = useState<string | null>(
     parts[0]?.id ?? null,
   );
@@ -463,7 +497,12 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
   const tabPanelId = `${baseId}-tabpanel`;
 
   return (
-    <section className="section-padding bg-surface">
+    <section
+      className={cn(
+        "section-padding bg-surface",
+        animationPaused && "anatomy-paused",
+      )}
+    >
       <Container>
         <MotionReveal>
           <h2 className="mb-10 text-balance text-3xl md:mb-14 md:text-4xl lg:text-5xl">
@@ -478,6 +517,10 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
               activeId={activeId}
               onSelect={handleSelect}
               groupId={baseId}
+            />
+            <AnimationToggle
+              paused={animationPaused}
+              onToggle={toggleAnimation}
             />
           </MotionReveal>
 
@@ -548,6 +591,11 @@ export function OrganAnatomy({ title, parts }: OrganAnatomyProps) {
               activeId={mobileOpenId ?? ""}
               onSelect={handleMobileToggle}
               groupId={`${baseId}-m`}
+              selectOnHover={false}
+            />
+            <AnimationToggle
+              paused={animationPaused}
+              onToggle={toggleAnimation}
             />
           </div>
           <MotionReveal>

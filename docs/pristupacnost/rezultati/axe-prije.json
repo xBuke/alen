@@ -1,0 +1,2942 @@
+{
+  "desktop /": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".lg\\:sticky > .mb-5.eyebrow.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".mb-12.max-w-3xl.md\\:mb-16 > .mb-5.eyebrow.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "nodes": [
+          {
+            "target": ".lg\\:col-span-8",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          },
+          {
+            "target": "ol",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "nodes": [
+          {
+            "target": ".reveal.is-in:nth-child(1) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(1) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 24
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /o-nama": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".bg-ivory.scroll-mt-20:nth-child(4) > .container-site > .reveal.is-in > .mb-12.md\\:mb-16.max-w-3xl > .eyebrow.mb-4.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href=\"/usluge#izrada-novih-orgulja\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"usluge#servis-orgulja\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"usluge#restauracija\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .first\\:border-t-0.border-border-light.md\\:py-10 > .md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8.group > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"usluge#intonacija\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".bg-ivory.scroll-mt-20:nth-child(7) > .container-site > .reveal.is-in > .mb-12.md\\:mb-16.max-w-3xl > .eyebrow.mb-4.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(1) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "nodes": [
+          {
+            "target": ".space-y-0",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "nodes": [
+          {
+            "target": ".reveal.is-in:nth-child(1) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /orgulje": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".bg-ivory:nth-child(5) > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .is-in.reveal:nth-child(2) > div > .text-text-dark\\/80.space-y-4.mt-6 > p:nth-child(1)",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #cfc7bc, background color: #f5f2ed, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".bg-ivory:nth-child(7) > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .is-in.reveal:nth-child(2) > div > .text-text-dark\\/80.space-y-4.mt-6 > p:nth-child(2)",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #cfc7bc, background color: #f5f2ed, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 27
+      }
+    ],
+    "passes": 45,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /polovne-orgulje": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /usluge": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": "#servis-orgulja > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .mb-6.gap-4.flex > .text-bronze.tracking-\\[0\\.2em\\].font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:text-base",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.1 (foreground color: #787570, background color: #f5f2ed, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#servis-orgulja > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .border.border-gold\\/40.bg-transparent",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.02 (foreground color: #f8f5f0, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#digitalna-elektromagnetska-traktura > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .mb-6.gap-4.flex > .text-bronze.tracking-\\[0\\.2em\\].font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#digitalna-elektromagnetska-traktura > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .border.border-gold\\/40.bg-transparent",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.02 (foreground color: #f8f5f0, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /galerija": {
+    "violations": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [],
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          {
+            "target": "button[aria-label=\"Otvori album: Reference\"] > .aspect-\\[4\\/3\\].relative > .p-4.md\\:p-5.inset-x-0 > .font-display.text-lg.md\\:text-xl",
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.group[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Reference\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Zagreb — Knežija\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(6) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(7) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(8) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Legrad\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Ludbreg\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Vivodina\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Volovsko\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Tomašica\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Vinica\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Samobor\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.group[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 40
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /blog": {
+    "violations": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [],
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          {
+            "target": "a[href$=\"vjetroorgulje-na-trovru\"] > .p-5.md\\:p-6.border-t > .text-xl.md\\:text-2xl.mt-2",
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /blog/kako-rade-orgulje": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .inline-flex.group[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .inline-flex.group[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 21
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /kontakt": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".lg\\:gap-6 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag141"
+        ],
+        "help": "Links must be distinguishable without relying on color",
+        "nodes": [
+          {
+            "target": ".underline-offset-4",
+            "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.87:1 with the surrounding text. (Minimum contrast is 3:1, link text: #b38a5a, surrounding text: #cfc7bc)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 16
+      }
+    ],
+    "passes": 46,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /pravila-privatnosti": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag141"
+        ],
+        "help": "Links must be distinguishable without relying on color",
+        "nodes": [
+          {
+            "target": ".mt-5.space-y-4 > p:nth-child(3) > .break-all.underline-offset-4.hover\\:underline",
+            "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.87:1 with the surrounding text. (Minimum contrast is 3:1, link text: #b38a5a, surrounding text: #cfc7bc)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 35,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /impressum": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 37,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".lg\\:sticky > .mb-5.eyebrow.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".mb-12.max-w-3xl.md\\:mb-16 > .mb-5.eyebrow.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "nodes": [
+          {
+            "target": ".lg\\:col-span-8",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          },
+          {
+            "target": "ol",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "nodes": [
+          {
+            "target": ".reveal.is-in:nth-child(1) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(1) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 24
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/about": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".bg-ivory.scroll-mt-20:nth-child(4) > .container-site > .reveal.is-in > .mb-12.md\\:mb-16.max-w-3xl > .eyebrow.mb-4.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"services#new-organs\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"services#service\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"services#restoration\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .first\\:border-t-0.border-border-light.md\\:py-10 > .md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8.group > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"services#voicing\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".bg-ivory.scroll-mt-20:nth-child(7) > .container-site > .reveal.is-in > .mb-12.md\\:mb-16.max-w-3xl > .eyebrow.mb-4.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(1) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "nodes": [
+          {
+            "target": ".space-y-0",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "nodes": [
+          {
+            "target": ".reveal.is-in:nth-child(1) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/organs": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".bg-ivory:nth-child(5) > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .is-in.reveal:nth-child(2) > div > .text-text-dark\\/80.space-y-4.mt-6 > p:nth-child(1)",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #cfc7bc, background color: #f5f2ed, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".bg-ivory:nth-child(7) > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .is-in.reveal:nth-child(2) > div > .text-text-dark\\/80.space-y-4.mt-6 > p:nth-child(2)",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #cfc7bc, background color: #f5f2ed, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 27
+      }
+    ],
+    "passes": 45,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/used-organs": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/services": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": "#service > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .mb-6.gap-4.flex > .text-bronze.tracking-\\[0\\.2em\\].font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:text-base",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.1 (foreground color: #787570, background color: #f5f2ed, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#service > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .border.border-gold\\/40.bg-transparent",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.02 (foreground color: #f8f5f0, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#digital-electromagnetic-action > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .mb-6.gap-4.flex > .text-bronze.tracking-\\[0\\.2em\\].font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#digital-electromagnetic-action > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .border.border-gold\\/40.bg-transparent",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.02 (foreground color: #f8f5f0, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/gallery": {
+    "violations": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [],
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          {
+            "target": "button[aria-label=\"Open album: References\"] > .aspect-\\[4\\/3\\].relative > .p-4.md\\:p-5.inset-x-0 > .font-display.text-lg.md\\:text-xl",
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.group[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: References\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Zagreb — Knežija\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Zagreb — St Jerome\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Sveti Ivan Zelina\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(6) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(7) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(8) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Legrad\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Ludbreg\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Vivodina\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Volovsko\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Tomašica\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Vinica\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Samobor\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.group[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 40
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/blog": {
+    "violations": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [],
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          {
+            "target": "a[href$=\"wind-organ-on-trovro\"] > .p-5.md\\:p-6.border-t > .text-xl.md\\:text-2xl.mt-2",
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/blog/how-organs-work": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .inline-flex.group[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .inline-flex.group[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 21
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/contact": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".lg\\:gap-6 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag141"
+        ],
+        "help": "Links must be distinguishable without relying on color",
+        "nodes": [
+          {
+            "target": ".underline-offset-4",
+            "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.87:1 with the surrounding text. (Minimum contrast is 3:1, link text: #b38a5a, surrounding text: #cfc7bc)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 16
+      }
+    ],
+    "passes": 46,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/privacy-policy": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag141"
+        ],
+        "help": "Links must be distinguishable without relying on color",
+        "nodes": [
+          {
+            "target": ".mt-5.space-y-4 > p:nth-child(3) > .break-all.underline-offset-4.hover\\:underline",
+            "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.87:1 with the surrounding text. (Minimum contrast is 3:1, link text: #b38a5a, surrounding text: #cfc7bc)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 35,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/imprint": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 37,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".lg\\:sticky > .mb-5.eyebrow.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".mb-12.max-w-3xl.md\\:mb-16 > .mb-5.eyebrow.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "nodes": [
+          {
+            "target": ".lg\\:col-span-8",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          },
+          {
+            "target": "ol",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "nodes": [
+          {
+            "target": ".reveal.is-in:nth-child(1) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(1) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 16
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /o-nama": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".bg-ivory.scroll-mt-20:nth-child(4) > .container-site > .reveal.is-in > .mb-12.md\\:mb-16.max-w-3xl > .eyebrow.mb-4.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href=\"/usluge#izrada-novih-orgulja\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"usluge#servis-orgulja\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"usluge#restauracija\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .first\\:border-t-0.border-border-light.md\\:py-10 > .md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8.group > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"usluge#intonacija\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".bg-ivory.scroll-mt-20:nth-child(7) > .container-site > .reveal.is-in > .mb-12.md\\:mb-16.max-w-3xl > .eyebrow.mb-4.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(1) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "nodes": [
+          {
+            "target": ".space-y-0",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "nodes": [
+          {
+            "target": ".reveal.is-in:nth-child(1) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /orgulje": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".bg-ivory:nth-child(5) > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .is-in.reveal:nth-child(2) > div > .text-text-dark\\/80.space-y-4.mt-6 > p:nth-child(1)",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #cfc7bc, background color: #f5f2ed, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".bg-ivory:nth-child(7) > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .is-in.reveal:nth-child(2) > div > .text-text-dark\\/80.space-y-4.mt-6 > p:nth-child(2)",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #cfc7bc, background color: #f5f2ed, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 19
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /polovne-orgulje": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /usluge": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": "#servis-orgulja > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .mb-6.gap-4.flex > .text-bronze.tracking-\\[0\\.2em\\].font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:text-base",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.1 (foreground color: #787570, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#servis-orgulja > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .border.border-gold\\/40.bg-transparent",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.02 (foreground color: #f8f5f0, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#digitalna-elektromagnetska-traktura > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .mb-6.gap-4.flex > .text-bronze.tracking-\\[0\\.2em\\].font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#digitalna-elektromagnetska-traktura > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .border.border-gold\\/40.bg-transparent",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.02 (foreground color: #f8f5f0, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /galerija": {
+    "violations": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [],
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          {
+            "target": "button[aria-label=\"Otvori album: Reference\"] > .aspect-\\[4\\/3\\].relative > .p-4.md\\:p-5.inset-x-0 > .font-display.text-lg.md\\:text-xl",
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.group[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Reference\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Zagreb — Knežija\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(6) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(7) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(8) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Legrad\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Ludbreg\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Vivodina\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Volovsko\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Tomašica\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Vinica\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Otvori album: Samobor\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.group[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 44
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /blog": {
+    "violations": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [],
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          {
+            "target": "a[href$=\"vjetroorgulje-na-trovru\"] > .p-5.md\\:p-6.border-t > .text-xl.md\\:text-2xl.mt-2",
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.inline-flex[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /blog/kako-rade-orgulje": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .inline-flex.group[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .inline-flex.group[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 10
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /kontakt": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".lg\\:gap-6 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3[href=\"/\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag141"
+        ],
+        "help": "Links must be distinguishable without relying on color",
+        "nodes": [
+          {
+            "target": ".underline-offset-4",
+            "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.87:1 with the surrounding text. (Minimum contrast is 3:1, link text: #b38a5a, surrounding text: #cfc7bc)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 9
+      }
+    ],
+    "passes": 46,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /pravila-privatnosti": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag141"
+        ],
+        "help": "Links must be distinguishable without relying on color",
+        "nodes": [
+          {
+            "target": ".mt-5.space-y-4 > p:nth-child(3) > .break-all.underline-offset-4.hover\\:underline",
+            "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.87:1 with the surrounding text. (Minimum contrast is 3:1, link text: #b38a5a, surrounding text: #cfc7bc)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 37,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /impressum": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".lg\\:sticky > .mb-5.eyebrow.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".mb-12.max-w-3xl.md\\:mb-16 > .mb-5.eyebrow.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "nodes": [
+          {
+            "target": ".lg\\:col-span-8",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          },
+          {
+            "target": "ol",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "nodes": [
+          {
+            "target": ".reveal.is-in:nth-child(1) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > .border-border-light.last\\:border-b.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(1) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .border-text-dark\\/25.pt-6.border-t",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 16
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/about": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".bg-ivory.scroll-mt-20:nth-child(4) > .container-site > .reveal.is-in > .mb-12.md\\:mb-16.max-w-3xl > .eyebrow.mb-4.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"services#new-organs\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"services#service\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"services#restoration\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .first\\:border-t-0.border-border-light.md\\:py-10 > .md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8.group > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:grid-cols-\\[4rem_1fr\\].md\\:gap-8[href$=\"services#voicing\"] > .tracking-\\[0\\.2em\\].text-bronze.font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".bg-ivory.scroll-mt-20:nth-child(7) > .container-site > .reveal.is-in > .mb-12.md\\:mb-16.max-w-3xl > .eyebrow.mb-4.text-bronze",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(1) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .lg\\:border-l.lg\\:border-t-0.lg\\:py-0 > .tracking-\\[0\\.2em\\].text-bronze.text-xs",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "list",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+        "nodes": [
+          {
+            "target": ".space-y-0",
+            "summary": "Fix all of the following:\n  List element has direct children that are not allowed: div"
+          }
+        ]
+      },
+      {
+        "id": "listitem",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag131"
+        ],
+        "help": "<li> elements must be contained in a <ul> or <ol>",
+        "nodes": [
+          {
+            "target": ".reveal.is-in:nth-child(1) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(2) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(3) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          },
+          {
+            "target": ".reveal.is-in:nth-child(5) > .first\\:border-t-0.border-border-light.md\\:py-10",
+            "summary": "Fix any of the following:\n  List item does not have a <ul> or <ol> parent element. Ensure the <li> is a direct child of a <ul> or <ol>, or that the parent has role=\"list\"."
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/organs": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": ".bg-ivory:nth-child(5) > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .is-in.reveal:nth-child(2) > div > .text-text-dark\\/80.space-y-4.mt-6 > p:nth-child(1)",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #cfc7bc, background color: #f5f2ed, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".bg-ivory:nth-child(7) > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .is-in.reveal:nth-child(2) > div > .text-text-dark\\/80.space-y-4.mt-6 > p:nth-child(2)",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #cfc7bc, background color: #f5f2ed, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 19
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/used-organs": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/services": {
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "wcag2aa",
+          "wcag143"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": "#service > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .mb-6.gap-4.flex > .text-bronze.tracking-\\[0\\.2em\\].font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": ".md\\:text-base",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.1 (foreground color: #787570, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#service > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .border.border-gold\\/40.bg-transparent",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.02 (foreground color: #f8f5f0, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#digital-electromagnetic-action > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .mb-6.gap-4.flex > .text-bronze.tracking-\\[0\\.2em\\].font-medium",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.21 (foreground color: #8b6f47, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "#digital-electromagnetic-action > .container-site > .lg\\:\\[\\&\\>\\*\\:first-child\\]\\:order-2.gap-10.lg\\:grid-cols-2 > .reveal.is-in:nth-child(2) > div > .border.border-gold\\/40.bg-transparent",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.02 (foreground color: #f8f5f0, background color: #f5f2ed, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/gallery": {
+    "violations": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [],
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          {
+            "target": "button[aria-label=\"Open album: References\"] > .aspect-\\[4\\/3\\].relative > .p-4.md\\:p-5.inset-x-0 > .font-display.text-lg.md\\:text-xl",
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.group[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: References\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Zagreb — Knežija\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Zagreb — St Jerome\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(4) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Sveti Ivan Zelina\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(6) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(7) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".reveal.is-in:nth-child(8) > article > .text-left.hover\\:border-gold\\/30.w-full",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Legrad\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Ludbreg\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Vivodina\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Volovsko\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Tomašica\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Vinica\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": "button[aria-label=\"Open album: Samobor\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.group[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 44
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/blog": {
+    "violations": [
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "tags": [],
+        "help": "Heading levels should only increase by one",
+        "nodes": [
+          {
+            "target": "a[href$=\"wind-organ-on-trovro\"] > .p-5.md\\:p-6.border-t > .text-xl.md\\:text-2xl.mt-2",
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ]
+      },
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .gap-3.inline-flex[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/blog/how-organs-work": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .inline-flex.group[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".space-y-4 > .inline-flex.group[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 10
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/contact": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".lg\\:gap-6 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3[href=\"/en\"]",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag141"
+        ],
+        "help": "Links must be distinguishable without relying on color",
+        "nodes": [
+          {
+            "target": ".underline-offset-4",
+            "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.87:1 with the surrounding text. (Minimum contrast is 3:1, link text: #b38a5a, surrounding text: #cfc7bc)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 9
+      }
+    ],
+    "passes": 46,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/privacy-policy": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      },
+      {
+        "id": "link-in-text-block",
+        "impact": "serious",
+        "tags": [
+          "wcag2a",
+          "wcag141"
+        ],
+        "help": "Links must be distinguishable without relying on color",
+        "nodes": [
+          {
+            "target": ".mt-5.space-y-4 > p:nth-child(3) > .break-all.underline-offset-4.hover\\:underline",
+            "summary": "Fix any of the following:\n  The link has insufficient color contrast of 1.87:1 with the surrounding text. (Minimum contrast is 3:1, link text: #b38a5a, surrounding text: #cfc7bc)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 37,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/imprint": {
+    "violations": [
+      {
+        "id": "label-content-name-mismatch",
+        "impact": "serious",
+        "tags": [
+          "wcag21a",
+          "wcag253"
+        ],
+        "help": "Elements must have their visible text as part of their accessible name",
+        "nodes": [
+          {
+            "target": ".justify-between > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".focus-visible\\:text-text-light",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          },
+          {
+            "target": ".lg\\:col-span-4 > .group.gap-3.inline-flex",
+            "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  }
+}

@@ -7,13 +7,17 @@
   --color-ivory: #f5f2ed;
   --color-ivory-muted: #e9e3da;
   --color-gold: #b38a5a;
-  --color-bronze: #8b6f47;
+  /* WCAG 2.1 AA: minimalno zatamnjena brončana (prije #8b6f47, 4.21:1 na ivory)
+     -> 4.62:1 kao tekst na ivory i 4.74:1 sa svijetlim tekstom na njoj. */
+  --color-bronze: #84693f;
   --color-text-light: #f8f5f0;
   --color-text-muted: #cfc7bc;
   --color-text-dark: #25211d;
 
   --color-border-dark: rgba(255, 255, 255, 0.12);
   --color-border-light: rgba(36, 29, 22, 0.12);
+  /* Rub polja obrasca: najmanje 3:1 prema pozadini (WCAG 1.4.11). */
+  --color-border-input: rgba(255, 255, 255, 0.4);
 
   --font-heading: var(--font-fraunces), "Fraunces", Georgia, serif;
   --font-body: var(--font-instrument), "Instrument Sans", system-ui, sans-serif;
@@ -38,6 +42,8 @@
 
   html {
     scroll-behavior: smooth;
+    /* Fokusirani element i sidra ne skrivaju se ispod fiksnog zaglavlja. */
+    scroll-padding-top: 5.5rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -103,6 +109,12 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-gold;
+  }
+
+  /* Na svijetlim (ivory) sekcijama zlatni obrub ima premalen kontrast
+     (2.8:1), pa je indikator fokusa tamna boja teksta (14:1). */
+  .bg-ivory :focus-visible {
+    outline-color: var(--color-text-dark);
   }
 
   /* Scrollbar */
@@ -389,7 +401,9 @@
     inset: 0;
     border-radius: 50%;
     border: 1px solid var(--color-gold);
-    animation: hint-pulse 1.8s ease-out infinite;
+    /* Dva otkucaja nakon pojave natpisa: pokret traje kraće od 5 s
+       (WCAG 2.2.2), a natpis ostaje vidljiv. */
+    animation: hint-pulse 1.8s ease-out 1.5s 2;
   }
 
   .prospect-hint-mouse {
@@ -452,7 +466,8 @@
 
   /* ---------- Anatomija orgulja ---------- */
   .anatomy-part {
-    color: rgba(207, 199, 188, 0.42);
+    /* 0.5 => 3.6:1 prema pozadini (WCAG 1.4.11) */
+    color: rgba(207, 199, 188, 0.5);
     cursor: pointer;
     transition: color 0.35s ease;
     outline: none;
@@ -481,6 +496,13 @@
     animation: anatomy-breathe 4.5s ease-in-out infinite;
     transform-box: fill-box;
     transform-origin: left bottom;
+  }
+
+  /* Gumb "Zaustavi animaciju" (WCAG 2.2.2) */
+  .anatomy-paused .anatomy-wind,
+  .anatomy-paused .anatomy-key,
+  .anatomy-paused .anatomy-bellows {
+    animation-play-state: paused;
   }
 
   @keyframes anatomy-flow {
@@ -528,6 +550,14 @@
 }
 
 @layer utilities {
+  /* Izgled naslova za tekst koji semantički nije naslov (npr. unutar gumba). */
+  .heading-face {
+    font-family: var(--font-heading);
+    font-weight: 380;
+    font-variation-settings: "SOFT" 60;
+    letter-spacing: -0.022em;
+  }
+
   .text-balance {
     text-wrap: balance;
   }

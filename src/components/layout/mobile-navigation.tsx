@@ -51,11 +51,12 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
           aria-label={t.nav.openMenu}
           aria-expanded={open}
         >
-          <Menu className="h-5 w-5" />
+          <Menu className="h-5 w-5" aria-hidden="true" />
         </Button>
       </SheetTrigger>
       <SheetContent
         side="right"
+        closeLabel={t.nav.closeMenu}
         className="flex h-full w-full flex-col border-border-dark bg-background p-0 sm:max-w-md"
       >
         <SheetHeader className="border-b border-border-dark px-6 py-6 text-left">
@@ -74,13 +75,14 @@ export function MobileNavigation({ transparent = false }: MobileNavigationProps)
               <SheetClose key={item.href} asChild>
                 <Link
                   href={localizePath(item.href, locale)}
+                  aria-current={isActive ? "page" : undefined}
                   className={cn(
                     "group flex items-baseline gap-4 border-b border-border-dark py-5 transition-colors",
                     isActive ? "text-gold" : "text-text-light hover:text-gold",
                   )}
                 >
                   <span
-                    className="font-body text-xs font-medium tracking-[0.2em] text-gold/70"
+                    className="font-body text-xs font-medium tracking-[0.2em] text-gold"
                     aria-hidden="true"
                   >
                     {item.number}

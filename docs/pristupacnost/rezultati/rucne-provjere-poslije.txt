@@ -1,0 +1,111 @@
+/: 52 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/o-nama: 38 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/orgulje: 34 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/polovne-orgulje: 33 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/usluge: 37 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/galerija: 63 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/blog: 37 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/blog/kako-rade-orgulje: 35 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/kontakt: 42 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/pravila-privatnosti: 34 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/impressum: 34 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/en: 52 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/about: 38 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/organs: 34 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/used-organs: 33 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/services: 37 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/gallery: 63 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/blog: 37 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/blog/how-organs-work: 35 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/contact: 42 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/privacy-policy: 34 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/en/imprint: 34 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+/izjava-o-pristupacnosti: 36 tab-koraka, prvi='Preskoči na sadržaj', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Preskoči na sadržaj'
+/en/accessibility-statement: 36 tab-koraka, prvi='Skip to content', podnožje dosegnuto=true
+   PROBLEMI: fokus ispod zaglavlja: 'Skip to content'
+Skip link: prvi fokus='Preskoči na sadržaj', vidljiv=true, nakon Enter hash=#main-content, sljedeći fokus='Početna' (treba biti u <main>)
+  sljedeći fokus u main: true
+  axe [mobilni izbornik otvoren /]: 1 povreda color-contrast(1)
+Mobilni izbornik /: aria-expanded false->true, otvoren=true, aria-modal=null, naslov='Navigacija', fokus unutra=true ('Zatvori izbornik'), fokus ostaje u dijalogu=true, gumbi='Zatvori izbornik', Esc vraća fokus na gumb=true
+  axe [mobilni izbornik otvoren /en/about]: 0 povreda 
+Mobilni izbornik /en/about: aria-expanded false->true, otvoren=true, aria-modal=null, naslov='Navigation', fokus unutra=true ('Close menu'), fokus ostaje u dijalogu=true, gumbi='Close menu', Esc vraća fokus na gumb=true
+/galerija: kartica albuma 'Zagreb — Knežija 24 FOTOGRAFIJA – OTVORI ALBUM' -> nakon Enter fokus na H2 'Zagreb — Knežija'
+  fokus na fotografiji: Otvori fotografiju: | img alt: Velik mozaik iznad oltara crkve — Zagreb — Knežija
+  lightbox: otvoren=true, naziv='Zagreb — Knežija 1 / 24', fokus='Zatvori galeriju'
+  axe [lightbox /galerija]: 0 povreda 
+  ArrowRight -> 'Zagreb — Knežija 2 / 24'; zamka fokusa drži=true; na zadnjoj fotografiji fokus u dijalogu=true ('Prethodna fotografija'); Esc -> fokus vraćen na BUTTON 'Otvori fotografiju:'
+/en/gallery: kartica albuma 'Zagreb — Knežija 24 PHOTOS – OPEN ALBUM' -> nakon Enter fokus na H2 'Zagreb — Knežija'
+  fokus na fotografiji: Open photo: | img alt: Large mosaic above the church altar — Zagreb — Knežija
+  lightbox: otvoren=true, naziv='Zagreb — Knežija — photo 1 1 / 24', fokus='Close gallery'
+  axe [lightbox /en/gallery]: 0 povreda 
+  ArrowRight -> 'Zagreb — Knežija — photo 2 2 / 24'; zamka fokusa drži=true; na zadnjoj fotografiji fokus u dijalogu=true ('Previous photo'); Esc -> fokus vraćen na BUTTON 'Open photo:'
+/kontakt polja: fullName:label='Ime i prezime' req=true ac=name ; email:label='E-pošta' req=true ac=email ; phone:label='Telefon (neobavezno)' req=null ac=tel ; inquiryType:label='Vrsta upita' req=true ac=null ; instrumentLocation:label='Lokacija instrumenta (neobavezno)' req=null ac=null ; message:label='Poruka' req=true ac=null ; privacyAcknowledged:label='Pročitao/la sam Pravila privatnosti i ra' req=true ac=null
+  honeypot aria-hidden=true
+  nakon slanja praznog: fokus=fullName, aria-invalid=fullName->fullName-error, email->email-error, message->message-help message-count message-error, privacyAcknowledged->privacyAcknowledged-error
+  poruke: Unesite ime i prezime. | Unesite e-poštu. | Unesite poruku. | Potrebno je potvrditi upoznavanje s Pravilima privatnosti.
+  axe [obrazac s greškama /kontakt]: 0 povreda 
+  neispravna e-pošta: Unesite valjanu adresu e-pošte, npr. ime@primjer.hr.
+  padajući izbornik tipkovnicom: listbox s 7 opcija, fokus na option; odabrano='Servis', fokus vraćen na okidač=inquiryType
+/en/contact polja: fullName:label='Full name' req=true ac=name ; email:label='E-mail' req=true ac=email ; phone:label='Phone (optional)' req=null ac=tel ; inquiryType:label='Type of inquiry' req=true ac=null ; instrumentLocation:label='Location of the instrument (optional)' req=null ac=null ; message:label='Message' req=true ac=null ; privacyAcknowledged:label='I have read the Privacy policy and I und' req=true ac=null
+  honeypot aria-hidden=true
+  nakon slanja praznog: fokus=fullName, aria-invalid=fullName->fullName-error, email->email-error, message->message-help message-count message-error, privacyAcknowledged->privacyAcknowledged-error
+  poruke: Enter your full name. | Enter your e-mail. | Enter a message. | Please confirm that you have read the Privacy policy.
+  axe [obrazac s greškama /en/contact]: 0 povreda 
+  neispravna e-pošta: Enter a valid e-mail address, e.g. name@example.com.
+  padajući izbornik tipkovnicom: listbox s 7 opcija, fokus na option; odabrano='Service', fokus vraćen na okidač=inquiryType
+Svirale: Svirala 6 od 11 / grupa: Svirale orgulja: odaberite sviralu strelicama lijevo i desno, a zasvirajte tipkom Enter ili razmaknicom; ArrowRight -> Svirala 7 od 11 tabindex=0; Enter svira=true; svirala u tab-redoslijedu=1
+Anatomija: nakon klika paused=true, animation-play-state=paused, gumb sad='▶Pokreni animaciju'
+  tablist ArrowRight -> 2Svirale selected=true panel='Svirale'
+Reduced motion /orgulje: anatomy animacija 1e-05s x1, .reveal opacity=1, gumb pauze vidljiv=false
+Reduced motion /: val svirala aktivan=false, pipe-rise 1e-05s, pulsiranje 1e-05s, scroll-behavior=auto
+Bez reduced motion: broj valova u 14 s = 1; animacije koje još traju na naslovnici nakon 14 s: []
+Reflow 320px: bez vodoravnog pomicanja na svih 24 stranica
+Reflow 640px: bez vodoravnog pomicanja na svih 24 stranica
+Razmak teksta 1.4.12: MOGUĆE ODREZANO:
+   /: A 'Preskoči na sadržaj'; SPAN ''; SPAN ''; SPAN ''; SPAN ''
+   /o-nama: A 'Preskoči na sadržaj'
+   /orgulje: A 'Preskoči na sadržaj'
+   /polovne-orgulje: A 'Preskoči na sadržaj'
+   /usluge: A 'Preskoči na sadržaj'
+   /galerija: A 'Preskoči na sadržaj'
+   /blog: A 'Preskoči na sadržaj'
+   /blog/kako-rade-orgulje: A 'Preskoči na sadržaj'
+   /kontakt: A 'Preskoči na sadržaj'
+   /pravila-privatnosti: A 'Preskoči na sadržaj'
+   /impressum: A 'Preskoči na sadržaj'
+   /en: A 'Skip to content'; SPAN ''; SPAN ''; SPAN ''; SPAN ''
+   /en/about: A 'Skip to content'
+   /en/organs: A 'Skip to content'
+   /en/used-organs: A 'Skip to content'
+   /en/services: A 'Skip to content'
+   /en/gallery: A 'Skip to content'
+   /en/blog: A 'Skip to content'
+   /en/blog/how-organs-work: A 'Skip to content'
+   /en/contact: A 'Skip to content'
+   /en/privacy-policy: A 'Skip to content'
+   /en/imprint: A 'Skip to content'
+   /izjava-o-pristupacnosti: A 'Preskoči na sadržaj'
+   /en/accessibility-statement: A 'Skip to content'

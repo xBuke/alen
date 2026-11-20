@@ -30,8 +30,12 @@ export function HomeServices({ locale = "hr" }: { locale?: Locale }) {
 
           <ul className="lg:col-span-8">
             {services.map((service, index) => (
-              <MotionReveal key={service.slug} delay={index * 0.04}>
-                <li className="border-t border-border-light last:border-b">
+              <MotionReveal
+                key={service.slug}
+                as="li"
+                delay={index * 0.04}
+                className="border-y border-border-light"
+              >
                   <Link
                     href={localizePath(`/usluge#${service.slug}`, locale)}
                     className="group grid grid-cols-[1fr_auto] items-center gap-6 py-7 text-text-dark transition-colors hover:text-bronze focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze md:py-9"
@@ -56,7 +60,6 @@ export function HomeServices({ locale = "hr" }: { locale?: Locale }) {
                       />
                     </div>
                   </Link>
-                </li>
               </MotionReveal>
             ))}
           </ul>

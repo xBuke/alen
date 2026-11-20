@@ -60,16 +60,18 @@ export function LanguageSwitcher({
                 className="font-medium tracking-[0.12em] text-gold"
               >
                 {code.toUpperCase()}
+                <span className="sr-only"> – {t.language.currentFull}</span>
               </span>
             ) : (
               <Link
                 href={getAlternatePath(pathname, code)}
                 hrefLang={code}
                 lang={code}
-                aria-label={getUi(code).language.full}
                 className="tracking-[0.12em] text-text-muted transition-colors hover:text-text-light focus-visible:text-text-light"
               >
                 {code.toUpperCase()}
+                {/* Vidljivi "EN"/"HR" ostaje dio naziva linka (WCAG 2.5.3). */}
+                <span className="sr-only"> – {getUi(code).language.full}</span>
               </Link>
             )}
           </span>

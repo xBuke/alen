@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type KeyboardEvent,
   type TouchEvent,
 } from "react";
 
@@ -40,6 +41,8 @@ export function PipeProspect({
   const lastTouchedRef = useRef<Element | null>(null);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const [played, setPlayed] = useState(false);
+  /** Svirala koja je u redoslijedu tabulatora (roving tabindex). */
+  const [focusIndex, setFocusIndex] = useState(5);
 
   /** Stvara (po potrebi) i budi AudioContext. Smije se zvati bilo kada. */
   const wake = useCallback(() => {
@@ -74,7 +77,7 @@ export function PipeProspect({
       events.forEach((name) => window.removeEventListener(name, unlock));
   }, [wake]);
 
-  // Dok nitko nije zasvirao, svirale se povremeno tiho zanjišu u valu
+  // Dok nitko nije zasvirao, svirale se jednom tiho zanjišu u valu
   // kako bi bilo jasno da se s njima može nešto raditi.
   useEffect(() => {
     if (played) return;
@@ -94,11 +97,11 @@ export function PipeProspect({
       });
     };
 
+    // Val se pokreće samo jednom: cijeli pokret završava prije 5 s od
+    // učitavanja, pa nije potreban gumb za zaustavljanje (WCAG 2.2.2).
     const first = window.setTimeout(wave, 2600);
-    const loop = window.setInterval(wave, 6000);
     return () => {
       window.clearTimeout(first);
-      window.clearInterval(loop);
       timers.forEach((timer) => window.clearTimeout(timer));
     };
   }, [played]);
@@ -158,6 +161,46 @@ export function PipeProspect({
     [wake],
   );
 
+  /** Tipkovnica: strelice biraju sviralu, Enter/razmaknica sviraju (WCAG 2.1.1). */
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+      let next: number | null = null;
+      switch (event.key) {
+        case "ArrowRight":
+        case "ArrowDown":
+          next = Math.min(index + 1, HEIGHTS.length - 1);
+          break;
+        case "ArrowLeft":
+        case "ArrowUp":
+          next = Math.max(index - 1, 0);
+          break;
+        case "Home":
+          next = 0;
+          break;
+        case "End":
+          next = HEIGHTS.length - 1;
+          break;
+        case "Enter":
+        case " ":
+          event.preventDefault();
+          sound(index, event.currentTarget);
+          return;
+        default:
+          return;
+      }
+      event.preventDefault();
+      setFocusIndex(next);
+      const pipe = rootRef.current?.querySelector<HTMLButtonElement>(
+        `[data-pipe="${next}"]`,
+      );
+      if (pipe) {
+        pipe.focus();
+        sound(next, pipe);
+      }
+    },
+    [sound],
+  );
+
   /** Mobitel: povlačenje prsta preko svirala svira jednu za drugom. */
   const handleTouchMove = useCallback(
     (event: TouchEvent<HTMLDivElement>) => {
@@ -179,6 +222,8 @@ export function PipeProspect({
     <div
       ref={rootRef}
       className="prospect"
+      role="group"
+      aria-label={hint.prospectGroup}
       onTouchMove={handleTouchMove}
       onTouchEnd={() => {
         lastTouchedRef.current = null;
@@ -193,9 +238,11 @@ export function PipeProspect({
         <button
           key={index}
           type="button"
-          tabIndex={-1}
-          aria-hidden="true"
+          tabIndex={index === focusIndex ? 0 : -1}
+          aria-label={`${hint.prospectPipe} ${index + 1} ${hint.prospectOf} ${HEIGHTS.length}`}
           data-pipe={index}
+          onKeyDown={(event) => handleKeyDown(event, index)}
+          onFocus={() => setFocusIndex(index)}
           className="pipe"
           style={
             { "--i": index, "--h": `${height}%`, "--hn": height } as CSSProperties

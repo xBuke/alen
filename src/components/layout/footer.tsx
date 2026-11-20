@@ -97,6 +97,7 @@ export function Footer({ locale = "hr" }: { locale?: Locale }) {
                   className="transition-colors hover:text-gold focus-visible:text-gold"
                 >
                   orguljarstvo-kvaternik.hr
+                  <span className="sr-only"> {t.newWindow}</span>
                 </a>
               </li>
             </ul>
@@ -129,10 +130,11 @@ export function Footer({ locale = "hr" }: { locale?: Locale }) {
           <a
             href="https://mangai.hr"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="font-heading text-2xl text-text-light underline decoration-gold/60 decoration-1 underline-offset-8 transition-colors hover:text-gold focus-visible:text-gold md:text-3xl"
           >
             MangAI.hr
+            <span className="sr-only"> {t.newWindow}</span>
           </a>
           <p className="mt-2 font-body text-xs text-text-muted">
             {t.footer.designRights} {currentYear} MangAI.hr. {t.footer.rights}

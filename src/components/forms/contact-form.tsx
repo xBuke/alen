@@ -92,8 +92,9 @@ async function submitViaWeb3Forms(
   return response.ok && data?.success === true;
 }
 
+// Rub polja: border-input (3.8:1 prema pozadini, WCAG 1.4.11).
 const fieldClassName =
-  "rounded-sm border-border-dark bg-background focus-visible:border-gold/50 focus-visible:ring-gold/30";
+  "rounded-sm border-border-input bg-background focus-visible:border-gold/50 focus-visible:ring-gold";
 
 function buildDescribedBy(...ids: Array<string | false | undefined>): string | undefined {
   const value = ids.filter(Boolean).join(" ");
@@ -261,9 +262,12 @@ export function ContactForm() {
       className="space-y-6"
       aria-busy={isSubmitting}
     >
+      <p className="font-body text-sm text-text-muted">{t.requiredNote}</p>
+
+      {/* Zamka za botove: skrivena od čitača zaslona i izvan redoslijeda fokusa. */}
       <div
         className="absolute -left-[9999px] h-px w-px overflow-hidden"
-        aria-hidden="false"
+        aria-hidden="true"
       >
         <Label htmlFor="companyWebsite" className="sr-only">
           {t.honeypot}
@@ -282,6 +286,7 @@ export function ContactForm() {
         <Label htmlFor="fullName">{t.fullName}</Label>
         <Input
           id="fullName"
+          aria-required="true"
           autoComplete="name"
           aria-invalid={Boolean(errors.fullName)}
           aria-describedby={buildDescribedBy(
@@ -300,6 +305,7 @@ export function ContactForm() {
         <Label htmlFor="email">{t.email}</Label>
         <Input
           id="email"
+          aria-required="true"
           type="email"
           autoComplete="email"
           aria-invalid={Boolean(errors.email)}
@@ -311,7 +317,10 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="phone">{t.phone}</Label>
+        <Label htmlFor="phone">
+          {t.phone}{" "}
+          <span className="font-normal text-text-muted">{t.optional}</span>
+        </Label>
         <Input
           id="phone"
           type="tel"
@@ -333,6 +342,7 @@ export function ContactForm() {
             <Select value={field.value} onValueChange={field.onChange}>
               <SelectTrigger
                 id="inquiryType"
+                aria-required="true"
                 aria-invalid={Boolean(errors.inquiryType)}
                 aria-describedby={buildDescribedBy(
                   errors.inquiryType && "inquiryType-error",
@@ -358,7 +368,10 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="instrumentLocation">{t.instrumentLocation}</Label>
+        <Label htmlFor="instrumentLocation">
+          {t.instrumentLocation}{" "}
+          <span className="font-normal text-text-muted">{t.optional}</span>
+        </Label>
         <Input
           id="instrumentLocation"
           aria-invalid={Boolean(errors.instrumentLocation)}
@@ -393,6 +406,7 @@ export function ContactForm() {
         </div>
         <Textarea
           id="message"
+          aria-required="true"
           rows={6}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={buildDescribedBy(
@@ -426,6 +440,7 @@ export function ContactForm() {
             render={({ field }) => (
               <Checkbox
                 id="privacyAcknowledged"
+                aria-required="true"
                 checked={field.value === true}
                 onCheckedChange={(checked) =>
                   field.onChange(checked === true)
@@ -445,7 +460,7 @@ export function ContactForm() {
             {t.privacyBefore}{" "}
             <Link
               href={localizePath("/pravila-privatnosti", locale)}
-              className="text-gold underline-offset-4 hover:underline"
+              className="text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
             >
               {t.privacyLink}
             </Link>{" "}

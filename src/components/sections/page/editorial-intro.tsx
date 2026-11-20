@@ -48,7 +48,11 @@ export function EditorialIntro({
             <div
               className={cn(
                 "mt-6 space-y-4 text-base md:mt-8 md:text-lg",
-                dark ? "text-text-dark/80" : "text-text-muted",
+                // Odlomci bez vlastite klase inače dobivaju svijetlu boju iz baznog
+                  // stila za <p>, što je na ivory podlozi nečitljivo (1.49:1).
+                  dark
+                    ? "text-text-dark/80 [&>p:not([class])]:text-text-dark/80"
+                    : "text-text-muted",
               )}
             >
               {children}

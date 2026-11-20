@@ -1,0 +1,530 @@
+{
+  "desktop /": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 24
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /o-nama": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /orgulje": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 27
+      }
+    ],
+    "passes": 45,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /polovne-orgulje": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /usluge": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /galerija": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 40
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /blog": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /blog/kako-rade-orgulje": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 21
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /kontakt": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 16
+      }
+    ],
+    "passes": 46,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /pravila-privatnosti": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 36,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /impressum": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 37,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 24
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/about": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/organs": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 27
+      }
+    ],
+    "passes": 45,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/used-organs": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/services": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/gallery": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 40
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/blog": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 18
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/blog/how-organs-work": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 21
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/contact": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 16
+      }
+    ],
+    "passes": 46,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/privacy-policy": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 36,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/imprint": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 37,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /izjava-o-pristupacnosti": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 36,
+    "axeVersion": "4.14.1"
+  },
+  "desktop /en/accessibility-statement": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 14
+      }
+    ],
+    "passes": 36,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 16
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /o-nama": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /orgulje": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 19
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /polovne-orgulje": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /usluge": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /galerija": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 44
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /blog": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 41,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /blog/kako-rade-orgulje": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 10
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /kontakt": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 9
+      }
+    ],
+    "passes": 46,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /pravila-privatnosti": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /impressum": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 16
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/about": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/organs": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 19
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/used-organs": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/services": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 11
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/gallery": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 44
+      }
+    ],
+    "passes": 42,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/blog": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 41,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/blog/how-organs-work": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 10
+      }
+    ],
+    "passes": 40,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/contact": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 9
+      }
+    ],
+    "passes": 46,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/privacy-policy": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/imprint": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 39,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /izjava-o-pristupacnosti": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  },
+  "mobile /en/accessibility-statement": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "n": 7
+      }
+    ],
+    "passes": 38,
+    "axeVersion": "4.14.1"
+  }
+}

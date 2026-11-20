@@ -35,7 +35,12 @@ export function BlogListView({ locale }: { locale: Locale }) {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {posts.map((post, index) => (
               <MotionReveal key={post.slug} delay={index * 0.05}>
-                <BlogCard post={post} className="h-full" locale={locale} />
+                <BlogCard
+                  post={post}
+                  className="h-full"
+                  locale={locale}
+                  headingLevel={2}
+                />
               </MotionReveal>
             ))}
           </div>

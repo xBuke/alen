@@ -1,0 +1,1981 @@
+{
+  "/": {
+    "title": "Orguljarstvo Kvaternik | Izrada, servis i restauracija orgulja",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100",
+      "en=http://localhost:3100/en",
+      "x-default=http://localhost:3100"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "footer"
+    ],
+    "headings": [
+      "H1 Orgulje koje stvaraju dušu prostora.",
+      "H2 Drvo, metal, zrak i glazba povezani u jedinstven i",
+      "H2 Znanje u službi instrumenta",
+      "H3 Izrada novih orgulja",
+      "H3 Servis",
+      "H3 Restauracija",
+      "H3 Digitalna elektromagnetska traktura",
+      "H3 Intonacija",
+      "H2 Instrument promatramo kao cjelinu.",
+      "H2 Područja našeg rada",
+      "H3 Nove orgulje",
+      "H3 Postojeći instrumenti",
+      "H3 Traktura i mehanika",
+      "H3 Intonacija i zvuk",
+      "H2 Od prvog razgovora do završne provjere",
+      "H3 Razgovor i početne informacije",
+      "H3 Pregled instrumenta i prostora",
+      "H3 Prijedlog zahvata",
+      "H3 Izvedba i završna provjera",
+      "H2 Od crkvenog kora do brda na kojem svira vjetar.",
+      "H3 Vjetroorgulje na Trovru: instrument na kojem svira",
+      "H3 Kako zapravo rade orgulje?",
+      "H3 Restauracija orgulja: što se zapravo radi i kako i",
+      "H2 Polovne orgulje",
+      "H2 Razgovarajmo o Vašem instrumentu.",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "Manje orgulje sa sviraonikom u kućištu",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Detalj metalnih svirala u unutrašnjosti orgulja",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Obnovljeni mijeh orgulja",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Ožičenje električne trakture u orguljama",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Metalne svirale izbliza",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje u svijetlom drvenom kućištu s rezbarenim prospektom",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Alen Kvaternik u radionici među orguljskim sviralama",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Falen%",
+        "hidden": false
+      },
+      {
+        "alt": "Pozitiv iz radionice Kvaternik",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Pročelje povijesnih orgulja na koru",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Elektromagneti trakture u orguljama",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Svirale orgulja gledane odozgo",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje na koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/o-nama": {
+    "title": "O nama | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/o-nama",
+      "en=http://localhost:3100/en/about",
+      "x-default=http://localhost:3100/o-nama"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Poštovanje instrumenta. Preciznost izvedbe. Odgovo",
+      "H2 Instrument promatramo kao cjelinu.",
+      "H2 Potvrđena područja rada",
+      "H3 Izrada novih orgulja",
+      "H3 Servis",
+      "H3 Restauracija",
+      "H3 Digitalna elektromagnetska traktura",
+      "H3 Intonacija",
+      "H2 Vrijednosti rada",
+      "H3 Individualan pristup",
+      "H3 Preciznost",
+      "H3 Odnos prema prostoru",
+      "H3 Dugoročna funkcionalnost",
+      "H2 Alen Kvaternik",
+      "H2 Način rada",
+      "H3 Početne informacije",
+      "H3 Pregled",
+      "H3 Prijedlog",
+      "H3 Izvedba i provjera",
+      "H2 Razgovarajmo o Vašem instrumentu.",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Pročelje orgulja na koru crkve sv. Jeronima u Zagrebu",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Alen Kvaternik u radionici među orguljskim sviralama",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Falen%",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje na koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/orgulje": {
+    "title": "Orgulje | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/orgulje",
+      "en=http://localhost:3100/en/organs",
+      "x-default=http://localhost:3100/orgulje"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Zvuk, konstrukcija i arhitektura povezani u cjelin",
+      "H2 Složeni instrument iza vidljivog pročelja",
+      "H2 Anatomija orgulja",
+      "H3 Kućište i pročelje",
+      "H2 Instrument oblikovan za konkretan prostor",
+      "H2 Razumjeti postojeće stanje prije zahvata",
+      "H2 Veza između sviraonika i instrumenta",
+      "H2 Zvuk usklađen s prostorom",
+      "H2 Razgovarajmo o Vašem instrumentu.",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Barokno pročelje orgulja na koru",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Redovi svirala na zračnici",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje s dva manuala i pedalom u hrastovu kućištu",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Barokne orgulje s pozlaćenim rezbarijama",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Sviraonik orgulja s tipkama i registrima",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Metalne svirale na zračnici",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje na koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/polovne-orgulje": {
+    "title": "Polovne orgulje | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/polovne-orgulje",
+      "en=http://localhost:3100/en/used-organs",
+      "x-default=http://localhost:3100/polovne-orgulje"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Polovne orgulje",
+      "H2 Ponuda polovnih orgulja uskoro će biti objavljena.",
+      "H2 Razgovarajmo o Vašem instrumentu.",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Orgulje na koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/usluge": {
+    "title": "Usluge | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/usluge",
+      "en=http://localhost:3100/en/services",
+      "x-default=http://localhost:3100/usluge"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Od početne ideje do funkcionalnosti i zvuka instru",
+      "H2 Izrada novih orgulja",
+      "H2 Servis",
+      "H2 Restauracija",
+      "H2 Digitalna elektromagnetska traktura",
+      "H2 Intonacija",
+      "H2 Razgovarajmo o Vašem instrumentu.",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Manje orgulje sa sviraonikom u kućištu",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Detalj metalnih svirala u unutrašnjosti orgulja",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Obnovljeni mijeh orgulja",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Ožičenje električne trakture u orguljama",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Metalne svirale izbliza",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje na koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/galerija": {
+    "title": "Galerija | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/galerija",
+      "en=http://localhost:3100/en/gallery",
+      "x-default=http://localhost:3100/galerija"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Instrumenti i prostori u fotografijama.",
+      "H2 Albumi",
+      "H2 Što restauracija znači u praksi.",
+      "H2 Razgovarajmo o Vašem instrumentu.",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Mijeh orgulja prije uređivanja, s popucalom kožom",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Mijeh orgulja nakon restauracije",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Svirale orgulja prije popravka",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Svirale orgulja poslije popravka",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Nove i stare drvene svirale položene jedne uz druge",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje na koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/blog": {
+    "title": "Blog | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/blog",
+      "en=http://localhost:3100/en/blog",
+      "x-default=http://localhost:3100/blog"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 O orguljama, iz radionice.",
+      "H2 Vjetroorgulje na Trovru: instrument na kojem svira",
+      "H2 Kako zapravo rade orgulje?",
+      "H2 Restauracija orgulja: što se zapravo radi i kako i",
+      "H2 Mehanička, pneumatska ili električna traktura: u č",
+      "H2 Kako čuvati orgulje: sedam savjeta za župe",
+      "H2 Razgovarajmo o Vašem instrumentu.",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje na koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/blog/kako-rade-orgulje": {
+    "title": "Kako zapravo rade orgulje? | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/blog/kako-rade-orgulje",
+      "en=http://localhost:3100/en/blog/how-organs-work",
+      "x-default=http://localhost:3100/blog/kako-rade-orgulje"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "header",
+      "footer"
+    ],
+    "headings": [
+      "H1 Kako zapravo rade orgulje?",
+      "H2 Zrak: motor, mijeh i kanali",
+      "H2 Zračnica: srce instrumenta",
+      "H2 Svirale: labijalne i jezične",
+      "H2 Sviraonik i traktura",
+      "H2 Zašto su svake orgulje drukčije",
+      "H2 Pročitajte i ovo",
+      "H3 Vjetroorgulje na Trovru: instrument na kojem svira",
+      "H3 Restauracija orgulja: što se zapravo radi i kako i",
+      "H3 Mehanička, pneumatska ili električna traktura: u č",
+      "H2 Razgovarajmo o Vašem instrumentu.",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Orgulje na oslikanom koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Obnovljeni mijeh orgulja u radionici",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Registarski potezi na sviraoniku orgulja",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Orgulje na koru crkve",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/kontakt": {
+    "title": "Kontakt | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/kontakt",
+      "en=http://localhost:3100/en/contact",
+      "x-default=http://localhost:3100/kontakt"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Razgovarajmo o Vašem instrumentu.",
+      "H2 Izravni kontakt",
+      "H2 Pošaljite upit",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/pravila-privatnosti": {
+    "title": "Pravila privatnosti | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/pravila-privatnosti",
+      "en=http://localhost:3100/en/privacy-policy",
+      "x-default=http://localhost:3100/pravila-privatnosti"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "nav[Sadržaj pravila privatnosti]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Pravila privatnosti",
+      "H2 01. Voditelj obrade",
+      "H2 02. Koje podatke prikupljamo",
+      "H2 03. Svrha obrade",
+      "H2 04. Pravni temelj",
+      "H2 05. Primatelji i izvršitelji obrade",
+      "H2 06. Prijenosi izvan EGP-a",
+      "H2 07. Razdoblje čuvanja",
+      "H2 08. Prava korisnika",
+      "H2 09. Automatizirano odlučivanje",
+      "H2 10. Kolačići i analitika",
+      "H2 11. Izmjene pravila",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/impressum": {
+    "title": "Impressum | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/impressum",
+      "en=http://localhost:3100/en/imprint",
+      "x-default=http://localhost:3100/impressum"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Impressum",
+      "H2 Podatci o društvu",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/en": {
+    "title": "Orguljarstvo Kvaternik | Organ building, servicing and restoration",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100",
+      "en=http://localhost:3100/en",
+      "x-default=http://localhost:3100"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "footer"
+    ],
+    "headings": [
+      "H1 Organs that give a space its soul.",
+      "H2 Wood, metal, air and music joined into a single in",
+      "H2 Knowledge in the service of the instrument",
+      "H3 Building new organs",
+      "H3 Service",
+      "H3 Restoration",
+      "H3 Digital electromagnetic action",
+      "H3 Voicing",
+      "H2 We see the instrument as a whole.",
+      "H2 Our areas of work",
+      "H3 New organs",
+      "H3 Existing instruments",
+      "H3 Action and mechanics",
+      "H3 Voicing and sound",
+      "H2 From the first conversation to the final check",
+      "H3 Conversation and initial information",
+      "H3 Inspection of the instrument and space",
+      "H3 Proposal of work",
+      "H3 Execution and final check",
+      "H2 From the church choir loft to a hill where the win",
+      "H3 The wind organ on Trovro: an instrument played by ",
+      "H3 How do organs actually work?",
+      "H3 Organ restoration: what is actually done, and what",
+      "H2 Used organs",
+      "H2 Let's talk about your instrument.",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/images/orguljarstvo/reference/ploce-prospekt.webp",
+        "hidden": false
+      },
+      {
+        "alt": "Small organ with a console in the case",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Detail of metal pipes inside an organ",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Restored organ bellows",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Wiring of the electric action inside an organ",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Close-up of metal pipes",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Organ in a light wooden case with a carved facade",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Alen Kvaternik in the workshop among organ pipes",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Falen%",
+        "hidden": false
+      },
+      {
+        "alt": "Positive organ from the Kvaternik workshop",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Facade of a historic organ in the choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Electromagnets of the action inside an organ",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Organ pipes seen from above",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Organ in a church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/about": {
+    "title": "About us | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/o-nama",
+      "en=http://localhost:3100/en/about",
+      "x-default=http://localhost:3100/o-nama"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Respect for the instrument. Precision in execution",
+      "H2 We see the instrument as a whole.",
+      "H2 Our confirmed areas of work",
+      "H3 Building new organs",
+      "H3 Service",
+      "H3 Restoration",
+      "H3 Digital electromagnetic action",
+      "H3 Voicing",
+      "H2 The values behind our work",
+      "H3 An individual approach",
+      "H3 Precision",
+      "H3 Relationship to the space",
+      "H3 Long-term function",
+      "H2 Alen Kvaternik",
+      "H2 How we work",
+      "H3 Initial information",
+      "H3 Inspection",
+      "H3 Proposal",
+      "H3 Execution and check",
+      "H2 Let's talk about your instrument.",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Organ facade in the choir loft of St Jerome's church in Zagreb",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Alen Kvaternik in the workshop among organ pipes",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Falen%",
+        "hidden": false
+      },
+      {
+        "alt": "Organ in a church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/organs": {
+    "title": "Organs | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/orgulje",
+      "en=http://localhost:3100/en/organs",
+      "x-default=http://localhost:3100/orgulje"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Sound, construction and architecture joined into a",
+      "H2 A complex instrument behind the visible facade",
+      "H2 Anatomy of an organ",
+      "H3 Case and facade",
+      "H2 An instrument shaped for a specific space",
+      "H2 Understanding the existing condition before any wo",
+      "H2 The link between the console and the instrument",
+      "H2 Sound matched to the space",
+      "H2 Let's talk about your instrument.",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Baroque organ facade in the choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Rows of pipes on a wind chest",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Two-manual organ with pedal in an oak case",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Baroque organ with gilded carvings",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Organ console with keys and stop knobs",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Metal pipes on a wind chest",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Organ in a church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/used-organs": {
+    "title": "Used organs | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/polovne-orgulje",
+      "en=http://localhost:3100/en/used-organs",
+      "x-default=http://localhost:3100/polovne-orgulje"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Used organs",
+      "H2 The selection of used organs will be published soo",
+      "H2 Let's talk about your instrument.",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Organ in a church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/services": {
+    "title": "Services | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/usluge",
+      "en=http://localhost:3100/en/services",
+      "x-default=http://localhost:3100/usluge"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 From the first idea to the function and sound of t",
+      "H2 Building new organs",
+      "H2 Service",
+      "H2 Restoration",
+      "H2 Digital electromagnetic action",
+      "H2 Voicing",
+      "H2 Let's talk about your instrument.",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Small organ with a console in the case",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Detail of metal pipes inside an organ",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Restored organ bellows",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Wiring of the electric action inside an organ",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Close-up of metal pipes",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Organ in a church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/gallery": {
+    "title": "Gallery | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/galerija",
+      "en=http://localhost:3100/en/gallery",
+      "x-default=http://localhost:3100/galerija"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Instruments and spaces in photographs.",
+      "H2 Albums",
+      "H2 What restoration means in practice.",
+      "H2 Let's talk about your instrument.",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Organ bellows before restoration, with cracked leather",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Organ bellows after restoration",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Organ pipes before repair",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Organ pipes after repair",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "New and old wooden pipes laid side by side",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Organ in a church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/blog": {
+    "title": "Blog | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/blog",
+      "en=http://localhost:3100/en/blog",
+      "x-default=http://localhost:3100/blog"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 About organs, from the workshop.",
+      "H2 The wind organ on Trovro: an instrument played by ",
+      "H2 How do organs actually work?",
+      "H2 Organ restoration: what is actually done, and what",
+      "H2 Mechanical, pneumatic or electric action: what is ",
+      "H2 How to look after an organ: seven tips for parishe",
+      "H2 Let's talk about your instrument.",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Organ in a church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/blog/how-organs-work": {
+    "title": "How do organs actually work? | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/blog/kako-rade-orgulje",
+      "en=http://localhost:3100/en/blog/how-organs-work",
+      "x-default=http://localhost:3100/blog/kako-rade-orgulje"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "header",
+      "footer"
+    ],
+    "headings": [
+      "H1 How do organs actually work?",
+      "H2 Air: blower, bellows and wind trunks",
+      "H2 The wind chest: the heart of the instrument",
+      "H2 Pipes: flue and reed",
+      "H2 The console and the action",
+      "H2 Why every organ is different",
+      "H2 Read next",
+      "H3 The wind organ on Trovro: an instrument played by ",
+      "H3 Organ restoration: what is actually done, and what",
+      "H3 Mechanical, pneumatic or electric action: what is ",
+      "H2 Let's talk about your instrument.",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "Organ in a painted church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "Restored organ bellows in the workshop",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "Stop knobs on an organ console",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fprije",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Fgaler",
+        "hidden": false
+      },
+      {
+        "alt": "Organ in a church choir loft",
+        "src": "http://localhost:3100/_next/image?url=%2Fimages%2Forguljarstvo%2Frefer",
+        "hidden": false
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/contact": {
+    "title": "Contact | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/kontakt",
+      "en=http://localhost:3100/en/contact",
+      "x-default=http://localhost:3100/kontakt"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Let's talk about your instrument.",
+      "H2 Direct contact",
+      "H2 Send an inquiry",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/privacy-policy": {
+    "title": "Privacy policy | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/pravila-privatnosti",
+      "en=http://localhost:3100/en/privacy-policy",
+      "x-default=http://localhost:3100/pravila-privatnosti"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "nav[Privacy policy contents]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Privacy policy",
+      "H2 01. Data controller",
+      "H2 02. What data we collect",
+      "H2 03. Purpose of processing",
+      "H2 04. Legal basis",
+      "H2 05. Recipients and processors",
+      "H2 06. Transfers outside the EEA",
+      "H2 07. Retention period",
+      "H2 08. Your rights",
+      "H2 09. Automated decision-making",
+      "H2 10. Cookies and analytics",
+      "H2 11. Changes to this policy",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/en/imprint": {
+    "title": "Imprint | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/impressum",
+      "en=http://localhost:3100/en/imprint",
+      "x-default=http://localhost:3100/impressum"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Imprint",
+      "H2 Company details",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English"
+    ]
+  },
+  "/izjava-o-pristupacnosti": {
+    "title": "Izjava o pristupačnosti | Orguljarstvo Kvaternik",
+    "lang": "hr",
+    "hreflang": [
+      "hr=http://localhost:3100/izjava-o-pristupacnosti",
+      "en=http://localhost:3100/en/accessibility-statement",
+      "x-default=http://localhost:3100/izjava-o-pristupacnosti"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Glavna navigacija]",
+      "main",
+      "nav[Navigacijski put]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Izjava o pristupačnosti",
+      "H2 Na što se izjava odnosi",
+      "H2 Status usklađenosti",
+      "H2 Nepristupačni sadržaj",
+      "H2 Priprema ove izjave",
+      "H2 Povratne informacije i podatci za kontakt",
+      "H2 Postupak praćenja provedbe propisa",
+      "H3 Navigacija",
+      "H3 Usluge",
+      "H3 Kontakt"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (otvara se u novom prozoru) | ",
+      "MangAI.hr (otvara se u novom prozoru) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "en:EN – Hrvatski"
+    ]
+  },
+  "/en/accessibility-statement": {
+    "title": "Accessibility statement | Orguljarstvo Kvaternik",
+    "lang": "en",
+    "hreflang": [
+      "hr=http://localhost:3100/izjava-o-pristupacnosti",
+      "en=http://localhost:3100/en/accessibility-statement",
+      "x-default=http://localhost:3100/izjava-o-pristupacnosti"
+    ],
+    "landmarks": [
+      "header",
+      "nav[Main navigation]",
+      "main",
+      "nav[Breadcrumb]",
+      "footer"
+    ],
+    "headings": [
+      "H1 Accessibility statement",
+      "H2 Scope of this statement",
+      "H2 Compliance status",
+      "H2 Non-accessible content",
+      "H2 Preparation of this statement",
+      "H2 Feedback and contact information",
+      "H2 Enforcement procedure",
+      "H3 Navigation",
+      "H3 Services",
+      "H3 Contact"
+    ],
+    "imgs": [
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      },
+      {
+        "alt": "",
+        "src": "/brand/logo-mark-light-224.webp",
+        "hidden": true
+      }
+    ],
+    "blank": [
+      "orguljarstvo-kvaternik.hr (opens in a new window) | ",
+      "MangAI.hr (opens in a new window) | "
+    ],
+    "svgs": 0,
+    "langParts": [
+      "hr:HR – English",
+      "hr:Zakon o pristupačnosti mrežnih",
+      "hr:Povjerenik za informiranje",
+      "hr:Povjerenik za informiranje, Tr"
+    ]
+  }
+}

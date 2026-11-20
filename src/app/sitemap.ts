@@ -15,6 +15,7 @@ const staticRoutes = [
   "/kontakt",
   "/pravila-privatnosti",
   "/impressum",
+  "/izjava-o-pristupacnosti",
 ] as const;
 
 function languageAlternates(hrPath: string) {

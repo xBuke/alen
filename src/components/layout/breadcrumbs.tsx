@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { localizePath, type Locale } from "@/i18n/config";
+import { getUi } from "@/i18n/ui";
 
 type BreadcrumbItem = {
   label: string;
@@ -19,7 +20,7 @@ export function Breadcrumbs({
   locale = "hr",
 }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className={className}>
+    <nav aria-label={getUi(locale).nav.breadcrumbAria} className={className}>
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-body text-xs tracking-wide text-text-muted">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;

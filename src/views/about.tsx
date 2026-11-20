@@ -52,8 +52,12 @@ export function AboutView({ locale }: { locale: Locale }) {
 
         <ol className="space-y-0">
           {workAreas.items.map((item, index) => (
-            <MotionReveal key={item.href} delay={index * 0.05}>
-              <li className="border-t border-border-light py-8 first:border-t-0 md:py-10">
+            <MotionReveal
+              key={item.href}
+              as="li"
+              delay={index * 0.05}
+              className="py-8 md:py-10"
+            >
                 <Link
                   href={localizePath(item.href, locale)}
                   className="group grid gap-4 md:grid-cols-[4rem_1fr] md:gap-8"
@@ -70,7 +74,6 @@ export function AboutView({ locale }: { locale: Locale }) {
                     </p>
                   </div>
                 </Link>
-              </li>
             </MotionReveal>
           ))}
         </ol>

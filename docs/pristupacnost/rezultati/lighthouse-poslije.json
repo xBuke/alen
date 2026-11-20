@@ -1,0 +1,386 @@
+{
+  "mobile /": {
+    "performance": 74,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /": {
+    "performance": 95,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /o-nama": {
+    "performance": 82,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /o-nama": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /orgulje": {
+    "performance": 80,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /orgulje": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /polovne-orgulje": {
+    "performance": 82,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /polovne-orgulje": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /usluge": {
+    "performance": 73,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /usluge": {
+    "performance": 94,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /galerija": {
+    "performance": 77,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /galerija": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /blog": {
+    "performance": 72,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /blog": {
+    "performance": 94,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /blog/kako-rade-orgulje": {
+    "performance": 80,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /blog/kako-rade-orgulje": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /kontakt": {
+    "performance": 78,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /kontakt": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /pravila-privatnosti": {
+    "performance": 82,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /pravila-privatnosti": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /impressum": {
+    "performance": 86,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /impressum": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en": {
+    "performance": 77,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en": {
+    "performance": 95,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/about": {
+    "performance": 83,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/about": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/organs": {
+    "performance": 81,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/organs": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/used-organs": {
+    "performance": 81,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/used-organs": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/services": {
+    "performance": 77,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/services": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/gallery": {
+    "performance": 81,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/gallery": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/blog": {
+    "performance": 76,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/blog": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/blog/how-organs-work": {
+    "performance": 89,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/blog/how-organs-work": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/contact": {
+    "performance": 81,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/contact": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/privacy-policy": {
+    "performance": 84,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/privacy-policy": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/imprint": {
+    "performance": 84,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/imprint": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /izjava-o-pristupacnosti": {
+    "performance": 84,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /izjava-o-pristupacnosti": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "mobile /en/accessibility-statement": {
+    "performance": 84,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  },
+  "desktop /en/accessibility-statement": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "a11yFailed": [],
+    "zeroAudits": []
+  }
+}

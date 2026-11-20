@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 /** Tekstovi sučelja koji nisu dio sadržaja stranica. */
 const hr = {
   skipLink: "Preskoči na sadržaj",
+  newWindow: "(otvara se u novom prozoru)",
   homeLabel: "Početna",
   sendInquiry: "Pošaljite upit",
   nav: {
@@ -19,12 +20,15 @@ const hr = {
     legal: [
       { label: "Pravila privatnosti", href: "/pravila-privatnosti" },
       { label: "Impressum", href: "/impressum" },
+      { label: "Izjava o pristupačnosti", href: "/izjava-o-pristupacnosti" },
     ],
     mainAria: "Glavna navigacija",
     mobileAria: "Mobilna navigacija",
     openMenu: "Otvori izbornik",
     menuTitle: "Navigacija",
     homeAria: "početna stranica",
+    closeMenu: "Zatvori izbornik",
+    breadcrumbAria: "Navigacijski put",
   },
   language: {
     label: "Jezik",
@@ -32,6 +36,7 @@ const hr = {
     code: "EN",
     full: "English",
     current: "HR",
+    currentFull: "hrvatski (trenutačni jezik)",
   },
   footer: {
     statement: "Orgulje koje stvaraju dušu prostora.",
@@ -84,6 +89,10 @@ const hr = {
     moreAboutAlen: "Više o Alenu",
     prospectTouch: "Dotaknite svirale i zasvirajte",
     prospectMouse: "Prijeđite mišem i zasvirajte",
+    prospectGroup:
+      "Svirale orgulja: odaberite sviralu strelicama lijevo i desno, a zasvirajte tipkom Enter ili razmaknicom",
+    prospectPipe: "Svirala",
+    prospectOf: "od",
   },
   usedOrgans: {
     metaTitle: "Polovne orgulje",
@@ -109,6 +118,7 @@ const hr = {
     beforeAfterDescription:
       "Isti dijelovi instrumenta kako smo ih zatekli i kako su izgledali kad su se vratili u orgulje.",
     allAlbums: "Svi albumi",
+    albumsHeading: "Albumi",
     filterAria: "Filtriraj galeriju po albumu",
     openAlbum: "Otvori album",
     openPhoto: "Otvori fotografiju",
@@ -136,6 +146,8 @@ const hr = {
   },
   organs: {
     partsAria: "Dijelovi orgulja",
+    pauseAnimation: "Zaustavi animaciju",
+    playAnimation: "Pokreni animaciju",
     diagramTitle:
       "Pojednostavljeni presjek orgulja: kućište, svirale, zračnica, zračni sustav, traktura i sviraonik",
   },
@@ -169,7 +181,9 @@ const hr = {
     instrumentLocationHelp: "Mjesto, župa, crkva ili drugi prostor, ako je poznato.",
     message: "Poruka",
     messageHelp:
-      "Opišite instrument, trenutačno stanje i vrstu zahvata koja Vas zanima.",
+      "Opišite instrument, trenutačno stanje i vrstu zahvata koja Vas zanima (najmanje 20 znakova).",
+    requiredNote: "Sva polja su obavezna osim onih označenih kao neobavezna.",
+    optional: "(neobavezno)",
     messageNearLimit: "Približavate se maksimalnoj duljini poruke.",
     honeypot: "Ostavite ovo polje prazno",
     privacyBefore: "Pročitao/la sam",
@@ -197,6 +211,7 @@ export type UiStrings = DeepString<typeof hr>;
 
 const en: UiStrings = {
   skipLink: "Skip to content",
+  newWindow: "(opens in a new window)",
   homeLabel: "Home",
   sendInquiry: "Send an inquiry",
   nav: {
@@ -213,12 +228,15 @@ const en: UiStrings = {
     legal: [
       { label: "Privacy policy", href: "/pravila-privatnosti" },
       { label: "Imprint", href: "/impressum" },
+      { label: "Accessibility statement", href: "/izjava-o-pristupacnosti" },
     ],
     mainAria: "Main navigation",
     mobileAria: "Mobile navigation",
     openMenu: "Open menu",
     menuTitle: "Navigation",
     homeAria: "home page",
+    closeMenu: "Close menu",
+    breadcrumbAria: "Breadcrumb",
   },
   language: {
     label: "Language",
@@ -226,6 +244,7 @@ const en: UiStrings = {
     code: "HR",
     full: "Hrvatski",
     current: "EN",
+    currentFull: "English (current language)",
   },
   footer: {
     statement: "Organs that give a space its soul.",
@@ -279,6 +298,10 @@ const en: UiStrings = {
     moreAboutAlen: "More about Alen",
     prospectTouch: "Touch the pipes and play",
     prospectMouse: "Move your mouse over the pipes and play",
+    prospectGroup:
+      "Organ pipes: choose a pipe with the left and right arrow keys and play it with Enter or Space",
+    prospectPipe: "Pipe",
+    prospectOf: "of",
   },
   usedOrgans: {
     metaTitle: "Used organs",
@@ -304,6 +327,7 @@ const en: UiStrings = {
     beforeAfterDescription:
       "The same parts of an instrument as we found them and as they looked when they went back into the organ.",
     allAlbums: "All albums",
+    albumsHeading: "Albums",
     filterAria: "Filter the gallery by album",
     openAlbum: "Open album",
     openPhoto: "Open photo",
@@ -331,6 +355,8 @@ const en: UiStrings = {
   },
   organs: {
     partsAria: "Parts of the organ",
+    pauseAnimation: "Pause animation",
+    playAnimation: "Play animation",
     diagramTitle:
       "Simplified cross-section of an organ: case, pipes, wind chest, wind system, action and console",
   },
@@ -364,7 +390,9 @@ const en: UiStrings = {
     instrumentLocationHelp: "Town, parish, church or other space, if known.",
     message: "Message",
     messageHelp:
-      "Describe the instrument, its current condition and the type of work you are interested in.",
+      "Describe the instrument, its current condition and the type of work you are interested in (at least 20 characters).",
+    requiredNote: "All fields are required unless marked as optional.",
+    optional: "(optional)",
     messageNearLimit: "You are approaching the maximum message length.",
     honeypot: "Leave this field empty",
     privacyBefore: "I have read the",

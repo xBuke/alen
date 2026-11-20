@@ -20,8 +20,12 @@ export function HomeProcess({ locale = "hr" }: { locale?: Locale }) {
 
         <ol className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {homeProcess.steps.map((step, index) => (
-            <MotionReveal key={step.number} delay={index * 0.06}>
-              <li className="border-t border-text-dark/25 pt-6">
+            <MotionReveal
+              key={step.number}
+              as="li"
+              delay={index * 0.06}
+              className="border-t border-text-dark/25 pt-6"
+            >
                 <span className="font-heading text-5xl italic text-bronze">
                   {index + 1}
                 </span>
@@ -31,7 +35,6 @@ export function HomeProcess({ locale = "hr" }: { locale?: Locale }) {
                 <p className="mt-3 text-sm text-text-dark/70 md:text-base">
                   {step.description}
                 </p>
-              </li>
             </MotionReveal>
           ))}
         </ol>
