@@ -1,16 +1,19 @@
 "use client";
 
 /*
- * Obrazac za upit (isti princip kao na vinagovorko.hr): poruka se automatski
- * složi iz polja i otvori u posjetiteljevoj e-pošti (mailto:) ili na WhatsAppu
- * (wa.me) prema Orguljarstvu Kvaternik. Nema servera, ključeva ni spremanja
- * podataka; posjetitelj poruku pregleda i sam pošalje.
+ * Obrazac za upit.
+ * - Glavni gumb šalje upit automatski preko Web3Forms (stiže na Alenov mail,
+ *   "Odgovori" ide posjetitelju). Ključ: NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+ *   (javni ključ, smije biti u kodu preglednika).
+ * - Dok ključ nije postavljen, ili ako Web3Forms ne odgovori, poruka se otvori
+ *   u posjetiteljevoj e-pošti (mailto:), kao na vinagovorko.hr.
+ * - WhatsApp gumb otvara wa.me s gotovom porukom.
  */
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Mail, MessageCircle } from "lucide-react";
+import { Loader2, Send, MessageCircle } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Controller, useForm, useWatch } from "react-hook-form";
 
@@ -32,6 +35,7 @@ import {
   contactMessageMax,
   createContactFormSchema,
   getInquiryTypeLabels,
+  inquiryTypeLabels,
   inquiryTypeValues,
   resolveInquiryTypeFromQuery,
   type ContactFormValues,
@@ -44,9 +48,13 @@ import { cn } from "@/lib/utils";
 type Channel = "email" | "whatsapp";
 
 type SentState = {
-  via: Channel;
+  /** "web3forms" = upit je već poslan; ostalo = otvorena aplikacija. */
+  via: Channel | "web3forms";
   href: string;
 };
+
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 // Rub polja: border-input (3.8:1 prema pozadini, WCAG 1.4.11).
 const fieldClassName =
@@ -100,6 +108,10 @@ export function ContactForm() {
   const schema = useMemo(() => createContactFormSchema(locale), [locale]);
   const searchParams = useSearchParams();
   const [sent, setSent] = useState<SentState | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
+  const botcheckRef = useRef<HTMLInputElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -132,12 +144,6 @@ export function ContactForm() {
   const messageLength = (watched.message ?? "").length;
   const showMessageLengthWarning = messageLength > contactMessageMax - 200;
 
-  const preview = buildMessage(
-    { ...contactFormDefaultValues, ...watched },
-    t,
-    labels[watched.inquiryType ?? contactFormDefaultValues.inquiryType],
-  );
-
   useEffect(() => {
     const fromQuery = resolveInquiryTypeFromQuery(searchParams.get("vrsta"));
     if (fromQuery) {
@@ -151,12 +157,20 @@ export function ContactForm() {
     }
   }, [sent]);
 
+  useEffect(() => {
+    if (sendError && errorRef.current) {
+      errorRef.current.focus();
+    }
+  }, [sendError]);
+
   /*
    * Provjera je sinkrona (safeParse), a ne preko handleSubmit, kako bi se
    * WhatsApp otvorio unutar istog klika. Inače ga Safari na iOS-u blokira
    * kao skočni prozor.
    */
   function send(via: Channel) {
+    if (submitting) return;
+    setSendError(null);
     const values = getValues();
     const result = schema.safeParse(values);
 
@@ -188,17 +202,71 @@ export function ContactForm() {
     const inquiryLabel = labels[data.inquiryType];
     const body = buildMessage(data, t, inquiryLabel);
 
+    const subject = `${t.msgSubject} — ${inquiryLabel} — ${data.fullName}`;
+    const mailHref = `mailto:${siteConfig.contactRecipient}?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+
+    if (via === "email" && WEB3FORMS_ACCESS_KEY) {
+      void submitViaWeb3Forms(data, mailHref);
+      return;
+    }
+
     if (via === "email") {
-      const subject = `${t.msgSubject} — ${inquiryLabel} — ${data.fullName}`;
-      const href = `mailto:${siteConfig.contactRecipient}?subject=${encodeURIComponent(
-        subject,
-      )}&body=${encodeURIComponent(body)}`;
-      window.location.href = href;
-      setSent({ via, href });
+      window.location.assign(mailHref);
+      setSent({ via, href: mailHref });
     } else {
       const href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`;
       window.open(href, "_blank", "noopener");
       setSent({ via, href });
+    }
+  }
+
+  async function submitViaWeb3Forms(
+    data: ContactFormValues,
+    mailHref: string,
+  ) {
+    // Mail Alenu uvijek na hrvatskom, bez obzira na jezik stranice.
+    const inquiryLabel = inquiryTypeLabels[data.inquiryType];
+    setSubmitting(true);
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Novi upit — ${siteConfig.name} — ${inquiryLabel}${
+            locale === "en" ? " (EN)" : ""
+          }`,
+          from_name: `${data.fullName} (web-stranica)`,
+          ...(data.email ? { replyto: data.email, email: data.email } : {}),
+          "Ime i prezime": data.fullName,
+          "E-pošta": data.email || "—",
+          Telefon: data.phone || "—",
+          "Vrsta upita": inquiryLabel,
+          "Lokacija instrumenta": data.instrumentLocation || "—",
+          "Jezik stranice": locale === "en" ? "engleski" : "hrvatski",
+          message: data.message,
+          // Web3Forms honeypot: označeno polje znači bot.
+          botcheck: botcheckRef.current?.checked ?? false,
+        }),
+      });
+      const result = (await response.json().catch(() => null)) as {
+        success?: boolean;
+      } | null;
+
+      if (response.ok && result?.success === true) {
+        setSent({ via: "web3forms", href: mailHref });
+      } else {
+        setSendError(mailHref);
+      }
+    } catch {
+      setSendError(mailHref);
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -209,6 +277,31 @@ export function ContactForm() {
 
   if (sent) {
     const isEmail = sent.via === "email";
+    if (sent.via === "web3forms") {
+      return (
+        <div
+          ref={successRef}
+          tabIndex={-1}
+          role="status"
+          className="space-y-4 rounded-sm border border-gold/30 bg-gold/10 px-5 py-6 font-body text-sm text-text-light outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        >
+          <p className="font-heading text-xl text-text-light">{t.sentTitle}</p>
+          <p>{t.sentText}</p>
+          <Button
+            type="button"
+            variant="secondary"
+            size="lg"
+            className="min-h-11"
+            onClick={() => {
+              reset({ ...contactFormDefaultValues, inquiryType: initialInquiryType });
+              setSent(null);
+            }}
+          >
+            {t.okNew}
+          </Button>
+        </div>
+      );
+    }
     return (
       <div
         ref={successRef}
@@ -271,6 +364,17 @@ export function ContactForm() {
       className="space-y-6"
     >
       <p className="font-body text-sm text-text-muted">{t.requiredNote}</p>
+
+      {/* Zamka za botove (Web3Forms botcheck): skrivena od čitača zaslona i izvan fokusa. */}
+      <input
+        ref={botcheckRef}
+        type="checkbox"
+        name="botcheck"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
 
       <div>
         <Label htmlFor="fullName">
@@ -442,7 +546,8 @@ export function ContactForm() {
 
       <div className="space-y-4 border-t border-border-dark pt-6">
         <p className="font-body text-sm leading-relaxed text-text-muted">
-          {t.howItWorks} {t.privacyBefore}{" "}
+          {WEB3FORMS_ACCESS_KEY ? t.howItWorks : t.howItWorksMailto}{" "}
+          {t.privacyBefore}{" "}
           <Link
             href={localizePath("/pravila-privatnosti", locale)}
             className="text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
@@ -452,41 +557,65 @@ export function ContactForm() {
           {t.privacyAfter}
         </p>
 
-        <div role="group" aria-labelledby="send-via" className="space-y-3">
-          <p id="send-via" className="font-body text-sm text-text-light">
-            {t.sendVia}
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Button type="submit" size="lg" className="min-h-11">
-              <Mail aria-hidden="true" />
-              {t.sendEmail}
-            </Button>
-            <Button
-              type="button"
-              variant="secondary"
-              size="lg"
-              className="min-h-11"
-              onClick={() => send("whatsapp")}
+        <div aria-live="polite">
+          {sendError ? (
+            <div
+              ref={errorRef}
+              tabIndex={-1}
+              role="alert"
+              className="rounded-sm border border-red-400/30 bg-red-950/30 px-4 py-3 font-body text-sm text-red-200 outline-none"
             >
-              <MessageCircle aria-hidden="true" />
-              {t.sendWhatsapp}
-              <span className="sr-only"> {t.sendWhatsappNote}</span>
-            </Button>
-          </div>
+              {t.sendFailed}{" "}
+              <a
+                href={sendError}
+                className="text-text-light underline underline-offset-4"
+              >
+                {t.sendFailedEmail}
+              </a>{" "}
+              {t.sendFailedOr}{" "}
+              <a
+                href={siteConfig.phoneHref}
+                className="text-text-light underline underline-offset-4"
+              >
+                {siteConfig.phoneDisplay}
+              </a>
+              .
+            </div>
+          ) : null}
         </div>
 
-        <details className="group rounded-sm border border-border-dark px-4 py-3 font-body text-sm">
-          <summary className="min-h-6 cursor-pointer text-text-muted hover:text-text-light">
-            {t.preview}
-          </summary>
-          <pre className="mt-3 whitespace-pre-wrap break-words font-body text-sm text-text-light">
-            {preview}
-          </pre>
-          <p className="mt-3 text-xs text-text-muted">
-            {t.previewTo}: {siteConfig.name} · {siteConfig.contactRecipient} ·{" "}
-            {siteConfig.phoneDisplay}
-          </p>
-        </details>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Button
+            type="submit"
+            size="lg"
+            className="min-h-11"
+            disabled={submitting}
+            aria-disabled={submitting}
+          >
+            {submitting ? (
+              <>
+                <Loader2 className="animate-spin" aria-hidden="true" />
+                {t.submitting}
+              </>
+            ) : (
+              <>
+                <Send aria-hidden="true" />
+                {t.submit}
+              </>
+            )}
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            size="lg"
+            className="min-h-11"
+            onClick={() => send("whatsapp")}
+          >
+            <MessageCircle aria-hidden="true" />
+            {t.sendWhatsapp}
+            <span className="sr-only"> {t.sendWhatsappNote}</span>
+          </Button>
+        </div>
       </div>
     </form>
   );

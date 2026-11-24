@@ -13,7 +13,7 @@ export const privacyPolicyEn = {
       id: "data-collected",
       title: "What data we collect",
       intro:
-        "The contact form on this website does not send or store any data: it turns the fields you fill in into a message that opens in your e-mail app or in WhatsApp, and you send it yourself. When you send us an inquiry, we receive the following data:",
+        "When you send us an inquiry through the contact form or via WhatsApp, we receive the following data:",
       bullets: [
         "full name",
         "e-mail and/or phone",
@@ -46,7 +46,8 @@ export const privacyPolicyEn = {
       bullets: [
         "authorised persons at Orguljarstvo Kvaternik",
         "the website hosting provider",
-        "the e-mail provider (Google, Gmail) or WhatsApp (Meta), depending on how you send your inquiry",
+        "Web3Forms, the technical provider that delivers messages from the contact form to our e-mail",
+        "the e-mail provider (Google, Gmail) and WhatsApp (Meta), if you send your inquiry via WhatsApp",
         "other technical providers only where needed for the operation and security of the site",
       ],
     },

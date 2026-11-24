@@ -13,7 +13,9 @@ Koristite ovaj popis prije javne objave. Ne označavajte stavke kao dovršene do
 
 ## Kontakt
 
+- [ ] Web3Forms ključ za alen.kvaternik@gmail.com postaviti na Vercelu (`NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`) i redeploy
 - [ ] potvrditi da Alen ima WhatsApp na 098 777 988
+- [ ] testirati automatsko slanje upita (provjeriti i spam mapu)
 - [ ] testirati upit e-poštom (mailto) na mobitelu i računalu
 - [ ] testirati upit na WhatsApp
 

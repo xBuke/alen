@@ -20,7 +20,7 @@ export const privacyPolicy = {
       id: "prikupljeni-podatci",
       title: "Koje podatke prikupljamo",
       intro:
-        "Kontaktna forma na stranici ne šalje i ne sprema podatke: od unesenih polja složi poruku koja se otvori u Vašoj aplikaciji za e-poštu ili na WhatsAppu, a Vi je sami šaljete. Kada nam pošaljete upit, primamo sljedeće podatke:",
+        "Kada nam pošaljete upit putem kontaktne forme ili na WhatsApp, primamo sljedeće podatke:",
       bullets: [
         "ime i prezime",
         "e-pošta i/ili telefon",
@@ -55,7 +55,8 @@ export const privacyPolicy = {
       bullets: [
         "ovlaštene osobe Orguljarstva Kvaternik",
         "pružatelj hostinga web-stranice",
-        "pružatelj usluge e-pošte (Google, Gmail) ili WhatsAppa (Meta), ovisno o tome kako pošaljete upit",
+        "Web3Forms, tehnički pružatelj koji poruke s kontaktne forme dostavlja na našu e-poštu",
+        "pružatelj usluge e-pošte (Google, Gmail) te WhatsApp (Meta), ako upit pošaljete na WhatsApp",
         "drugi tehnički pružatelji samo ako su potrebni za rad i sigurnost stranice",
       ],
     },
@@ -65,7 +66,7 @@ export const privacyPolicy = {
       content: [
         "Pojedini tehnički pružatelji mogu obrađivati podatke izvan Europskoga gospodarskog prostora. U takvim slučajevima potrebno je osigurati odgovarajući pravni mehanizam zaštite podataka, poput standardnih ugovornih klauzula ili drugog važećeg mehanizma.",
       ],
-      // TODO: Potvrditi produkcijsku konfiguraciju hostinga.
+      // TODO: Potvrditi produkcijsku konfiguraciju hostinga i Web3Formsa.
     },
     {
       id: "cuvanje",
