@@ -12,15 +12,14 @@ export const privacyPolicyEn = {
     {
       id: "data-collected",
       title: "What data we collect",
-      intro: "The following data may be collected through the contact form:",
+      intro:
+        "The contact form on this website does not send or store any data: it turns the fields you fill in into a message that opens in your e-mail app or in WhatsApp, and you send it yourself. When you send us an inquiry, we receive the following data:",
       bullets: [
         "full name",
-        "e-mail",
-        "phone, if entered",
+        "e-mail and/or phone",
         "type of inquiry",
         "location of the instrument, if entered",
         "content of the message",
-        "basic technical data needed for security and abuse prevention",
       ],
     },
     {
@@ -31,14 +30,13 @@ export const privacyPolicyEn = {
         "respond to the inquiry you sent",
         "carry out initial business communication",
         "assess the type of work requested",
-        "protect the contact form from abuse",
       ],
     },
     {
       id: "legal-basis",
       title: "Legal basis",
       content: [
-        "Data sent through the contact form is processed in order to respond to your inquiry and to take steps at your request before a possible business relationship is entered into. The controller's legitimate interest may apply to the security of the form and the prevention of abuse.",
+        "Data from your inquiry is processed in order to respond to it and to take steps at your request before a possible business relationship is entered into.",
       ],
     },
     {
@@ -48,7 +46,7 @@ export const privacyPolicyEn = {
       bullets: [
         "authorised persons at Orguljarstvo Kvaternik",
         "the website hosting provider",
-        "the technical provider that delivers messages from the contact form (Web3Forms or Resend)",
+        "the e-mail provider (Google, Gmail) or WhatsApp (Meta), depending on how you send your inquiry",
         "other technical providers only where needed for the operation and security of the site",
       ],
     },

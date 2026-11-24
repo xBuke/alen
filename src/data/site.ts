@@ -11,6 +11,8 @@ export const siteConfig = {
   website: officialSource,
   phoneDisplay: "098 777 988",
   phoneHref: "tel:+38598777988",
+  /** Broj za WhatsApp upite (wa.me), međunarodni format bez + i razmaka. */
+  whatsapp: "38598777988",
   email: "alen.kvaternik@gmail.com",
   address: "Rudarska ulica 1, 48000 Draganovec",
   oib: "76874004422",

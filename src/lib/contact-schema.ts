@@ -51,12 +51,16 @@ export function resolveInquiryTypeFromQuery(
 
 const phonePattern = /^[\d\s+()-]*$/;
 
+const MESSAGE_MAX = 2000;
+export const contactMessageMax = MESSAGE_MAX;
+
 const messages = {
   hr: {
     nameRequired: "Unesite ime i prezime.",
     nameMin: "Ime i prezime mora imati najmanje 2 znaka.",
     nameMax: "Ime i prezime može imati najviše 100 znakova.",
-    emailRequired: "Unesite e-poštu.",
+    contactRequired:
+      "Ostavite e-poštu ili broj telefona kako bismo Vam mogli odgovoriti.",
     emailInvalid: "Unesite valjanu adresu e-pošte, npr. ime@primjer.hr.",
     emailMax: "E-pošta može imati najviše 254 znaka.",
     phoneMax: "Telefon može imati najviše 30 znakova.",
@@ -65,15 +69,15 @@ const messages = {
     inquiryType: "Odaberite vrstu upita.",
     locationMax: "Lokacija može imati najviše 150 znakova.",
     messageRequired: "Unesite poruku.",
-    messageMin: "Poruka mora imati najmanje 20 znakova.",
-    messageMax: "Poruka može imati najviše 4000 znakova.",
-    privacy: "Potrebno je potvrditi upoznavanje s Pravilima privatnosti.",
+    messageMin: "Poruka mora imati najmanje 10 znakova.",
+    messageMax: `Poruka može imati najviše ${MESSAGE_MAX} znakova.`,
   },
   en: {
     nameRequired: "Enter your full name.",
     nameMin: "Your name must be at least 2 characters long.",
     nameMax: "Your name can be at most 100 characters long.",
-    emailRequired: "Enter your e-mail.",
+    contactRequired:
+      "Leave an e-mail address or a phone number so we can reply to you.",
     emailInvalid: "Enter a valid e-mail address, e.g. name@example.com.",
     emailMax: "The e-mail can be at most 254 characters long.",
     phoneMax: "The phone number can be at most 30 characters long.",
@@ -82,55 +86,62 @@ const messages = {
     inquiryType: "Select the type of inquiry.",
     locationMax: "The location can be at most 150 characters long.",
     messageRequired: "Enter a message.",
-    messageMin: "The message must be at least 20 characters long.",
-    messageMax: "The message can be at most 4000 characters long.",
-    privacy: "Please confirm that you have read the Privacy policy.",
+    messageMin: "The message must be at least 10 characters long.",
+    messageMax: `The message can be at most ${MESSAGE_MAX} characters long.`,
   },
 } as const;
 
 export function createContactFormSchema(locale: Locale = "hr") {
   const m = messages[locale];
 
-  return z.object({
-    fullName: z
-      .string()
-      .min(1, m.nameRequired)
-      .min(2, m.nameMin)
-      .max(100, m.nameMax),
-    email: z
-      .string()
-      .min(1, m.emailRequired)
-      .email(m.emailInvalid)
-      .max(254, m.emailMax),
-    phone: z
-      .string()
-      .max(30, m.phoneMax)
-      .regex(phonePattern, m.phonePattern)
-      .optional()
-      .or(z.literal("")),
-    inquiryType: z.enum(inquiryTypeValues, {
-      error: m.inquiryType,
-    }),
-    instrumentLocation: z
-      .string()
-      .max(150, m.locationMax)
-      .optional()
-      .or(z.literal("")),
-    message: z
-      .string()
-      .min(1, m.messageRequired)
-      .min(20, m.messageMin)
-      .max(4000, m.messageMax),
-    privacyAcknowledged: z.boolean().refine((value) => value === true, {
-      message: m.privacy,
-    }),
-    companyWebsite: z.string().optional(),
-  });
+  return z
+    .object({
+      fullName: z
+        .string()
+        .trim()
+        .min(1, m.nameRequired)
+        .min(2, m.nameMin)
+        .max(100, m.nameMax),
+      email: z
+        .string()
+        .trim()
+        .max(254, m.emailMax)
+        .refine((value) => value === "" || z.email().safeParse(value).success, {
+          message: m.emailInvalid,
+        }),
+      phone: z
+        .string()
+        .trim()
+        .max(30, m.phoneMax)
+        .regex(phonePattern, m.phonePattern),
+      inquiryType: z.enum(inquiryTypeValues, {
+        error: m.inquiryType,
+      }),
+      instrumentLocation: z.string().trim().max(150, m.locationMax),
+      message: z
+        .string()
+        .trim()
+        .min(1, m.messageRequired)
+        .min(10, m.messageMin)
+        .max(MESSAGE_MAX, m.messageMax),
+    })
+    .superRefine((values, ctx) => {
+      // Dovoljan je jedan kontakt: e-pošta ili telefon (kao na Govorku).
+      const hasEmail = values.email !== "";
+      const hasPhone = values.phone.replace(/\D/g, "").length >= 6;
+      if (!hasEmail && !hasPhone) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["email"],
+          message: m.contactRequired,
+        });
+      }
+    });
 }
 
 export const contactFormSchema = createContactFormSchema("hr");
 
-export type ContactFormValues = z.infer<typeof contactFormSchema>;
+export type ContactFormValues = z.input<typeof contactFormSchema>;
 
 export const contactFormDefaultValues: ContactFormValues = {
   fullName: "",
@@ -139,6 +150,4 @@ export const contactFormDefaultValues: ContactFormValues = {
   inquiryType: "izrada-novih-orgulja",
   instrumentLocation: "",
   message: "",
-  privacyAcknowledged: false,
-  companyWebsite: "",
 };

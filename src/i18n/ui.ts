@@ -157,7 +157,7 @@ const hr = {
     email: "E-pošta",
     sendTitle: "Pošaljite upit",
     sendIntro:
-      "Ispunite obrazac kako bismo mogli procijeniti vrstu zahvata i započeti razgovor.",
+      "Ispunite nekoliko polja i pošaljite nam upit e-poštom ili na WhatsApp. Javljamo se u najkraćem mogućem roku.",
     loadingForm: "Učitavanje obrasca…",
   },
   legal: {
@@ -175,28 +175,40 @@ const hr = {
     fullName: "Ime i prezime",
     email: "E-pošta",
     phone: "Telefon",
+    contactHint: "Dovoljno je ostaviti e-poštu ili telefon.",
     inquiryType: "Vrsta upita",
     inquiryPlaceholder: "Odaberite vrstu upita",
     instrumentLocation: "Lokacija instrumenta",
     instrumentLocationHelp: "Mjesto, župa, crkva ili drugi prostor, ako je poznato.",
     message: "Poruka",
     messageHelp:
-      "Opišite instrument, trenutačno stanje i vrstu zahvata koja Vas zanima (najmanje 20 znakova).",
-    requiredNote: "Sva polja su obavezna osim onih označenih kao neobavezna.",
+      "Opišite instrument, trenutačno stanje i vrstu zahvata koja Vas zanima.",
+    requiredNote: "Polja označena zvjezdicom (*) su obavezna.",
     optional: "(neobavezno)",
     messageNearLimit: "Približavate se maksimalnoj duljini poruke.",
-    honeypot: "Ostavite ovo polje prazno",
-    privacyBefore: "Pročitao/la sam",
-    privacyLink: "Pravila privatnosti",
-    privacyAfter: "i razumijem kako se moji podatci koriste radi odgovora na upit.",
-    submit: "Pošaljite upit",
-    submitting: "Slanje…",
-    success:
-      "Hvala na upitu. Vaša poruka je uspješno poslana. Javit ćemo Vam se u najkraćem mogućem roku.",
-    error:
-      "Poruku trenutačno nije moguće poslati. Molimo pokušajte ponovno ili nam se javite izravno putem telefona ili e-pošte.",
-    rateLimit:
-      "Poslano je previše zahtjeva u kratkom razdoblju. Molimo pokušajte ponovno nešto kasnije.",
+    sendVia: "Pošaljite upit putem",
+    sendEmail: "E-pošte",
+    sendWhatsapp: "WhatsAppa",
+    sendWhatsappNote: "(otvara WhatsApp u novom prozoru)",
+    howItWorks:
+      "Upit se automatski složi u poruku i otvori u Vašoj aplikaciji za e-poštu ili na WhatsAppu, pa ga samo pošaljete. Stranica ne sprema i ne prosljeđuje Vaše podatke.",
+    privacyBefore: "Više o obradi podataka u",
+    privacyLink: "Pravilima privatnosti",
+    privacyAfter: ".",
+    preview: "Pregled poruke",
+    previewTo: "Prima",
+    okTitle: "Upit je spreman.",
+    okEmail:
+      "Otvorila Vam se e-pošta s gotovom porukom. Pregledajte je i pritisnite Pošalji.",
+    okWhatsapp:
+      "Otvorio Vam se WhatsApp s gotovom porukom. Pregledajte je i pritisnite Pošalji.",
+    okRetry: "Nije se ništa otvorilo? Pokušajte ponovno",
+    okFallback: "ili nam pišite izravno na",
+    okNew: "Novi upit",
+    msgHello: "Poštovani,",
+    msgIntro: "šaljem upit putem web-stranice.",
+    msgSubject: "Upit",
+    msgBye: "Lijep pozdrav,",
     checkData: "Provjerite unesene podatke.",
   },
 } as const;
@@ -366,7 +378,7 @@ const en: UiStrings = {
     email: "E-mail",
     sendTitle: "Send an inquiry",
     sendIntro:
-      "Fill in the form so we can assess the type of work and start a conversation.",
+      "Fill in a few fields and send us your inquiry by e-mail or WhatsApp. We will get back to you as soon as possible.",
     loadingForm: "Loading form…",
   },
   legal: {
@@ -384,29 +396,40 @@ const en: UiStrings = {
     fullName: "Full name",
     email: "E-mail",
     phone: "Phone",
+    contactHint: "An e-mail address or a phone number is enough.",
     inquiryType: "Type of inquiry",
     inquiryPlaceholder: "Select the type of inquiry",
     instrumentLocation: "Location of the instrument",
     instrumentLocationHelp: "Town, parish, church or other space, if known.",
     message: "Message",
     messageHelp:
-      "Describe the instrument, its current condition and the type of work you are interested in (at least 20 characters).",
-    requiredNote: "All fields are required unless marked as optional.",
+      "Describe the instrument, its current condition and the type of work you are interested in.",
+    requiredNote: "Fields marked with an asterisk (*) are required.",
     optional: "(optional)",
     messageNearLimit: "You are approaching the maximum message length.",
-    honeypot: "Leave this field empty",
-    privacyBefore: "I have read the",
+    sendVia: "Send your inquiry via",
+    sendEmail: "E-mail",
+    sendWhatsapp: "WhatsApp",
+    sendWhatsappNote: "(opens WhatsApp in a new window)",
+    howItWorks:
+      "Your inquiry is put together into a ready message that opens in your e-mail app or in WhatsApp, so all you have to do is send it. The website does not store or forward your data.",
+    privacyBefore: "More about data processing in the",
     privacyLink: "Privacy policy",
-    privacyAfter:
-      "and I understand how my data is used in order to respond to my inquiry.",
-    submit: "Send inquiry",
-    submitting: "Sending…",
-    success:
-      "Thank you for your inquiry. Your message has been sent successfully. We will get back to you as soon as possible.",
-    error:
-      "We could not send your message right now. Please try again or contact us directly by phone or e-mail.",
-    rateLimit:
-      "Too many requests were sent in a short period. Please try again a little later.",
+    privacyAfter: ".",
+    preview: "Message preview",
+    previewTo: "To",
+    okTitle: "Your inquiry is ready.",
+    okEmail:
+      "Your e-mail app has opened with the message ready. Check it and press Send.",
+    okWhatsapp:
+      "WhatsApp has opened with the message ready. Check it and press Send.",
+    okRetry: "Nothing opened? Try again",
+    okFallback: "or write to us directly at",
+    okNew: "New inquiry",
+    msgHello: "Hello,",
+    msgIntro: "I am sending an inquiry through your website.",
+    msgSubject: "Inquiry",
+    msgBye: "Kind regards,",
     checkData: "Please check the data you entered.",
   },
 };

@@ -13,19 +13,9 @@ Koristite ovaj popis prije javne objave. Ne označavajte stavke kao dovršene do
 
 ## Kontakt
 
-- [ ] verificirati domenu u Resendu
-- [ ] postaviti `RESEND_API_KEY`
-- [ ] postaviti `CONTACT_FROM_EMAIL`
-- [ ] potvrditi `CONTACT_TO_EMAIL`
-- [ ] testirati stvarno slanje
-- [ ] testirati reply-to
-
-## Rate limit
-
-- [ ] kreirati Upstash Redis
-- [ ] postaviti URL i token
-- [ ] generirati trajni `RATE_LIMIT_SALT`
-- [ ] testirati 429
+- [ ] potvrditi da Alen ima WhatsApp na 098 777 988
+- [ ] testirati upit e-poštom (mailto) na mobitelu i računalu
+- [ ] testirati upit na WhatsApp
 
 ## Pravno
 

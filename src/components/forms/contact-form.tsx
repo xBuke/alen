@@ -1,15 +1,21 @@
 "use client";
 
+/*
+ * Obrazac za upit (isti princip kao na vinagovorko.hr): poruka se automatski
+ * složi iz polja i otvori u posjetiteljevoj e-pošti (mailto:) ili na WhatsAppu
+ * (wa.me) prema Orguljarstvu Kvaternik. Nema servera, ključeva ni spremanja
+ * podataka; posjetitelj poruku pregleda i sam pošalje.
+ */
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Loader2 } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Controller, useForm, useWatch } from "react-hook-form";
 
 import { FormFieldError } from "@/components/forms/form-field-error";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -20,85 +26,71 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { siteConfig } from "@/data/site";
 import {
   contactFormDefaultValues,
+  contactMessageMax,
   createContactFormSchema,
   getInquiryTypeLabels,
-  inquiryTypeLabels,
   inquiryTypeValues,
   resolveInquiryTypeFromQuery,
   type ContactFormValues,
 } from "@/lib/contact-schema";
-import { localizePath, type Locale } from "@/i18n/config";
+import { localizePath } from "@/i18n/config";
 import { useLocale } from "@/i18n/locale-context";
-import { getUi } from "@/i18n/ui";
+import { getUi, type UiStrings } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
 
-type FormStatus = "idle" | "submitting" | "success" | "error" | "rate-limited";
+type Channel = "email" | "whatsapp";
 
-type ApiSuccessResponse = {
-  success: true;
-  message: string;
+type SentState = {
+  via: Channel;
+  href: string;
 };
-
-type ApiErrorResponse = {
-  success: false;
-  message: string;
-  fieldErrors?: Partial<Record<keyof ContactFormValues, string[]>>;
-};
-
-/**
- * Web3Forms javni pristupni ključ. Kada je postavljen, forma šalje poruku
- * izravno na Web3Forms, koji je prosljeđuje na e-poštu vezanu uz ključ.
- * Bez ključa koristi se postojeća /api/contact ruta (Resend).
- */
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
-const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-
-async function submitViaWeb3Forms(
-  values: ContactFormValues,
-  locale: Locale,
-): Promise<boolean> {
-  const inquiryLabel = inquiryTypeLabels[values.inquiryType];
-  const response = await fetch(WEB3FORMS_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: `Novi upit — Orguljarstvo Kvaternik — ${inquiryLabel}${
-        locale === "en" ? " (EN)" : ""
-      }`,
-      from_name: "Web stranica Orguljarstvo Kvaternik",
-      replyto: values.email,
-      "Ime i prezime": values.fullName,
-      email: values.email,
-      Telefon: values.phone || "—",
-      "Vrsta upita": inquiryLabel,
-      "Jezik stranice": locale === "en" ? "engleski" : "hrvatski",
-      "Lokacija instrumenta": values.instrumentLocation || "—",
-      message: values.message,
-      // Web3Forms honeypot: popunjeno polje znači bot.
-      botcheck: values.companyWebsite ? "1" : "",
-    }),
-  });
-
-  const data = (await response.json().catch(() => null)) as {
-    success?: boolean;
-  } | null;
-
-  return response.ok && data?.success === true;
-}
 
 // Rub polja: border-input (3.8:1 prema pozadini, WCAG 1.4.11).
 const fieldClassName =
   "rounded-sm border-border-input bg-background focus-visible:border-gold/50 focus-visible:ring-gold";
 
+const fieldOrder: (keyof ContactFormValues)[] = [
+  "fullName",
+  "email",
+  "phone",
+  "inquiryType",
+  "instrumentLocation",
+  "message",
+];
+
 function buildDescribedBy(...ids: Array<string | false | undefined>): string | undefined {
   const value = ids.filter(Boolean).join(" ");
   return value || undefined;
+}
+
+function RequiredMark() {
+  return (
+    <span aria-hidden="true" className="text-gold">
+      {" "}*
+    </span>
+  );
+}
+
+/** Tekst poruke, složen na jeziku stranice na kojoj je posjetitelj. */
+function buildMessage(
+  values: ContactFormValues,
+  t: UiStrings["form"],
+  inquiryLabel: string,
+): string {
+  const lines = [t.msgHello, t.msgIntro, "", `${t.inquiryType}: ${inquiryLabel}`];
+  const location = values.instrumentLocation?.trim();
+  if (location) lines.push(`${t.instrumentLocation}: ${location}`);
+  const message = values.message.trim();
+  if (message) lines.push("", message);
+  lines.push("", t.msgBye, values.fullName.trim());
+  const email = values.email.trim();
+  const phone = values.phone.trim();
+  if (email) lines.push(email);
+  if (phone) lines.push(phone);
+  return lines.join("\n");
 }
 
 export function ContactForm() {
@@ -107,9 +99,9 @@ export function ContactForm() {
   const labels = getInquiryTypeLabels(locale);
   const schema = useMemo(() => createContactFormSchema(locale), [locale]);
   const searchParams = useSearchParams();
-  const [status, setStatus] = useState<FormStatus>("idle");
-  const [statusMessage, setStatusMessage] = useState("");
+  const [sent, setSent] = useState<SentState | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const initialInquiryType = useMemo(() => {
     return (
@@ -121,9 +113,10 @@ export function ContactForm() {
   const {
     register,
     control,
-    handleSubmit,
+    getValues,
     reset,
     setError,
+    clearErrors,
     setValue,
     formState: { errors },
   } = useForm<ContactFormValues>({
@@ -135,9 +128,15 @@ export function ContactForm() {
     mode: "onBlur",
   });
 
-  const messageValue = useWatch({ control, name: "message" }) ?? "";
-  const messageLength = messageValue.length;
-  const showMessageLengthWarning = messageLength > 3800;
+  const watched = useWatch({ control }) as ContactFormValues;
+  const messageLength = (watched.message ?? "").length;
+  const showMessageLengthWarning = messageLength > contactMessageMax - 200;
+
+  const preview = buildMessage(
+    { ...contactFormDefaultValues, ...watched },
+    t,
+    labels[watched.inquiryType ?? contactFormDefaultValues.inquiryType],
+  );
 
   useEffect(() => {
     const fromQuery = resolveInquiryTypeFromQuery(searchParams.get("vrsta"));
@@ -147,143 +146,137 @@ export function ContactForm() {
   }, [searchParams, setValue]);
 
   useEffect(() => {
-    if (status === "success" && successRef.current) {
+    if (sent && successRef.current) {
       successRef.current.focus();
     }
-  }, [status]);
+  }, [sent]);
+
+  /*
+   * Provjera je sinkrona (safeParse), a ne preko handleSubmit, kako bi se
+   * WhatsApp otvorio unutar istog klika. Inače ga Safari na iOS-u blokira
+   * kao skočni prozor.
+   */
+  function send(via: Channel) {
+    const values = getValues();
+    const result = schema.safeParse(values);
+
+    clearErrors();
+    if (!result.success) {
+      let firstField: keyof ContactFormValues | undefined;
+      const seen = new Set<keyof ContactFormValues>();
+      for (const issue of result.error.issues) {
+        const field = issue.path[0] as keyof ContactFormValues | undefined;
+        if (!field || seen.has(field)) continue;
+        seen.add(field);
+        setError(field, { type: "validate", message: issue.message });
+        if (
+          !firstField ||
+          fieldOrder.indexOf(field) < fieldOrder.indexOf(firstField)
+        ) {
+          firstField = field;
+        }
+      }
+      if (firstField) {
+        formRef.current
+          ?.querySelector<HTMLElement>(`#${firstField}`)
+          ?.focus();
+      }
+      return;
+    }
+
+    const data = result.data;
+    const inquiryLabel = labels[data.inquiryType];
+    const body = buildMessage(data, t, inquiryLabel);
+
+    if (via === "email") {
+      const subject = `${t.msgSubject} — ${inquiryLabel} — ${data.fullName}`;
+      const href = `mailto:${siteConfig.contactRecipient}?subject=${encodeURIComponent(
+        subject,
+      )}&body=${encodeURIComponent(body)}`;
+      window.location.href = href;
+      setSent({ via, href });
+    } else {
+      const href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`;
+      window.open(href, "_blank", "noopener");
+      setSent({ via, href });
+    }
+  }
 
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-    void handleSubmit(async (values) => {
-      if (status === "submitting") {
-        return;
-      }
-
-      setStatus("submitting");
-      setStatusMessage("");
-
-      try {
-        if (WEB3FORMS_ACCESS_KEY) {
-          const sent = await submitViaWeb3Forms(values, locale);
-          if (sent) {
-            setStatus("success");
-            setStatusMessage(t.success);
-            reset(contactFormDefaultValues);
-          } else {
-            setStatus("error");
-            setStatusMessage(t.error);
-          }
-          return;
-        }
-
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ ...values, locale }),
-        });
-
-        let data: ApiSuccessResponse | ApiErrorResponse;
-        try {
-          data = (await response.json()) as
-            | ApiSuccessResponse
-            | ApiErrorResponse;
-        } catch {
-          setStatus("error");
-          setStatusMessage(t.error);
-          return;
-        }
-
-        if (
-          typeof data !== "object" ||
-          data === null ||
-          typeof data.success !== "boolean"
-        ) {
-          setStatus("error");
-          setStatusMessage(t.error);
-          return;
-        }
-
-        if (response.status === 429) {
-          setStatus("rate-limited");
-          setStatusMessage(t.rateLimit);
-          return;
-        }
-
-        if (!response.ok || !data.success) {
-          const errorData = data as ApiErrorResponse;
-
-          if (errorData.fieldErrors) {
-            const fieldNames = Object.keys(
-              errorData.fieldErrors,
-            ) as (keyof ContactFormValues)[];
-
-            for (const fieldName of fieldNames) {
-              const messages = errorData.fieldErrors[fieldName];
-              if (messages?.[0]) {
-                setError(fieldName, { type: "server", message: messages[0] });
-              }
-            }
-
-            const firstInvalidField = fieldNames[0];
-            if (firstInvalidField) {
-              const element = document.getElementById(firstInvalidField);
-              element?.focus();
-            }
-
-            setStatus("error");
-            setStatusMessage(
-              errorData.message || t.checkData,
-            );
-            return;
-          }
-
-          setStatus("error");
-          setStatusMessage(t.error);
-          return;
-        }
-
-        setStatus("success");
-        setStatusMessage(t.success);
-        reset(contactFormDefaultValues);
-      } catch {
-        setStatus("error");
-        setStatusMessage(t.error);
-      }
-    })(event);
+    event.preventDefault();
+    send("email");
   };
 
-  const isSubmitting = status === "submitting";
+  if (sent) {
+    const isEmail = sent.via === "email";
+    return (
+      <div
+        ref={successRef}
+        tabIndex={-1}
+        role="status"
+        className="space-y-4 rounded-sm border border-gold/30 bg-gold/10 px-5 py-6 font-body text-sm text-text-light outline-none focus-visible:ring-2 focus-visible:ring-gold"
+      >
+        <p className="font-heading text-xl text-text-light">{t.okTitle}</p>
+        <p>{isEmail ? t.okEmail : t.okWhatsapp}</p>
+        <p className="text-text-muted">
+          <a
+            href={sent.href}
+            target={isEmail ? undefined : "_blank"}
+            rel={isEmail ? undefined : "noopener noreferrer"}
+            className="text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
+          >
+            {t.okRetry}
+            {isEmail ? null : (
+              <span className="sr-only"> {t.sendWhatsappNote}</span>
+            )}
+          </a>{" "}
+          {t.okFallback}{" "}
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
+          >
+            {siteConfig.email}
+          </a>{" "}
+          ·{" "}
+          <a
+            href={siteConfig.phoneHref}
+            className="text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
+          >
+            {siteConfig.phoneDisplay}
+          </a>
+        </p>
+        <Button
+          type="button"
+          variant="secondary"
+          size="lg"
+          className="min-h-11"
+          onClick={() => {
+            reset({ ...contactFormDefaultValues, inquiryType: initialInquiryType });
+            setSent(null);
+          }}
+        >
+          {t.okNew}
+        </Button>
+      </div>
+    );
+  }
+
+  const contactError = errors.email?.message;
 
   return (
     <form
+      ref={formRef}
       onSubmit={handleFormSubmit}
       noValidate
       className="space-y-6"
-      aria-busy={isSubmitting}
     >
       <p className="font-body text-sm text-text-muted">{t.requiredNote}</p>
 
-      {/* Zamka za botove: skrivena od čitača zaslona i izvan redoslijeda fokusa. */}
-      <div
-        className="absolute -left-[9999px] h-px w-px overflow-hidden"
-        aria-hidden="true"
-      >
-        <Label htmlFor="companyWebsite" className="sr-only">
-          {t.honeypot}
-        </Label>
-        <Input
-          id="companyWebsite"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-          className={fieldClassName}
-          {...register("companyWebsite")}
-        />
-      </div>
-
       <div>
-        <Label htmlFor="fullName">{t.fullName}</Label>
+        <Label htmlFor="fullName">
+          {t.fullName}
+          <RequiredMark />
+        </Label>
         <Input
           id="fullName"
           aria-required="true"
@@ -301,40 +294,51 @@ export function ContactForm() {
         />
       </div>
 
-      <div>
-        <Label htmlFor="email">{t.email}</Label>
-        <Input
-          id="email"
-          aria-required="true"
-          type="email"
-          autoComplete="email"
-          aria-invalid={Boolean(errors.email)}
-          aria-describedby={buildDescribedBy(errors.email && "email-error")}
-          className={cn(fieldClassName, "mt-2")}
-          {...register("email")}
-        />
-        <FormFieldError id="email-error" message={errors.email?.message} />
-      </div>
-
-      <div>
-        <Label htmlFor="phone">
-          {t.phone}{" "}
-          <span className="font-normal text-text-muted">{t.optional}</span>
-        </Label>
-        <Input
-          id="phone"
-          type="tel"
-          autoComplete="tel"
-          aria-invalid={Boolean(errors.phone)}
-          aria-describedby={buildDescribedBy(errors.phone && "phone-error")}
-          className={cn(fieldClassName, "mt-2")}
-          {...register("phone")}
-        />
+      <fieldset className="space-y-4">
+        <legend className="font-body text-sm text-text-muted" id="contact-hint">
+          {t.contactHint}
+        </legend>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <Label htmlFor="email">{t.email}</Label>
+            <Input
+              id="email"
+              type="email"
+              autoComplete="email"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={buildDescribedBy(
+                "contact-hint",
+                contactError && "email-error",
+              )}
+              className={cn(fieldClassName, "mt-2")}
+              {...register("email")}
+            />
+          </div>
+          <div>
+            <Label htmlFor="phone">{t.phone}</Label>
+            <Input
+              id="phone"
+              type="tel"
+              autoComplete="tel"
+              aria-invalid={Boolean(errors.phone)}
+              aria-describedby={buildDescribedBy(
+                "contact-hint",
+                errors.phone && "phone-error",
+              )}
+              className={cn(fieldClassName, "mt-2")}
+              {...register("phone")}
+            />
+          </div>
+        </div>
+        <FormFieldError id="email-error" message={contactError} />
         <FormFieldError id="phone-error" message={errors.phone?.message} />
-      </div>
+      </fieldset>
 
       <div>
-        <Label htmlFor="inquiryType">{t.inquiryType}</Label>
+        <Label htmlFor="inquiryType">
+          {t.inquiryType}
+          <RequiredMark />
+        </Label>
         <Controller
           name="inquiryType"
           control={control}
@@ -396,18 +400,22 @@ export function ContactForm() {
 
       <div>
         <div className="flex items-baseline justify-between gap-4">
-          <Label htmlFor="message">{t.message}</Label>
+          <Label htmlFor="message">
+            {t.message}
+            <RequiredMark />
+          </Label>
           <span
             id="message-count"
             className="font-body text-xs text-text-muted"
           >
-            {messageLength}/4000
+            {messageLength}/{contactMessageMax}
           </span>
         </div>
         <Textarea
           id="message"
           aria-required="true"
           rows={6}
+          maxLength={contactMessageMax}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={buildDescribedBy(
             "message-help",
@@ -432,85 +440,54 @@ export function ContactForm() {
         <FormFieldError id="message-error" message={errors.message?.message} />
       </div>
 
-      <div className="space-y-3 border-t border-border-dark pt-6">
-        <div className="flex min-h-11 items-start gap-3">
-          <Controller
-            name="privacyAcknowledged"
-            control={control}
-            render={({ field }) => (
-              <Checkbox
-                id="privacyAcknowledged"
-                aria-required="true"
-                checked={field.value === true}
-                onCheckedChange={(checked) =>
-                  field.onChange(checked === true)
-                }
-                aria-invalid={Boolean(errors.privacyAcknowledged)}
-                aria-describedby={buildDescribedBy(
-                  errors.privacyAcknowledged && "privacyAcknowledged-error",
-                )}
-                className="mt-1 h-5 w-5 shrink-0"
-              />
-            )}
-          />
-          <Label
-            htmlFor="privacyAcknowledged"
-            className="cursor-pointer py-1 text-sm leading-relaxed text-text-muted"
+      <div className="space-y-4 border-t border-border-dark pt-6">
+        <p className="font-body text-sm leading-relaxed text-text-muted">
+          {t.howItWorks} {t.privacyBefore}{" "}
+          <Link
+            href={localizePath("/pravila-privatnosti", locale)}
+            className="text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
           >
-            {t.privacyBefore}{" "}
-            <Link
-              href={localizePath("/pravila-privatnosti", locale)}
-              className="text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold"
+            {t.privacyLink}
+          </Link>
+          {t.privacyAfter}
+        </p>
+
+        <div role="group" aria-labelledby="send-via" className="space-y-3">
+          <p id="send-via" className="font-body text-sm text-text-light">
+            {t.sendVia}
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Button type="submit" size="lg" className="min-h-11">
+              <Mail aria-hidden="true" />
+              {t.sendEmail}
+            </Button>
+            <Button
+              type="button"
+              variant="secondary"
+              size="lg"
+              className="min-h-11"
+              onClick={() => send("whatsapp")}
             >
-              {t.privacyLink}
-            </Link>{" "}
-            {t.privacyAfter}
-          </Label>
+              <MessageCircle aria-hidden="true" />
+              {t.sendWhatsapp}
+              <span className="sr-only"> {t.sendWhatsappNote}</span>
+            </Button>
+          </div>
         </div>
-        <FormFieldError
-          id="privacyAcknowledged-error"
-          message={errors.privacyAcknowledged?.message}
-        />
+
+        <details className="group rounded-sm border border-border-dark px-4 py-3 font-body text-sm">
+          <summary className="min-h-6 cursor-pointer text-text-muted hover:text-text-light">
+            {t.preview}
+          </summary>
+          <pre className="mt-3 whitespace-pre-wrap break-words font-body text-sm text-text-light">
+            {preview}
+          </pre>
+          <p className="mt-3 text-xs text-text-muted">
+            {t.previewTo}: {siteConfig.name} · {siteConfig.contactRecipient} ·{" "}
+            {siteConfig.phoneDisplay}
+          </p>
+        </details>
       </div>
-
-      <div aria-live="polite" className="space-y-3">
-        {status === "success" ? (
-          <div
-            ref={successRef}
-            tabIndex={-1}
-            role="status"
-            className="rounded-sm border border-gold/30 bg-gold/10 px-4 py-3 font-body text-sm text-text-light"
-          >
-            {statusMessage}
-          </div>
-        ) : null}
-
-        {status === "error" || status === "rate-limited" ? (
-          <div
-            role="alert"
-            className="rounded-sm border border-red-400/30 bg-red-950/30 px-4 py-3 font-body text-sm text-red-200"
-          >
-            {statusMessage}
-          </div>
-        ) : null}
-      </div>
-
-      <Button
-        type="submit"
-        size="lg"
-        disabled={isSubmitting}
-        className="min-h-11 w-full sm:w-auto"
-        aria-disabled={isSubmitting}
-      >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="animate-spin" aria-hidden="true" />
-            {t.submitting}
-          </>
-        ) : (
-          t.submit
-        )}
-      </Button>
     </form>
   );
 }

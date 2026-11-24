@@ -1,4 +1,4 @@
-// TODO: Potvrditi pravni temelj, konkretne rokove čuvanja, Resend/hosting prijenose i potpune podatke društva prije produkcijske objave.
+// TODO: Potvrditi pravni temelj, konkretne rokove čuvanja, prijenose (e-pošta, WhatsApp, hosting) i potpune podatke društva prije produkcijske objave.
 
 export const LEGAL_REVIEW_REQUIRED = true;
 
@@ -20,15 +20,13 @@ export const privacyPolicy = {
       id: "prikupljeni-podatci",
       title: "Koje podatke prikupljamo",
       intro:
-        "Putem kontaktne forme mogu se prikupljati sljedeći podatci:",
+        "Kontaktna forma na stranici ne šalje i ne sprema podatke: od unesenih polja složi poruku koja se otvori u Vašoj aplikaciji za e-poštu ili na WhatsAppu, a Vi je sami šaljete. Kada nam pošaljete upit, primamo sljedeće podatke:",
       bullets: [
         "ime i prezime",
-        "e-pošta",
-        "telefon, ako je unesen",
+        "e-pošta i/ili telefon",
         "vrsta upita",
         "lokacija instrumenta, ako je unesena",
         "sadržaj poruke",
-        "osnovni tehnički podatci potrebni za sigurnost i sprečavanje zlouporabe",
       ],
     },
     {
@@ -39,14 +37,13 @@ export const privacyPolicy = {
         "odgovora na poslani upit",
         "početne poslovne komunikacije",
         "procjene vrste traženog zahvata",
-        "zaštite kontaktne forme od zlouporabe",
       ],
     },
     {
       id: "pravni-temelj",
       title: "Pravni temelj",
       content: [
-        "Podatci poslani putem kontaktne forme obrađuju se radi odgovora na Vaš upit i poduzimanja radnji na Vaš zahtjev prije mogućeg sklapanja poslovnog odnosa. Za sigurnost obrasca i sprečavanje zlouporabe može se primjenjivati legitimni interes voditelja obrade.",
+        "Podatci iz upita obrađuju se radi odgovora na Vaš upit i poduzimanja radnji na Vaš zahtjev prije mogućeg sklapanja poslovnog odnosa.",
       ],
       // TODO: Pravna osoba mora potvrditi konačnu formulaciju pravnog temelja.
     },
@@ -58,7 +55,7 @@ export const privacyPolicy = {
       bullets: [
         "ovlaštene osobe Orguljarstva Kvaternik",
         "pružatelj hostinga web-stranice",
-        "tehnički pružatelj slanja poruka s kontaktne forme (Web3Forms ili Resend)",
+        "pružatelj usluge e-pošte (Google, Gmail) ili WhatsAppa (Meta), ovisno o tome kako pošaljete upit",
         "drugi tehnički pružatelji samo ako su potrebni za rad i sigurnost stranice",
       ],
     },
@@ -68,7 +65,7 @@ export const privacyPolicy = {
       content: [
         "Pojedini tehnički pružatelji mogu obrađivati podatke izvan Europskoga gospodarskog prostora. U takvim slučajevima potrebno je osigurati odgovarajući pravni mehanizam zaštite podataka, poput standardnih ugovornih klauzula ili drugog važećeg mehanizma.",
       ],
-      // TODO: Potvrditi stvarnu produkcijsku konfiguraciju Resenda i hostinga.
+      // TODO: Potvrditi produkcijsku konfiguraciju hostinga.
     },
     {
       id: "cuvanje",
