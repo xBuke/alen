@@ -49,7 +49,7 @@ export function ImprintView({ locale }: { locale: Locale }) {
                       {"href" in field && field.href ? (
                         <a
                           href={field.href}
-                          className="break-all text-text-light transition-colors hover:text-gold"
+                          className="inline-block min-h-6 break-all py-0.5 text-text-light transition-colors hover:text-gold"
                           {...(field.value === "orguljarstvo-kvaternik.hr"
                             ? {
                                 target: "_blank",

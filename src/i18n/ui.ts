@@ -171,6 +171,48 @@ const hr = {
     lastChange: "Zadnja izmjena",
     companyData: "Podatci o društvu",
   },
+  a11y: {
+    open: "Izbornik pristupačnosti",
+    title: "Pristupačnost",
+    description: "Prilagodite prikaz stranice. Postavke se pamte u ovom pregledniku.",
+    close: "Zatvori izbornik pristupačnosti",
+    textSize: "Veličina teksta",
+    textSizeHelp: "Povećava sav tekst na stranici.",
+    smaller: "Smanji tekst",
+    larger: "Povećaj tekst",
+    reset: "Vrati zadano",
+    statement: "Izjava o pristupačnosti",
+    options: {
+      contrast: {
+        label: "Pojačani kontrast",
+        help: "Svjetliji tekst i jasniji rubovi.",
+      },
+      underlineLinks: {
+        label: "Podcrtaj poveznice",
+        help: "Sve poveznice su podcrtane i lakše se uočavaju.",
+      },
+      readableFont: {
+        label: "Čitljivije pismo",
+        help: "Jednostavno pismo bez serifa i za naslove.",
+      },
+      spacing: {
+        label: "Veći razmaci",
+        help: "Više prostora između redaka, riječi i slova.",
+      },
+      noMotion: {
+        label: "Zaustavi animacije",
+        help: "Isključuje pokrete i prijelaze na stranici.",
+      },
+      bigCursor: {
+        label: "Veliki pokazivač",
+        help: "Veći pokazivač miša.",
+      },
+      focusHighlight: {
+        label: "Istakni fokus",
+        help: "Jasan okvir oko elementa na kojem je tipkovnica.",
+      },
+    },
+  },
   form: {
     fullName: "Ime i prezime",
     email: "E-pošta",
@@ -396,6 +438,48 @@ const en: UiStrings = {
     rightsOutro: "To exercise your rights, you can contact us at",
     lastChange: "Last updated",
     companyData: "Company details",
+  },
+  a11y: {
+    open: "Accessibility menu",
+    title: "Accessibility",
+    description: "Adjust how the site is displayed. Your settings are kept in this browser.",
+    close: "Close accessibility menu",
+    textSize: "Text size",
+    textSizeHelp: "Makes all text on the site larger.",
+    smaller: "Smaller text",
+    larger: "Larger text",
+    reset: "Reset to default",
+    statement: "Accessibility statement",
+    options: {
+      contrast: {
+        label: "Higher contrast",
+        help: "Brighter text and clearer borders.",
+      },
+      underlineLinks: {
+        label: "Underline links",
+        help: "All links are underlined and easier to spot.",
+      },
+      readableFont: {
+        label: "More readable font",
+        help: "A simple sans-serif font, headings included.",
+      },
+      spacing: {
+        label: "More spacing",
+        help: "More space between lines, words and letters.",
+      },
+      noMotion: {
+        label: "Stop animations",
+        help: "Turns off movement and transitions on the site.",
+      },
+      bigCursor: {
+        label: "Large cursor",
+        help: "A bigger mouse pointer.",
+      },
+      focusHighlight: {
+        label: "Highlight focus",
+        help: "A clear outline around the element the keyboard is on.",
+      },
+    },
   },
   form: {
     fullName: "Full name",

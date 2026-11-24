@@ -15,10 +15,10 @@ import { getUi } from "@/i18n/ui";
  *
  * Pri svakoj novoj procjeni ažurirati datume ispod.
  */
-const STATEMENT_DATE_ISO = "2026-11-20";
-const STATEMENT_DATE = { hr: "20. studenoga 2026.", en: "20 November 2026" };
-const REVIEW_DATE_ISO = "2026-11-20";
-const REVIEW_DATE = { hr: "20. studenoga 2026.", en: "20 November 2026" };
+const STATEMENT_DATE_ISO = "2026-11-24";
+const STATEMENT_DATE = { hr: "24. studenoga 2026.", en: "24 November 2026" };
+const REVIEW_DATE_ISO = "2026-11-24";
+const REVIEW_DATE = { hr: "24. studenoga 2026.", en: "24 November 2026" };
 
 const linkClass =
   "text-gold underline decoration-gold/60 underline-offset-4 hover:decoration-gold";
@@ -27,12 +27,12 @@ export const accessibilityMetadata = {
   hr: {
     title: "Izjava o pristupačnosti",
     description:
-      "Izjava o pristupačnosti mrežne stranice Orguljarstva Kvaternik: status usklađenosti s WCAG 2.1 razina AA (EN 301 549), način procjene i kontakt za povratne informacije.",
+      "Izjava o pristupačnosti mrežne stranice Orguljarstva Kvaternik: status usklađenosti s WCAG 2.2 razina AA i EN 301 549, način procjene i kontakt za povratne informacije.",
   },
   en: {
     title: "Accessibility statement",
     description:
-      "Accessibility statement for the Orguljarstvo Kvaternik website: conformance with WCAG 2.1 level AA (EN 301 549), how it was assessed and how to send feedback.",
+      "Accessibility statement for the Orguljarstvo Kvaternik website: conformance with WCAG 2.2 level AA and EN 301 549, how it was assessed and how to send feedback.",
   },
 } as const;
 
@@ -83,8 +83,9 @@ export function AccessibilityView({ locale }: { locale: Locale }) {
                   {siteConfig.legalName} nastoji svoju mrežnu stranicu učiniti
                   pristupačnom svim korisnicima, uključujući osobe s
                   invaliditetom. Kao mjerilo koristimo europsku normu EN 301 549
-                  (v3.2.1), odnosno Smjernice za pristupačnost web-sadržaja
-                  (WCAG) 2.1 na razini AA.
+                  (v3.2.1), koja se poziva na Smjernice za pristupačnost
+                  web-sadržaja (WCAG) 2.1 na razini AA, te noviju inačicu WCAG
+                  2.2 na razini AA, koja uključuje sve kriterije inačice 2.1.
                 </p>
                 <p>
                   Izjava je sastavljena prema obliku propisanom Zakonom o
@@ -105,8 +106,8 @@ export function AccessibilityView({ locale }: { locale: Locale }) {
                 <p>
                   Ova mrežna stranica <strong className="font-medium text-text-light">u potpunosti je usklađena</strong>{" "}
                   sa zahtjevima norme EN 301 549 koji se odnose na mrežne
-                  stranice, odnosno sa svim kriterijima uspjeha WCAG 2.1 razine A
-                  i AA.
+                  stranice te sa svim kriterijima uspjeha WCAG 2.2 razine A i AA
+                  (a time i WCAG 2.1 razine A i AA).
                 </p>
               </LegalSection>
 
@@ -139,9 +140,9 @@ export function AccessibilityView({ locale }: { locale: Locale }) {
                 </p>
                 <ul className="list-disc space-y-2 pl-5">
                   <li>
-                    automatska testiranja alatima axe-core (pravila WCAG 2.0 i
-                    2.1, razine A i AA) i Google Lighthouse, na prikazu za
-                    stolno računalo i za mobitel;
+                    automatska testiranja alatima axe-core 4.14 (pravila WCAG
+                    2.0, 2.1 i 2.2, razine A i AA) i Google Lighthouse, na
+                    prikazu za stolno računalo i za mobitel;
                   </li>
                   <li>
                     ručnu provjeru: rad samo tipkovnicom (redoslijed i
@@ -151,12 +152,44 @@ export function AccessibilityView({ locale }: { locale: Locale }) {
                     elemenata sučelja, alternativne tekstove slika, strukturu
                     naslova i orijentira, oznake jezika, povećanje na 200 % i
                     prikaz na širini od 320 piksela, poštivanje postavke
-                    smanjenog kretanja te naslove stranica.
+                    smanjenog kretanja te naslove stranica;
+                  </li>
+                  <li>
+                    provjeru kriterija dodanih u WCAG 2.2: fokus tipkovnice
+                    nije skriven ispod fiksnog zaglavlja ni plutajućeg gumba
+                    (2.4.11), nijedna radnja ne zahtijeva povlačenje (2.5.7),
+                    interaktivni elementi imaju najmanje 24 × 24 piksela ili
+                    dovoljan razmak (2.5.8), kontakt je na istom mjestu na svim
+                    stranicama (3.2.6), obrazac ne traži iste podatke dvaput
+                    (3.3.7), a za slanje upita nije potrebna prijava (3.3.8);
+                  </li>
+                  <li>
+                    provjeru izbornika pristupačnosti: rad tipkovnicom i
+                    čitačem zaslona te prikaz svih stranica bez vodoravnog
+                    pomicanja uz povećan tekst (do 160 %) i veće razmake, na
+                    širinama od 320 do 1280 piksela.
                   </li>
                 </ul>
                 <p>
                   Izjava je posljednji put preispitana{" "}
                   <time dateTime={REVIEW_DATE_ISO}>{REVIEW_DATE.hr}</time>.
+                </p>
+              </LegalSection>
+
+              <LegalSection title="Prilagodba prikaza">
+                <p>
+                  Gumb sa simbolom pristupačnosti u donjem lijevom kutu svake
+                  stranice otvara izbornik u kojem možete povećati tekst,
+                  pojačati kontrast, podcrtati poveznice, uključiti čitljivije
+                  pismo i veće razmake, zaustaviti animacije, povećati
+                  pokazivač miša i istaknuti fokus tipkovnice. Postavke se
+                  pamte samo u Vašem pregledniku.
+                </p>
+                <p>
+                  Izbornik je dio same stranice, a ne vanjski dodatak. Stranica
+                  je pristupačna i bez njega, a izbornik ne zamjenjuje
+                  postavke Vašeg preglednika, sustava ni pomoćne tehnologije
+                  (npr. čitača zaslona).
                 </p>
               </LegalSection>
 
@@ -205,9 +238,10 @@ export function AccessibilityView({ locale }: { locale: Locale }) {
                 <p>
                   {siteConfig.legalName} is committed to making its website
                   accessible to all users, including people with disabilities.
-                  We use the European standard EN 301 549 (v3.2.1), that is,
-                  the Web Content Accessibility Guidelines (WCAG) 2.1 at level
-                  AA, as our benchmark.
+                  We use the European standard EN 301 549 (v3.2.1), which
+                  refers to the Web Content Accessibility Guidelines (WCAG) 2.1
+                  at level AA, and the newer WCAG 2.2 at level AA, which
+                  includes all version 2.1 criteria, as our benchmark.
                 </p>
                 <p>
                   This statement follows the form prescribed by the Croatian Act
@@ -233,8 +267,9 @@ export function AccessibilityView({ locale }: { locale: Locale }) {
                 <p>
                   This website is{" "}
                   <strong className="font-medium text-text-light">fully compliant</strong>{" "}
-                  with the requirements of EN 301 549 that apply to websites,
-                  that is, with all WCAG 2.1 level A and AA success criteria.
+                  with the requirements of EN 301 549 that apply to websites and
+                  with all WCAG 2.2 level A and AA success criteria (and
+                  therefore also WCAG 2.1 levels A and AA).
                 </p>
               </LegalSection>
 
@@ -267,9 +302,9 @@ export function AccessibilityView({ locale }: { locale: Locale }) {
                 </p>
                 <ul className="list-disc space-y-2 pl-5">
                   <li>
-                    automated testing with axe-core (WCAG 2.0 and 2.1 rules,
-                    levels A and AA) and Google Lighthouse, in desktop and
-                    mobile views;
+                    automated testing with axe-core 4.14 (WCAG 2.0, 2.1 and 2.2
+                    rules, levels A and AA) and Google Lighthouse, in desktop
+                    and mobile views;
                   </li>
                   <li>
                     manual checks: keyboard-only use (focus order and
@@ -279,12 +314,45 @@ export function AccessibilityView({ locale }: { locale: Locale }) {
                     alternatives for images, heading and landmark structure,
                     language markup, 200% zoom and display at a width of 320
                     pixels, respect for the reduced motion setting, and page
-                    titles.
+                    titles;
+                  </li>
+                  <li>
+                    checks of the criteria added in WCAG 2.2: keyboard focus is
+                    not hidden under the fixed header or the floating button
+                    (2.4.11), no action requires dragging (2.5.7), interactive
+                    elements are at least 24 × 24 pixels or have enough spacing
+                    (2.5.8), contact details are in the same place on every
+                    page (3.2.6), the form never asks for the same information
+                    twice (3.3.7), and sending an inquiry requires no login
+                    (3.3.8);
+                  </li>
+                  <li>
+                    checks of the accessibility menu: keyboard and screen
+                    reader use, and display of every page without horizontal
+                    scrolling with enlarged text (up to 160%) and extra
+                    spacing, at widths from 320 to 1280 pixels.
                   </li>
                 </ul>
                 <p>
                   The statement was last reviewed on{" "}
                   <time dateTime={REVIEW_DATE_ISO}>{REVIEW_DATE.en}</time>.
+                </p>
+              </LegalSection>
+
+              <LegalSection title="Display settings">
+                <p>
+                  The button with the accessibility symbol in the bottom left
+                  corner of every page opens a menu where you can enlarge text,
+                  increase contrast, underline links, switch to a more readable
+                  font and extra spacing, stop animations, enlarge the mouse
+                  pointer and highlight keyboard focus. Your settings are kept
+                  only in your browser.
+                </p>
+                <p>
+                  The menu is part of the website itself, not an external
+                  add-on. The website is accessible without it, and the menu
+                  does not replace the settings of your browser, operating
+                  system or assistive technology (such as a screen reader).
                 </p>
               </LegalSection>
 
