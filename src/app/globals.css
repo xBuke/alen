@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Jersey 10 (OFL) — samo za MangAI potpis u podnožju. */
+@font-face {
+  font-family: "Jersey 10";
+  src: url("/fonts/jersey-10-latin-400-normal.woff2") format("woff2");
+  font-display: swap;
+}
+
 @theme {
   --color-background: #0b0b0c;
   --color-surface: #151515;

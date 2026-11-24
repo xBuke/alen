@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
+import { MangaiIcon, MangaiWordmark } from "@/components/layout/mangai-logo";
 import { PipeRule } from "@/components/media/pipe-rule";
 import { getServices, getSiteConfig } from "@/content";
 import { localizePath, type Locale } from "@/i18n/config";
@@ -131,10 +132,13 @@ export function Footer({ locale = "hr" }: { locale?: Locale }) {
             href="https://mangai.hr"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-heading text-2xl text-text-light underline decoration-gold/60 decoration-1 underline-offset-8 transition-colors hover:text-gold focus-visible:text-gold md:text-3xl"
+            className="group inline-flex min-h-11 items-center gap-3 rounded-sm px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            MangAI.hr
-            <span className="sr-only"> {t.newWindow}</span>
+            <MangaiIcon className="h-8 w-8" />
+            <MangaiWordmark className="h-8 transition-opacity group-hover:opacity-80" />
+            <span className="sr-only">
+              MangAI.hr {t.newWindow}
+            </span>
           </a>
           <p className="mt-2 font-body text-xs text-text-muted">
             {t.footer.designRights} {currentYear} MangAI.hr. {t.footer.rights}
