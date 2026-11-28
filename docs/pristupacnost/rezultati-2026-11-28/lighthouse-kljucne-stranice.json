@@ -1,0 +1,283 @@
+{
+ "lhVersion": "13.6.0",
+ "runs": [
+  {
+   "path": "",
+   "form": "mobile",
+   "perf": 90,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 901.4894999999999,
+   "cls": 0,
+   "tbt": 403.25525000000005,
+   "fcp": 901.4894999999999,
+   "si": 1365.2447659998202,
+   "bytes": 1032994,
+   "lcpEl": "<span class=\"font-heading text-base font-medium leading-tight tracking-wide transition-…\">",
+   "fails": [
+    "performance:total-blocking-time(400 ms)"
+   ]
+  },
+  {
+   "path": "",
+   "form": "desktop",
+   "perf": 94,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 1536.4329500000008,
+   "cls": 0,
+   "tbt": 73.99999999999989,
+   "fcp": 240.12369999999999,
+   "si": 523.4082338881785,
+   "bytes": 1068221,
+   "lcpEl": "<img src=\"/images/orguljarstvo/reference/ploce-prospekt.webp\" alt=\"\" draggable=\"false\" dec",
+   "fails": [
+    "performance:largest-contentful-paint(1.5 s)"
+   ]
+  },
+  {
+   "path": "usluge",
+   "form": "mobile",
+   "perf": 67,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 6638.680250000001,
+   "cls": 0,
+   "tbt": 399.26395,
+   "fcp": 915.4721,
+   "si": 1101.617262318331,
+   "bytes": 984080,
+   "lcpEl": "<img alt=\"Manje orgulje sa sviraonikom u kućištu\" loading=\"lazy\" decoding=\"async\" data-nim",
+   "fails": [
+    "performance:largest-contentful-paint(6.6 s)",
+    "performance:total-blocking-time(400 ms)"
+   ]
+  },
+  {
+   "path": "usluge",
+   "form": "desktop",
+   "perf": 94,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 1606.425949999999,
+   "cls": 0,
+   "tbt": 1,
+   "fcp": 250.12169999999998,
+   "si": 360.18398633793504,
+   "bytes": 1287837,
+   "lcpEl": "<img alt=\"Manje orgulje sa sviraonikom u kućištu\" loading=\"lazy\" decoding=\"async\" data-nim",
+   "fails": [
+    "performance:largest-contentful-paint(1.6 s)"
+   ]
+  },
+  {
+   "path": "galerija",
+   "form": "mobile",
+   "perf": 77,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 935.1099999999999,
+   "cls": 0,
+   "tbt": 1156.5000000000005,
+   "fcp": 935.1099999999999,
+   "si": 935.1099999999999,
+   "bytes": 1222054,
+   "lcpEl": "<h1 class=\"max-w-4xl text-balance text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:…\">",
+   "fails": [
+    "performance:total-blocking-time(1,160 ms)"
+   ]
+  },
+  {
+   "path": "galerija",
+   "form": "desktop",
+   "perf": 100,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 269.58095000000003,
+   "cls": 0,
+   "tbt": 8,
+   "fcp": 269.58095000000003,
+   "si": 417.7244724167157,
+   "bytes": 1848392,
+   "lcpEl": "<h1 class=\"max-w-4xl text-balance text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:…\">",
+   "fails": []
+  },
+  {
+   "path": "kontakt",
+   "form": "mobile",
+   "perf": 87,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 751.7764999999999,
+   "cls": 0,
+   "tbt": 526,
+   "fcp": 751.7764999999999,
+   "si": 881.4009160000229,
+   "bytes": 917828,
+   "lcpEl": "<h1 class=\"max-w-4xl text-balance text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:…\">",
+   "fails": [
+    "performance:total-blocking-time(530 ms)"
+   ]
+  },
+  {
+   "path": "kontakt",
+   "form": "desktop",
+   "perf": 100,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 218.849,
+   "cls": 0,
+   "tbt": 23.500000000000057,
+   "fcp": 218.849,
+   "si": 283.78018958344956,
+   "bytes": 1005815,
+   "lcpEl": "<h1 class=\"max-w-4xl text-balance text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:…\">",
+   "fails": []
+  },
+  {
+   "path": "en",
+   "form": "mobile",
+   "perf": 98,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 901.983,
+   "cls": 0,
+   "tbt": 169.0000000000001,
+   "fcp": 901.983,
+   "si": 1142.621581236161,
+   "bytes": 1032744,
+   "lcpEl": "<span class=\"font-heading text-base font-medium leading-tight tracking-wide transition-…\">",
+   "fails": []
+  },
+  {
+   "path": "en",
+   "form": "desktop",
+   "perf": 94,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 1590.1603,
+   "cls": 0,
+   "tbt": 3,
+   "fcp": 252.45479999999998,
+   "si": 435.0850388333404,
+   "bytes": 1068606,
+   "lcpEl": "<img src=\"/images/orguljarstvo/reference/ploce-prospekt.webp\" alt=\"\" draggable=\"false\" dec",
+   "fails": [
+    "performance:largest-contentful-paint(1.6 s)"
+   ]
+  },
+  {
+   "path": "en/services",
+   "form": "mobile",
+   "perf": 74,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 6626.024000000001,
+   "cls": 0,
+   "tbt": 207.79520000000002,
+   "fcp": 910.4096,
+   "si": 910.4096,
+   "bytes": 984028,
+   "lcpEl": "<img alt=\"Small organ with a console in the case\" loading=\"lazy\" decoding=\"async\" data-nim",
+   "fails": [
+    "performance:largest-contentful-paint(6.6 s)",
+    "performance:total-blocking-time(210 ms)"
+   ]
+  },
+  {
+   "path": "en/services",
+   "form": "desktop",
+   "perf": 100,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 260.1323,
+   "cls": 0,
+   "tbt": 0,
+   "fcp": 260.1323,
+   "si": 313.4038774870372,
+   "bytes": 1172822,
+   "lcpEl": "<h1 class=\"max-w-4xl text-balance text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:…\">",
+   "fails": []
+  },
+  {
+   "path": "en/gallery",
+   "form": "mobile",
+   "perf": 95,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 910.73,
+   "cls": 0,
+   "tbt": 273.635,
+   "fcp": 910.73,
+   "si": 910.73,
+   "bytes": 1222082,
+   "lcpEl": "<h1 class=\"max-w-4xl text-balance text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:…\">",
+   "fails": [
+    "performance:total-blocking-time(270 ms)"
+   ]
+  },
+  {
+   "path": "en/gallery",
+   "form": "desktop",
+   "perf": 100,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 258.288,
+   "cls": 0,
+   "tbt": 0,
+   "fcp": 258.288,
+   "si": 317.10656208327214,
+   "bytes": 1848985,
+   "lcpEl": "<h1 class=\"max-w-4xl text-balance text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:…\">",
+   "fails": []
+  },
+  {
+   "path": "en/contact",
+   "form": "mobile",
+   "perf": 96,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 753.8548000000001,
+   "cls": 0,
+   "tbt": 241.5,
+   "fcp": 753.8548000000001,
+   "si": 753.8548000000001,
+   "bytes": 917780,
+   "lcpEl": "<p class=\"mt-8 max-w-md text-sm leading-relaxed text-text-muted md:text-base\">",
+   "fails": [
+    "performance:total-blocking-time(240 ms)"
+   ]
+  },
+  {
+   "path": "en/contact",
+   "form": "desktop",
+   "perf": 100,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 100,
+   "lcp": 215.4606,
+   "cls": 0,
+   "tbt": 44.99999999999966,
+   "fcp": 215.4606,
+   "si": 258.1197465834225,
+   "bytes": 1006326,
+   "lcpEl": "<h1 class=\"max-w-4xl text-balance text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:…\">",
+   "fails": []
+  }
+ ]
+}
